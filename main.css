@@ -1,0 +1,187 @@
+body {
+  overflow-x: hidden;
+  background-color: rgba(226, 201, 171, 0.94);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid with minimum column width of 300px */
+  gap: 20px;
+  /* position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgba(226, 201, 171, 0.94);
+  display: block; */
+  /* grid-template-columns: 300px 1fr; */
+}
+
+.image-container {
+  position: relative;
+  background-color: rgba(226, 201, 171, 0.94);
+  background: center/cover;
+  max-width: 100%;
+  height: 0;
+  padding-bottom: 44%; /* Assuming 16:9 aspect ratio */
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+.background-image {
+  display: block;
+  width: 100%;
+  height: 0 auto;
+}
+
+.overlay-container {
+  padding: 20px;
+  background-color: rgba(226, 201, 171, 0.94);
+  color: rgb(0, 0, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  z-index: 2; /* Ensure the overlay container appears above the image*/
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.inner-container {
+  width: 100%;
+  max-width: 400px;
+  /* Adjust the max-width as needed */
+  margin: 0 auto; /* Center the inner container horizontally */
+  padding: 20px;
+  background: rgba(226, 201, 171, 0.94);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow for depth */
+}
+
+.input-box {
+  margin-bottom: 20px;
+}
+
+.input-box label {
+  display: block;
+  font-weight: bold;
+}
+
+.input-box input[type="email"],
+.input-box input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input-box input[type="email"]:focus,
+.input-box input[type="password"]:focus {
+  border-color: #007bff;
+  /* Change border color on focus */
+  outline: none;
+  /* Remove default focus outline */
+}
+/* 
+.join-now-box {
+  text-align: center;
+  margin-top: 20px; */
+  /* display: inline-block; */
+  /* display: block;
+  /* Change display to block to make it take full width 
+  width: fit-content;
+  padding: 10px 20px;
+  background: #ffac4a;
+  color: #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px black solid;
+  text-align: center;
+  /* width: auto; Set width to auto to allow margin: 0 auto; to take effect 
+  margin: 20px auto 0;
+  font-weight: bold;
+  /* font-family: Arial, sans-serif;  
+  font-size: 18px; */
+/* }
+
+.join-now-box:hover {
+  background-color: #1543cb;
+  color: white;
+} */
+
+.join-now-box {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ffac4a;
+  color: #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid black;
+  text-decoration: none; /* Remove default underline */
+  margin: 0 auto; /* Center the button horizontally */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.join-now-box:hover {
+  background: #ffa000; /* Change background color on hover */
+  background-color: #1543cb;
+  color: white;
+}
+
+.register-link {
+  display: block;
+  text-align: center;
+  /* margin-top: 20px; */
+  color: #007bff;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+
+  .inner-container {
+    padding: 90px;
+    max-width: 100%;
+  }
+  .image-container {
+    position: relative;
+    max-width: 100%;
+  }
+  .container {
+    padding: 0 20px;
+  }
+  .image-container {
+    max-width: 90%;
+  }
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .input-box input[type="email"],
+  .input-box input[type="password"] {
+    font-size: 14px;
+    /* Adjusted font size for smaller screens */
+    padding: 8px;
+    /* Reduced padding for smaller screens */
+  }
+
+  .join-now-box button {
+    padding: 8px 16px;
+    /* Reduced padding for smaller screens */
+  }
+
+  .register-link {
+    margin-top: 10px;
+    /* Reduced margin for smaller screens */
+  }
+}
