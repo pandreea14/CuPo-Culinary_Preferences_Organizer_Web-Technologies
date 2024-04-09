@@ -1,0 +1,196 @@
+
+body {
+   
+    background-image: url(background.png);
+    background-repeat:no-repeat; 
+    background-position: center;
+    background-attachment: fixed; 
+    background-size: cover;
+
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Responsive grid with minimum column width of 300px */
+    gap: 20px;
+}
+.image-container {
+    position: relative;
+    background-color: rgba(226, 201, 171, 0.94);
+    background: center/cover;
+    max-width: 100%;
+    height: 0;
+    padding-bottom: 44%;
+    /* Assuming 16:9 aspect ratio */
+    overflow: hidden;
+    /* Hide any overflowing content */
+}
+
+.background-image {
+    display: block;
+    width: 100%;
+}
+
+.overlay-container {
+    padding: 20px;
+    background-color: rgba(226, 201, 171, 0.94);
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 60%;
+    z-index: 2;
+    /* Ensure the overlay container appears above the image*/
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inner-container {
+    width: 100%;
+    max-width: 400px;
+    /* Adjust the max-width as needed */
+    margin: 0 auto;
+    /* Center the inner container horizontally */
+    padding: 10px;
+    background: rgba(226, 201, 171, 0.94);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-box input[id="email"],
+.input-box input[id="password"] {
+    width: 90%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.input-box input[id="email"]:focus,
+.input-box input[id="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+
+    .inner-container {
+        padding: 90px;
+        max-width: 100%;
+    }
+
+    .image-container {
+        position: relative;
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .input-box input[id="email"],
+    .input-box input[id="password"] {
+        font-size: 14px;
+        /* Adjusted font size for smaller screens */
+        padding: 8px;
+        /* Reduced padding for smaller screens */
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 3px;
+    font-size: 40px;
+    color: #333;
+    line-height: 1.5;
+    /* Adjust line height for better readability */
+    margin-top: 2px;
+    /* Adjust top margin to position it higher */
+}
+
+.field {
+    width: 552.24px;
+    height: 40px;
+    background: #FFFEFE;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.field:hover {
+    background-color: #1543cb;
+    color: white;
+}
+
+.field:last-child {
+    margin-bottom: 0;
+}
+
+.field label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    font-size: 20px;
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.submit-button {
+    position: relative;
+    display: inline-block;
+    padding: 30px 200px;
+    background: #ffac4a;
+    color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+    text-decoration: none;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .submit-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 700;
+    color: black;
+  }
+
+.submit-button:hover {
+    background: #ffa000;
+    /* Change background color on hover */
+    background-color: #1543cb;
+    color: white;
+}
+
+.field:last-child {
+    margin-bottom: 10px;
+}
