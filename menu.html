@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CuPo</title>
+    <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="menu.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -23,11 +24,11 @@
             <ul class="navigation-links">
                 <li><a href="shoppinglist.html">Shopping List</a></li>
                 <li><a href="statistics.html">Get Statistics</a></li>
-                <li><a href="#">Favorites</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
                 <li><a href="#">Import</a></li>
                 <li><a href="#">Export</a></li>
                 <!-- <li><a href="#">Add Friends</a></li> pe viitor -->
-                <li><a href="#">Help</a></li>
+                <li><a href="#" id="help-link">Help</a></li>
             </ul>
         </nav>
     </header>
@@ -36,9 +37,9 @@
             <h2>Filters</h2>
             <div class="range">
                 <label for="price-filter">Price:</label>
-                <input type="range" id="price-filter" name="price-filter" min="0" max="1000" value="50">
+                <input type="range" id="price-filter" name="price-filter" min="5" max="1000" value="50">
                 <div class="range-values">
-                    <span id="min-value">0</span>
+                    <span id="min-value">5</span>
                     <span id="max-value">1000</span>
                 </div>
             </div>
@@ -86,141 +87,318 @@
             </div>
         </main>
     </div>
-    <section id="fruitsveggies">
-        <h2>Fruits and vegetable based foods</h2>
-        <div class="clearfix">
-            <div class="product-container">
-                <img src="bananamilk.jpg" alt="bananamilk" class="product">
-                <button class="product-button">Add to Favorites</button>
-            </div>
-            <div class="product-container">
-                <img src="broccoli.png" alt="broccoli" class="product">
-                <button class="product-button">Add to Favorites</button>
 
+    <div id="help-popup" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Help</h2>
+            <p>This application is designed for people who want to keep track of their culinary preferences and
+                additionally create shopping lists. You can also see statistics about your favorite products and see
+                what others like. The app supports export, so you can save your preferences and do whatever with them
+                outside the web application.
+                <br> This project is made by Pîntea Andreea and Zaharia Sabina for the Web Technologies class.
+            </p>
+        </div>
+    </div>
+
+    <section id="fruitsveggies">
+        <h2 class="title">Fruits and vegetable based foods</h2>
+        <div class="product-container">
+            <h2>Banana Soy Milk</h2>
+            <div class="product-info">
+                <img src="bananamilk.jpg" alt="bananamilk" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany, Russia</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
+
+            <h2>Broccoli</h2>
+            <div class="product-info">
+                <img src="broccoli.png" alt="broccoli" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
             </div>
         </div>
     </section>
 
     <section id="meals">
-        <h2>Meals</h2>
-        <div class="clearfix">
-            <div class="product-container">
-                <img src="bananamilk.jpg" alt="bananamilk" class="product">
-                <button class="product-button">Add to Favorites</button>
+        <h2 class="title">Meals</h2>
+        <div class="product-container">
+            <h2>Banana Soy Milk</h2>
+            <div class="product-info">
+                <img src="bananamilk.jpg" alt="bananamilk" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany, Russia</p>
+                </div>
             </div>
-            <div class="product-container">
-                <img src="broccoli.png" alt="broccoli" class="product">
-                <button class="product-button">Add to Favorites</button>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
 
+            <h2>Broccoli</h2>
+            <div class="product-info">
+                <img src="broccoli.png" alt="broccoli" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
             </div>
         </div>
     </section>
 
     <section id="meat">
-        <h2>Meat poultry and fish</h2>
-        <div class="clearfix">
-            <div class="product-container">
-                <img src="bananamilk.jpg" alt="bananamilk" class="product">
-                <button class="product-button">Add to Favorites</button>
+        <h2 class="title">Meat poultry and fish</h2>
+        <<div class="product-container">
+            <h2>Banana Soy Milk</h2>
+            <div class="product-info">
+                <img src="bananamilk.jpg" alt="bananamilk" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany, Russia</p>
+                </div>
             </div>
-            <div class="product-container">
-                <img src="broccoli.png" alt="broccoli" class="product">
-                <button class="product-button">Add to Favorites</button>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
 
+            <h2>Broccoli</h2>
+            <div class="product-info">
+                <img src="broccoli.png" alt="broccoli" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
             </div>
         </div>
+
     </section>
 
     <section id="dairy">
-        <h2>Dairy prodcts</h2>
-        <div class="clearfix">
-            <div class="product-container">
-                <img src="bananamilk.jpg" alt="bananamilk" class="product">
-                <button class="product-button">Add to Favorites</button>
+        <h2 class="title">Dairy products</h2>
+        <div class="product-container">
+            <h2>Banana Soy Milk</h2>
+            <div class="product-info">
+                <img src="bananamilk.jpg" alt="bananamilk" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany, Russia</p>
+                </div>
             </div>
-            <div class="product-container">
-                <img src="broccoli.png" alt="broccoli" class="product">
-                <button class="product-button">Add to Favorites</button>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
 
+            <h2>Broccoli</h2>
+            <div class="product-info">
+                <img src="broccoli.png" alt="broccoli" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
             </div>
         </div>
     </section>
 
     <section id="nuts">
-        <h2>Nuts and seeds</h2>
-        <div class="clearfix">
-            <div class="product-container">
-                <img src="bananamilk.jpg" alt="bananamilk" class="product">
-                <button class="product-button">Add to Favorites</button>
+        <h2 class="title">Nuts and seeds</h2>
+        <div class="product-container">
+            <h2>Banana Soy Milk</h2>
+            <div class="product-info">
+                <img src="bananamilk.jpg" alt="bananamilk" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany, Russia</p>
+                </div>
             </div>
-            <div class="product-container">
-                <img src="broccoli.png" alt="broccoli" class="product">
-                <button class="product-button">Add to Favorites</button>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
 
+            <h2>Broccoli</h2>
+            <div class="product-info">
+                <img src="broccoli.png" alt="broccoli" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
             </div>
         </div>
     </section>
 
     <section id="snacks">
-        <h2>Snacks</h2>
-        <div class="clearfix">
-            <div class="product-container">
-                <img src="bananamilk.jpg" alt="bananamilk" class="product">
-                <button class="product-button">Add to Favorites</button>
+        <h2 class="title">Snacks</h2>
+        <div class="product-container">
+            <h2>Banana Soy Milk</h2>
+            <div class="product-info">
+                <img src="bananamilk.jpg" alt="bananamilk" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany, Russia</p>
+                </div>
             </div>
-            <div class="product-container">
-                <img src="broccoli.png" alt="broccoli" class="product">
-                <button class="product-button">Add to Favorites</button>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
 
+            <h2>Broccoli</h2>
+            <div class="product-info">
+                <img src="broccoli.png" alt="broccoli" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
             </div>
         </div>
     </section>
 
     <section id="beverages">
-        <h2>Beverages</h2>
-        <div class="clearfix">
-            <div class="product-container">
-                <img src="bananamilk.jpg" alt="bananamilk" class="product">
-                <button class="product-button">Add to Favorites</button>
+        <h2 class="title">Beverages</h2>
+        <div class="product-container">
+            <h2>Banana Soy Milk</h2>
+            <div class="product-info">
+                <img src="bananamilk.jpg" alt="bananamilk" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany, Russia</p>
+                </div>
             </div>
-            <div class="product-container">
-                <img src="broccoli.png" alt="broccoli" class="product">
-                <button class="product-button">Add to Favorites</button>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
 
+            <h2>Broccoli</h2>
+            <div class="product-info">
+                <img src="broccoli.png" alt="broccoli" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
             </div>
         </div>
     </section>
 
     <section id="sweets">
-        <h2>Sweets</h2>
-        <div class="clearfix">
-            <div class="product-container">
-                <img src="bananamilk.jpg" alt="bananamilk" class="product">
-                <button class="product-button">Add to Favorites</button>
+        <h2 class="title">Sweets</h2>
+        <div class="product-container">
+            <h2>Banana Soy Milk</h2>
+            <div class="product-info">
+                <img src="bananamilk.jpg" alt="bananamilk" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany, Russia</p>
+                </div>
             </div>
-            <div class="product-container">
-                <img src="broccoli.png" alt="broccoli" class="product">
-                <button class="product-button">Add to Favorites</button>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
 
+            <h2>Broccoli</h2>
+            <div class="product-info">
+                <img src="broccoli.png" alt="broccoli" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
             </div>
         </div>
     </section>
 
     <section id="vegan">
-        <h2>Vegan</h2>
-        <div class="clearfix">
-            <div class="product-container">
-                <img src="bananamilk.jpg" alt="bananamilk" class="product">
-                <button class="product-button">Add to Favorites</button>
+        <h2 class="title">Vegan</h2>
+        <div class="product-container">
+            <h2>Banana Soy Milk</h2>
+            <div class="product-info">
+                <img src="bananamilk.jpg" alt="bananamilk" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany, Russia</p>
+                </div>
             </div>
-            <div class="product-container">
-                <img src="broccoli.png" alt="broccoli" class="product">
-                <button class="product-button">Add to Favorites</button>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
 
+            <h2>Broccoli</h2>
+            <div class="product-info">
+                <img src="broccoli.png" alt="broccoli" class="image">
+                <div class="details">
+                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="fave-button">Add to Favorites</button>
+                <button class="shopping-button">Add to shopping list</button>
             </div>
         </div>
     </section>
-    <script src="script.js"></script>
+    <script src="menu.js"></script>
 </body>
 
 </html>
