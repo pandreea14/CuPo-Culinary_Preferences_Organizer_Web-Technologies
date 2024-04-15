@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Documentation CuPo</title>
+    <meta charset="UTF-8">
+    <meta property="schema:name" content="Pîntea Andreea">
+    <meta property="schema:name" content="Zaharia Sabina">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="documentatie.css" />
+</head>
+
+
+<body>
+    <article>
+        <header>
+            <h1>Culinary Preferences Organizer - Web Technologies Project</h1>
+        </header>
+        <!-- autorii ca lista -->
+        <div role="contentinfo">
+            <section typeof="sa:AuthorsList">
+                <h2>Authors</h2>
+                <ul id="authorsList">
+                    <li typeof="sa:ContributorRole" property="schema:author">
+                        <span typeof="schema:Person">Pîntea Andreea</span>
+                    </li>
+                    <li typeof="sa:ContributorRole" property="schema:author">
+                        <span typeof="schema:Person">Zaharia Sabina</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <!-- sectiunea 1 introducere, purpose -->
+        <section>
+            <h3>1. Introduction. Purpose. Product scope</h3>
+            <p>The purpose of this document is to present a detalied description of the web application Culinary
+                Preferences. It will explain the purpose, features, interface, what it intends to do, and what
+                constraints it has.</p>
+            <p>This document is intended for any user of the application, or anyone that requires information about it.
+            </p>
+            <p>The intention of this application is to provide support in choosing certain foods, and it recommends
+                aliments, based on the user's preferences. It will provide a place to store the user's shopping list,
+                and the option for the user to generate various statistics.</p>
+        </section>
+        <section>
+            <!-- sectiunea 2, product description -->
+            <h3>2. Overall description</h3>
+            <section>
+                <h4>2.1 Product description</h4>
+                <p>This app is meant for people who will input their culinary preferences and they will get personalised
+                    recommendations and statistics based on them.</p>
+                <p>Another functionality is the shopping list, where they can add items that we recommend or just what
+                    they would like to shop.<br> In addition, a user should be able to add other users as friends and
+                    create common shopping lists.</p>
+            </section>
+            <section>
+                <h4>2.2 Product functions</h4>
+                <p>This app is meant for people who will input their culinary preferences and they will get personalised
+                    recommendations and statistics based on them.</p>
+                <p>Another functionality is the shopping list, where they can add items that we recommend or just what
+                    they would like to shop.</p>
+                <p>The web application will have the following pages: </p>
+                <ul>
+                    <li>The <b>home page</b>- this is the first thing you see on the application. It will have a
+                        registration form, since being logged in is a requirement for the user to be able to access the
+                        other features.</li>
+                    <li>The <b>admin interface</b> - the admin can add, delete or view the items from the culinary
+                        database.</li>
+                    <li>The <b>culinary options page</b>- after you have logged in, you can access this page, where the
+                        user can search for specific food items, or insert its preferences, such as the categorie,
+                        alergens, price, perisability, etc. Based on its preferences, the culinary options will be
+                        generated, with the option to be inserted into the favorites section.</li>
+                    <li>The <b>shopping list page</b>- this is the page where the user can see their shopping list. The
+                        shopping list can have items from the recommended options, or just aliments that the user
+                        searched for and added them. </li>
+                    <li>The <b>statistics page</b>- this is the page where the user can get various predefined
+                        statistics, depending on their options. </li>
+                </ul>
+            </section>
+            <section>
+                <h4>2.3 User classes and Characteristics</h4>
+                <ul>
+                    <li><b>Logged in user</b>: This app can be used by people of all ages, but the main age target will be between 20-50. It can
+                        be used by anyone that wants to filter their food options, to keep track of their shopping list,
+                        or generate statistics based on their overall inputs on the application.</li>
+                    <li><b>Admin</b>: They can modify(add, edit, delete) the products displayed on the website and can view all current users.</li>
+                </ul>
+
+            </section>
+            <section>
+                <h4>2.4 Operating environment</h4>
+                <p>The developed product can be used on any device that has a connection to the Internet and a web
+                    browser.</p>
+            </section>
+            <section>
+                <h4>2.5 Design and Implementation Constraints</h4>
+                <p>The web application will be developed using Node.js, and is using HTML and CSS for the interface. It will
+                    also use mongoDB and MySQL for data storage.</p>
+            </section>
+
+        </section>
+        <!-- sectiunea 3 external interfaces -->
+        <h3>3. External Interface Requirements</h3>
+        <section>
+            <h4>3.1 User Interfaces</h4>
+            <ul>
+                <li>
+                    <p>Login page</p>
+                    <img src="login.png" alt="login">
+                </li>
+
+                <li>
+                    <p>Register page</p>
+                    <img src="register.png" alt="register">
+                </li>
+
+                <li>
+                    <p>Admin Login page</p>
+                    <img src="loginAdmin.png" alt="adminLogin">
+                </li>
+
+                <li>
+                    <p>Admin Home page</p>
+                    <img src="homeAdmin.png" alt="homeAdmin">
+                </li>
+
+                <li>
+                    <p>Admin interface</p>
+                    <img src="admin.png" alt="admin">
+                </li>
+
+                <li>
+                    <p>Home page - the same as admin home page, but without the Admin button</p>
+                    <img src="home.png" alt="home">
+                </li>
+
+                <li>
+                    <p>Shopping list page</p>
+                    <img src="shoppingList.png" alt="shoppingList">
+                </li>
+
+                <li>
+                    <p>Statistics page</p>
+                    <img src="statistics.png" alt="statistics">
+                </li>
+
+                <li>
+                    <p>Favorites page</p>
+                    <img src="favorites.png" alt="favorites">
+                </li>
+
+                <li>
+                    <p>Add Friends page</p>
+                    <img src="friends.png" alt="friends">
+                </li>
+
+                <li>
+                    <p>Help</p>
+                    <img src="help.png" alt="help">
+                </li>
+            </ul>
+
+        </section>
+        <section>
+            <h4>3.2 Software Interfaces</h4>
+            <p>The minimum software requirements of the application are a working browser and a connection to the
+                Internet.</p>
+        </section>
+        <section>
+            <h4>3.3 Communication Interfaces</h4>
+            <p>The communication standard that is used is HTTP. The app requires an Internet connection.</p>
+        </section>
+        <section>
+            <h4>3.4 Security Requirements</h4>
+            <p>To maintain a safety measure for storing the user's data, its password will be stored in a hashed manner
+                in the database, and it can only be seen by the user.</p>
+        </section>
+        <section>
+            <h4>3.5 Safety Requirements</h4>
+            <p>The use of this app doesn't present any means of possible loss, damage or harm to the user.</p>
+        </section>
+
+        <section>
+            <!-- sectiunea 4, features -->
+            <h3>4. System Features</h3>
+            <section>
+                <h4>4.1 Login</h4>
+                <p>The first page a user sees is the login page, because in order to personalise the information we need an account for each user.</p>
+            </section>
+            <section>
+                <h4>4.2 Register</h4>
+                <p>For the users that first enter this website, next we have the register page accessed through the "Don't have an account? Register here" button.</p>
+            </section>
+            <section>
+                <h4>4.3 Admin login</h4>
+                <p>For out predefined admins we have a special login page in order to access the Home page that has the "Admin" button.</p>
+            </section>
+            <section>
+                <h4>4.4 Home page and Admin home page</h4>
+                <p>The home page for both types of users will be a prezentation of the food categories, followed by detailed sections where users can scroll through all the products. Also the logo acts as a way of automatically scrolling to the top of the page.
+                    The sidebar has filters needed to select and find easier the desired products.
+                    The header will pe present on all pages as a way of easier navigation.</p>
+            </section>
+            <section>
+                <h4>4.5 Admin</h4>
+                <p>The admin will be able to view users and products databases and modify the latter by adding products, deleting or editing their details. </p>
+            </section>
+            <section>
+                <h4>4.6 Shopping list</h4>
+                <p>A page dedicated to viewing all shopping lists, with the posibility of creating new ones with others or on your own.</p>
+            </section>
+            <section>
+                <h4>4.5 Statistics</h4>
+                <p>Here a user will find predefined statistics regarding data of the website or their own preferences.</p>
+            </section>
+            <section>
+                <h4>4.5 Add friends</h4>
+                <p>Here we want to add a search bar and basically a page where a user can visualize other users/friends.</p>
+            </section>
+            <section>
+                <h4>4.5 Help</h4>
+                <p>This is a popup provided as a guide for a new user.</p>
+            </section>
+
+        </section>
+        <!-- section 5 uses of technology -->
+        <section>
+            <h3>Use of Technologies. Motivation</h3>
+            <h4>HTML</h4>
+            <ul>
+                <li>1. Universal language - is understood by all browsers, making it a universal language for creating
+                    web content that can be accessed by a wide audience.</li>
+                <li>2. Structure + Semantics - it provides a structured way to organize content, making it easier to
+                    understand, navigate and interpret.</li>
+                <li>3. Mobile friendly - it supports responsive design, allowing content to adapt to various screen
+                    sizes, aspect that is crucial in an app.</li>
+                <li>4. Industry Standard - as the standard markup language for creating web pages, HTML is a valuable
+                    skill for anyone involved in web development, content creation, or digital design.</li>
+
+            </ul>
+            <h4>CSS</h4>
+            <ul>
+                <li>1. Enhanced Visual Design - CSS allows for the separation of content from design, enabling you to
+                    create visually appealing and engaging web pages</li>
+                <li>2. Responsive Layouts - CSS facilitates the creation of responsive designs, ensuring that web
+                    content adapts seamlessly to different devices and screen sizes.</li>
+                <li>3. Mobile friendly - it supports responsive design, allowing content to adapt to various screen
+                    sizes, aspect that is crucial in an app.</li>
+
+            </ul>
+            <h4>Node.js</h4>
+            <ul>
+                <li>1. Fast development - With its event-driven architecture and extensive module library, Node.js
+                    promotes fast and efficient development, ideal for agile and rapid iteration.</li>
+                <li>2. Rich Ecosystem - it has a vast ecosystem of libraries and packages available through npm (Node
+                    Package Manager), providing a wealth of tools and resources for developers </li>
+
+            </ul>
+            <h4>Database - mongoDB / MySQl</h4>
+            <ul>
+                <li>mongoDB - flexible data model</li>
+                <li>mongoDB - high performance</li>
+                <li>mongoDB - rich query language</li>
+                <li>mySQL - relational model</li>
+                <li>mySQL - data integrity</li>
+                <li>mySQL - acid compliance(atomicity, consistency, isolation, durablity)</li>
+            </ul>
+        </section>
+    </article>
+</body>
+
+</html>

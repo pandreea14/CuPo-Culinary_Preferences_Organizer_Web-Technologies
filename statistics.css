@@ -1,32 +1,30 @@
-/* html_login.css */
-
 body {
-   
     background-image: url(background.png);
-    background-repeat:no-repeat; 
+    background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed; 
+    background-attachment: fixed;
     background-size: cover;
-
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 40px; 
-    font-size: 48px; 
+    margin-bottom: 40px;
+    font-size: 48px;
     color: #333;
-    line-height: 1.5; 
-    margin-top: 50px; 
+    line-height: 1.5;
+    margin-top: 50px;
 }
-.container { 
+
+.container {
     width: 807.42px;
     height: 591px;
-     margin:  auto;/*centered horizontally */
+    margin: auto;
+    /*centered horizontally */
     position: relative;
     border-radius: 50px;
     overflow: hidden;
     border: 1px solid black;
-    background: #E3C9AB; 
+    background: #E3C9AB;
 }
 
 
@@ -45,8 +43,8 @@ h1 {
     border: 1px solid black;
     margin-bottom: 20px;
     position: relative;
-} 
- 
+}
+
 .submit-button {
     width: 547.56px;
     height: 89.84px;
@@ -55,7 +53,7 @@ h1 {
     border: 1px solid black;
     position: relative;
     cursor: pointer;
-} 
+}
 
 .submit-button span {
     position: absolute;
@@ -67,7 +65,7 @@ h1 {
     font-style: italic;
     font-weight: 700;
     color: black;
-} 
+}
 
 .field button {
     width: calc(100% - 40px);

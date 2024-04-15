@@ -1,3 +1,24 @@
+//heeelp popup
+document.addEventListener("DOMContentLoaded", function () {
+  var helpLink = document.getElementById("help-link");
+  var helpModal = document.getElementById("help-popup");
+
+  helpLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    helpModal.style.display = "block";
+  });
+  var closeButton = document.getElementsByClassName("close")[0];
+  closeButton.addEventListener("click", function () {
+    helpModal.style.display = "none";
+  });
+  //click oriunde inafara modalului => se inchide
+  window.addEventListener("click", function (event) {
+    if (event.target == helpModal) {
+      helpModal.style.display = "none";
+    }
+  });
+});
+
 // event listener pentru cardurile de la categorii
 document.querySelectorAll(".card").forEach((card) => {
   card.addEventListener("click", function (event) {
@@ -40,29 +61,7 @@ maxValueSpan.textContent = rangeInput.max;
 rangeInput.addEventListener("input", function () {
   minValueSpan.textContent = this.value;
   minValue.textContent = priceFilter.value;
-    maxValue.textContent = priceFilter.max;
+  maxValue.textContent = priceFilter.max;
 });
-
-
-
-//heeelp popup
-var helpLink = document.getElementById("help-link");
-var helpModal = document.getElementById("help-popup");
-
-helpLink.addEventListener("click", function(event) {
-    event.preventDefault();
-    helpModal.style.display = "block";
-});
-var closeButton = document.getElementsByClassName("close")[0];
-closeButton.addEventListener("click", function() {
-    helpModal.style.display = "none";
-});
-//click oriunde inafara modalului => se inchide
-window.addEventListener("click", function(event) {
-    if (event.target == helpModal) {
-        helpModal.style.display = "none";
-    }
-});
-
 
 //event listener pentru adaugarea favoritelor

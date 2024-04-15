@@ -13,27 +13,6 @@
     width: auto;
 }
 
-
-.import-export {
-    list-style: none;
-    position: relative;
-    z-index: 1000;
-    margin-top: -35px;
-}
-
-.import-export li {
-    display: inline-block;
-    padding: 0px 20px;
-}
-
-.import-export li a {
-    transition: all 0.3s ease 0s;
-}
-
-.import-export li a:hover {
-    color: aliceblue;
-}
-
 .overlay-container {
     padding: 20px;
     background-color: rgba(226, 201, 171, 0.94);
