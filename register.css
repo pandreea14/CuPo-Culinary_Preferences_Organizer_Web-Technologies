@@ -18,7 +18,7 @@ body {
     transform: translate(-50%, -50%);
     width: 60%;
     height: auto;
-    z-index: 2; /* Ensure the overlay container appears above the image*/
+    z-index: 2; /* the overlay container appears above the image*/
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -28,9 +28,7 @@ body {
 .inner-container {
     width: 100%;
     max-width: 400px;
-    /* Adjust the max-width as needed */
     margin: 0 auto;
-    /* Center the inner container horizontally */
     padding: 10px;
     background: rgba(226, 201, 171, 0.94);
     border-radius: 8px;
@@ -51,20 +49,19 @@ body {
 .input-box input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box;
 }
 
-.input-box input[id="email"]:focus,
-.input-box input[id="password"]:focus,
-.input-box input[id="confirm-password"]:focus {
-    border-color: #007bff;
+.input-box input[type="email"]:focus,
+.input-box input[type="password"]:focus {
+    border-color: black;
     outline: none;
 }
 
-/* Media query for responsiveness */
+/* media query for responsiveness */
 @media (max-width: 768px) {
     .overlay-container {
         width: 100%;
@@ -97,38 +94,7 @@ h1 {
     font-size: 40px;
     color: #333;
     line-height: 1.5;
-    /* Adjust line height for better readability */
     margin-top: 2px;
-    /* Adjust top margin to position it higher */
-}
-
-.field {
-    width: 552.24px;
-    height: 40px;
-    background: #FFFEFE;
-    border-radius: 50px;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.field:hover {
-    background-color: #1543cb;
-    color: white;
-}
-
-.field:last-child {
-    margin-bottom: 0;
-}
-
-.field label {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 20px;
-    font-size: 20px;
-    font-family: Inter;
-    font-style: italic;
-    font-weight: 700;
 }
 
 .submit-button {
@@ -160,11 +126,6 @@ h1 {
 }
 
 .submit-button:hover {
-    background: #ffa000;
-    background-color: #1543cb;
+    background-color: #E8782E;
     color: white;
-}
-
-.field:last-child {
-    margin-bottom: 10px;
 }

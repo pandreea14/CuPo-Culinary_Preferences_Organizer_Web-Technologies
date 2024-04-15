@@ -31,8 +31,7 @@ body {
   text-align: center;
   margin-bottom: 3px;
   color: #333;
-  line-height: 1.5;
-  /* Adjust line height for better readability */
+  line-height: 1.5; /* Adjust line height for better readability */
 }
 
 .inner-container {
@@ -72,13 +71,12 @@ body {
 
 .input-box input[type="email"]:focus,
 .input-box input[type="password"]:focus {
-  border-color: #007bff;
+  border-color: black;
   outline: none;
 }
 
-.join-now-box {
-  position: relative;
-  /* Ensure the container is positioned relative for absolute positioning of inner elements */
+.submit-button {
+  position: relative;  /* Ensure the container is positioned relative for absolute positioning of inner elements */
   display: inline-block;
   padding: 30px 200px;
   background: #ffac4a;
@@ -92,7 +90,7 @@ body {
   margin-top: 20px;
 }
 
-.join-now-box span {
+.submit-button span {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -105,9 +103,8 @@ body {
   width: auto;
 }
 
-.join-now-box:hover {
-  background: #ffa000;
-  background-color: #1543cb;
+.submit-button:hover {
+  background-color: #E8782E;
   color: white;
 }
 
