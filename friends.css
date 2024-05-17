@@ -3,7 +3,6 @@
     background-color: #ffac4a;
     padding: 10px;
     border-radius: 20px;
-    margin-top: 100px;
     font-size: 30px;
     position: relative;
     text-align: center;
@@ -12,35 +11,8 @@
     transform: translate(-50%, -50%);
     width: 80%;
     margin-top: 10%;
-    /* height: 60%;  */
 }
 
-
-
-.import-export {
-    list-style: none;
-    position: relative;
-    z-index: 1001;
-    /*control the stacking order of elements*/
-    top: -65px; /* Adjusted from margin-top */
-    right: 150px; 
-    display: flex;
-    justify-content: flex-end; /*sa fie butoanele la final*/
-    
-}
-
-.import-export li {
-    display: inline-block;
-    padding: 0px 20px;
-}
-
-.import-export li a {
-    transition: all 0.3s ease 0s;
-}
-
-.import-export li a:hover {
-    color: aliceblue;
-}
 
 .overlay-container {
     padding: 20px;
@@ -57,7 +29,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-} 
+}
+
+.add-newfriends{
+    list-style: none;
+    position: relative;
+    top: -65px; 
+    right: 200px; 
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1001;
+    font-size: 20px;
+    
+
+}
+
+.add-newfriends :hover{
+    color: aliceblue;
+    transition: all 0.3s ease 0s;
+}
 
 
 
@@ -77,6 +67,9 @@
 
     .title1 {
         margin-top: 250px;
+    }
+    .add-newfriends{
+        margin-top:250px;
     }
 }
 
@@ -105,9 +98,10 @@
 
     .title1 {
         font-size: 24px;
-        margin-top: 200px; 
+        margin-top: 200px;
+        width: 100%;
         text-align: center;
         margin-left: 30%;
-        
     }
+   
 }

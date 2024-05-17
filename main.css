@@ -100,7 +100,6 @@ body {
   font-style: italic;
   font-weight: 700;
   color: black;
-  width: auto;
 }
 
 .submit-button:hover {
@@ -109,9 +108,8 @@ body {
 }
 
 .register-link {
-  display: block;
+  display: inline-block;
   text-align: center;
-  margin-top: 20px;
   color: #007bff;
 }
 

@@ -1,0 +1,8 @@
+* {
+    overflow-x: hidden;
+}
+
+img {
+    width: 70%;
+    margin: 20px;
+}
