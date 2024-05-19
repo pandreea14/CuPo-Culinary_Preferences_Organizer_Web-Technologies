@@ -9,24 +9,26 @@
     <link rel="stylesheet" href="favorites.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <header>
-        <img class="logo" src="logo.png" alt="logo">
-        <form>
-            <div class="search">
-                <span class="search-icon material-symbols-outlined">search</span>
-                <input class="search-input" type="search" placeholder="Search">
-            </div>
-        </form>
+    <header class="fixed-header">
+        <div class="logo-search-container">
+            <img class="logo" src="images/logo.png" alt="logo">
+            <form>
+                <div class="search">
+                    <span class="search-icon material-symbols-outlined">search</span>
+                    <input class="search-input" type="search" placeholder="Search">
+                </div>
+            </form>
+        </div>
         <nav>
             <ul class="navigation-links">
-                <li><a href="menu.html">Main menu</a></li>
+                <li><a href="menu.html">Main Menu</a></li>
                 <li><a href="shoppinglist.html">Shopping List</a></li>
                 <li><a href="statistics.html">Get Statistics</a></li>
-                <li><a href="friends.html">Add Friends</a></li>
+                <li><a href="friends.html">Friends</a></li>
                 <li><a href="#" id="help-link">Help</a></li>
             </ul>
         </nav>
@@ -34,23 +36,51 @@
     <div id="help-popup" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Help</h2>
-            <p>This application is designed for people who want to keep track of their culinary preferences and
-                additionally create shopping lists. You can also see statistics about your favorite products and see
-                what others like. The app supports export, so you can save your preferences and do whatever with them
-                outside the web application.
-                <br> This project is made by Pîntea Andreea and Zaharia Sabina for the Web Technologies class.
+            <h2>Favorites Page - help</h2>
+            <p> This page displays the products you selected as your favorite. From here you can remove or add them to your personalized shopping list.
+                <br> At the bottom of the page you can find the import/export buttons in case you want to reuse this or other infromation about your culinary preferences.
             </p>
         </div>
     </div>
 
-    <div class="title1"><i><b>Your favorite items</b></i></div>
-    <ul class="import-export">
-        <li><a href="#">Import data</a></li>
-        <li><a href="#">Export data</a></li>
-    </ul>
+
     <!-- aici trb o caseta din aia ca la celelalte pagini ca o sa adaugam dupa din back cand dam fave la un produs -->
-    <div class="overlay-container"></div>
+    <div class="overlay-container">
+        <div class="title1"><i><b>Your favorite items</b></i></div>
+        <div class="product-container">
+            <h2>Banana Soy Milk</h2>
+            <div class="product-info">
+                <img src="images/bananamilk.jpg" alt="bananamilk" class="image">
+                <div class="details">
+                    <p>Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany, Russia</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="remove-button">Remove</button>
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
+
+            <h2>Broccoli</h2>
+            <div class="product-info">
+                <img src="images/broccoli.png" alt="broccoli" class="image">
+                <div class="details">
+                    <p>Ingredients: broccoli <br> Labels: gluten-free,
+                        vegetarian, vegan <br>
+                        Countries sold in: Belgium, France, Germany</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="remove-button">Remove</button> 
+                <button class="shopping-button">Add to shopping list</button>
+            </div>
+        </div>
+        <ul class="import-export">
+            <li><a href="#">Import data</a></li>
+            <li><a href="#">Export data</a></li>
+        </ul>
+    </div>
     <script src="menu.js"></script>
 </body>
 

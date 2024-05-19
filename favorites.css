@@ -1,72 +1,121 @@
-.title1 {
-    display: block;
-    background-color: #ffac4a;
-    padding: 10px;
-    border-radius: 20px;
-    margin-top: 100px;
-    font-size: 30px;
+.overlay-container {
     position: relative;
-    text-align: center;
-    z-index: 1000;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 120px;
+    background-color: rgba(226, 201, 171, 0.94);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
-    margin-top: 10%;
-    /* height: 60%;  */
+    height: 60%;
+    margin: 0 auto;
 }
 
+.title1 {
+    background-color: #ffac4a;
+    text-align: center;
+    color: black;
+    margin-top: 0;
+    padding: 10px 20px;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 20px;
+}
 
+.product-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-info,
+.buttons {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.remove-button {
+    background-color: #ffac4a;
+    color: #080808;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    margin-right: 2%;
+}
+
+.shopping-button {
+    background-color: #ffac4a;
+    color: #080808;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    margin-right: 2%;
+}
+
+.remove-button:hover,
+.shopping-button:hover {
+    color: white;
+    transition: all 0.3s ease 0s;
+    background-color: black;
+}
+
+.image {
+    margin-top: 20px;
+    height: 80%;
+    width: 20%;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.details {
+    flex: 1;
+    font-size: 25px;
+}
 
 .import-export {
-    list-style: none;
-    position: relative;
-    z-index: 1001;
-    /*control the stacking order of elements*/
-    top: -65px; /* Adjusted from margin-top */
-    right: 150px; 
+    list-style-type: none;
+    padding: 0;
     display: flex;
-    justify-content: flex-end; /*sa fie butoanele la final*/
-    
+    justify-content: flex-end;
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 .import-export li {
-    display: inline-block;
-    padding: 0px 20px;
+    margin-left: 10px;
 }
 
 .import-export li a {
-    transition: all 0.3s ease 0s;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 
 .import-export li a:hover {
-    color: aliceblue;
+    color: #ffac4a;
 }
 
-.overlay-container {
-    padding: 20px;
-    background-color: rgba(226, 201, 171, 0.94);
-    color: rgb(0, 0, 0);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 60%;
-    /* z-index: 2; */
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} 
-
-
-
-@media screen and (max-width: 768px) {
-    header {
+@media screen and (max-width: 900px) {
+    .fixed-header {
         flex-direction: column;
         align-items: center;
         height: auto;
     }
+
     .search-input {
         width: 80%;
     }
@@ -75,20 +124,21 @@
         margin-top: 20px;
     }
 
-    .title1 {
-        margin-top: 250px;
+    .overlay-container {
+        margin-top: 90px;
     }
 }
 
-@media screen and (max-width: 480px) {
-    header {
+@media screen and (max-width: 748px) {
+    .fixed-header {
         flex-direction: column;
         align-items: center;
         height: auto;
     }
 
     .logo {
-        display: none;
+        width: 50px;
+        height: 50px;
     }
 
     .navigation-links {
@@ -99,15 +149,25 @@
         margin-bottom: 10px;
     }
 
+    .overlay-container {
+        margin-top: 190px;
+    }
+
     .search-input {
         width: 80%;
     }
+}
 
+@media screen and (max-width: 400px) {
     .title1 {
-        font-size: 24px;
-        margin-top: 200px; 
-        text-align: center;
-        margin-left: 30%;
-        
+        font-size: 20px;
+    }
+
+    .details {
+        font-size: 15px;
+    }
+
+    .remove-button, .shopping-button, .import-export {
+        font-size: 10px;
     }
 }

@@ -4,29 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register CuPo</title>
+    <title>Admin CuPo</title>
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="global.css">
 </head>
 
 <body>
+    <header class="fixed-header">
+        <img class="logo" src="images/logo.png" alt="logo">
+        <nav>
+            <ul class="navigation-links">
+                <li><a href="menuAdmin.html">Main Menu</a></li>
+                <li><a href="#" id="help-link">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="overlay-container">
+        <!-- dropdown cu ce tabela vrei sa vizualizezi/modifici adc useri sau produse -->
         <h1><i>What do you wish to do?</i></h1>
         <div class="inner-container">
             <div class="input-box email">
-                <input type="text" id="Add item" name="Add item" placeholder="Add item" required>
+                <input type="text" id="Add" name="Add" placeholder="Add" required>
             </div>
             <div class="input-box password">
-                <input type="text" id="Delete item" placeholder="Delete item" required>
+                <input type="text" id="Delete" placeholder="Delete" required>
             </div>
             <div class="input-box button">
                 <input type="button" value="View database">
             </div>
-            <!-- <button type="submit" class="submit-button">
-                    <span><i>Get started</i></span>
-                </button> -->
         </div>
         <a href="menu.html" class="submit-button"> <span>Click here to continue</span></a>
     </div>
+
+    <div id="help-popup" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Admin Page - Help</h2>
+            <p>As an admin, this page enables you to change in any desired way the users and products databases.<br>
+                Please use it wisely!</p>
+        </div>
+    </div>
+    <script src="menu.js"></script>
 </body>
 
 </html>

@@ -12,20 +12,24 @@
 </head>
 
 <body>
-    <header>
-        <img class="logo" src="logo.png" alt="logo">
-        <form>
-            <div class="search">
-                <span class="search-icon material-symbols-outlined">search</span>
-                <input class="search-input" type="search" placeholder="Search">
-            </div>
-        </form>
+    <header class="fixed-header">
+        <div class="logo-search-container">
+            <img class="logo" src="images/logo.png" alt="logo">
+            <form>
+                <div class="search">
+                    <span class="search-icon material-symbols-outlined">search</span>
+                    <input class="search-input" type="search" placeholder="Search">
+                </div>
+            </form>
+        </div>
         <nav>
             <ul class="navigation-links">
                 <li><a href="shoppinglist.html">Shopping List</a></li>
                 <li><a href="statistics.html">Get Statistics</a></li>
                 <li><a href="favorites.html">Favorites</a></li>
-                <li><a href="friends.html">Add Friends</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <!-- logout sa se intoarca la pagina de login si in back sa expire sesiunea pentru userul curent -->
+                <li><a href="login.html">Logout</a></li>
                 <li><a href="#" id="help-link">Help</a></li>
             </ul>
         </nav>
@@ -54,8 +58,8 @@
         </aside>
         <main>
             <div class="title-line">
-                <h1 class="title">Food categories</h1>
-                <a href="admin.html" class="title">Admin</a>
+                <h1 class="title">Categories of products</h1>
+                <a href="admin.html" class="title admin-button">Admin dashboard</a>
             </div>
             <div class="categories">
                 <a href="#fruitsveggies" class="card">
@@ -107,7 +111,7 @@
         <div class="product-container">
             <h2>Banana Soy Milk</h2>
             <div class="product-info">
-                <img src="bananamilk.jpg" alt="bananamilk" class="image">
+                <img src="images/bananamilk.jpg" alt="bananamilk" class="image">
                 <div class="details">
                     <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
                         vegetarian, vegan <br>
@@ -121,7 +125,7 @@
 
             <h2>Broccoli</h2>
             <div class="product-info">
-                <img src="broccoli.png" alt="broccoli" class="image">
+                <img src="images/broccoli.png" alt="broccoli" class="image">
                 <div class="details">
                     <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
                         vegetarian, vegan <br>
@@ -198,7 +202,7 @@
                 <button class="fave-button">Add to Favorites</button>
                 <button class="shopping-button">Add to shopping list</button>
             </div>
-            </div>
+        </div>
 
     </section>
 

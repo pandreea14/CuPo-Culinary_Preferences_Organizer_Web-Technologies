@@ -1,63 +1,79 @@
 .title1 {
-    display: block;
     background-color: #ffac4a;
-    padding: 10px;
     border-radius: 20px;
+    margin-top: 0;
     font-size: 30px;
-    position: relative;
     text-align: center;
-    z-index: 1000;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    margin-top: 10%;
+    color: black;
+    padding: 10px 20px;
+    font-weight: bold;
 }
-
 
 .overlay-container {
-    padding: 20px;
-    background-color: rgba(226, 201, 171, 0.94);
-    color: rgb(0, 0, 0);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 60%;
-    /* z-index: 2; */
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.add-newfriends{
-    list-style: none;
     position: relative;
-    top: -65px; 
-    right: 200px; 
-    display: flex;
-    justify-content: flex-end;
-    z-index: 1001;
+    background-color: rgba(226, 201, 171, 0.94);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 120px auto;
+}
+ 
+.add-newfriends {
+    margin-top: 10px;
+    display: inline-block;
     font-size: 20px;
-    
-
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.add-newfriends :hover{
-    color: aliceblue;
+.add-newfriends:hover{
+    color: #ffac4a;
     transition: all 0.3s ease 0s;
 }
 
+.friend-container {
+    background-color: antiquewhite;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.remove-button {
+    background-color: #ffac4a;
+    color: #080808;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    margin-right: 2%;
+}
+.remove-button:hover {
+    color: white;
+    transition: all 0.3s ease 0s;
+    background-color: black;
+}
 
-
-@media screen and (max-width: 768px) {
-    header {
+@media screen and (max-width: 1171px) {
+    .fixed-header {
         flex-direction: column;
         align-items: center;
         height: auto;
     }
-    .search-input {
+
+    .search {
         width: 80%;
     }
 
@@ -65,16 +81,42 @@
         margin-top: 20px;
     }
 
-    .title1 {
-        margin-top: 250px;
+    .overlay-container {
+        margin-top: 200px;
     }
-    .add-newfriends{
-        margin-top:250px;
+}
+
+@media screen and (max-width: 765px) {
+    .fixed-header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navigation-links {
+        flex-direction: column;
+    }
+
+    .navigation-links li {
+        margin-bottom: 10px;
+    }
+
+    .overlay-container {
+        margin-top: 310px;
+    }
+
+    .search-input {
+        width: 80%;
     }
 }
 
 @media screen and (max-width: 480px) {
-    header {
+    .fixed-header {
         flex-direction: column;
         align-items: center;
         height: auto;
@@ -95,13 +137,4 @@
     .search-input {
         width: 80%;
     }
-
-    .title1 {
-        font-size: 24px;
-        margin-top: 200px;
-        width: 100%;
-        text-align: center;
-        margin-left: 30%;
-    }
-   
 }

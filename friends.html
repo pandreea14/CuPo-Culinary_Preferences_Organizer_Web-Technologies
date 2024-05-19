@@ -12,17 +12,19 @@
 </head>
 
 <body>
-    <header>
-        <img class="logo" src="logo.png" alt="logo">
-        <form>
-            <div class="search">
-                <span class="search-icon material-symbols-outlined">search</span>
-                <input class="search-input" type="search" placeholder="Search">
-            </div>
-        </form>
+    <header class="fixed-header">
+        <div class="logo-search-container">
+            <img class="logo" src="images/logo.png" alt="logo">
+            <form>
+                <div class="search">
+                    <span class="search-icon material-symbols-outlined">search</span>
+                    <input class="search-input" type="search" placeholder="Search">
+                </div>
+            </form>
+        </div>
         <nav>
             <ul class="navigation-links">
-                <li><a href="menu.html">Main menu</a></li>
+                <li><a href="menu.html">Main Menu</a></li>
                 <li><a href="shoppinglist.html">Shopping List</a></li>
                 <li><a href="statistics.html">Get Statistics</a></li>
                 <li><a href="favorites.html">Favorites</a></li>
@@ -34,16 +36,23 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Friends page - help</h2>
-            <p>This page is specifically made for your app friends, with whom you can create a community with. Share your shopping list, favorites, or even some funny statistics with them!
+            <p>This page is specifically made for your app friends, with whom you can create a community with. Share
+                your shopping list, favorites, or even some funny statistics with them!
                 If you care to expand your circle, click on the "Add new friends" button and watch your community grow!
                 <br> Everything is better with friends!
             </p>
         </div>
     </div>
 
-    <div class="title1"><i><b>Your friends</b></i></div>
-    <div class="overlay-container"></div>
-    <div class="add-newfriends"><i><b>Add new friends</b></i></div>
+    <div class="overlay-container">
+        <div class="title1"><i><b>Your friends</b></i></div>
+        <div class="add-newfriends"><i><b>Add new friends</b></i></div>
+        <div class="friend-container">
+            <div class="text">
+                <p> No friends yet! Try searching through existing users!</p>
+            </div>
+        </div>
+    </div>
     <script src="menu.js"></script>
 </body>
 

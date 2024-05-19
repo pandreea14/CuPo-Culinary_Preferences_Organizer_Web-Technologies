@@ -1,11 +1,15 @@
-.chart1, .chart2, .chart3, .chart4 {
+.chart1,
+.chart2,
+.chart3,
+.chart4 {
     width: 600px;
     height: 400px;
     outline: auto;
 }
 
 .chart1 {
-    margin: 100px 0 0 20px; /*top right bottom left*/
+    margin: 100px 0 0 20px;
+    /*top right bottom left*/
 }
 
 .chart2 {
@@ -19,11 +23,15 @@
     margin: 0;
 }
 
-.chart4{
-    position:absolute;
+.chart4 {
+    position: absolute;
     top: 550px;
     right: 20px;
     margin: 0;
+}
+
+.charts {
+    margin-top: 100px;
 }
 
 @media (max-width: 1200px) {
@@ -42,11 +50,63 @@
     }
 }
 
+@media (max-width: 1114px) {
+    .fixed-header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .search {
+        width: 80%;
+    }
+
+    .navigation-links {
+        margin-top: 20px;
+    }
+
+    .charts {
+        padding-top: 7px;
+    }
+}
+
 @media (max-width: 768px) {
-    .chart3, .chart4 {
+
+    .chart3,
+    .chart4 {
         position: relative;
         top: 0;
         right: 0;
         margin: 20px 0;
+    }
+}
+
+/* linkurile la pagini vor fi stack-uite */
+@media screen and (max-width: 709px) {
+    .fixed-header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navigation-links {
+        flex-direction: column;
+    }
+
+    .navigation-links li {
+        margin-bottom: 10px;
+    }
+
+    .charts {
+        margin-top: 250px;
+    }
+
+    .search-input {
+        width: 80%;
     }
 }

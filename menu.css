@@ -35,9 +35,11 @@
 
 .range-values {
     position: absolute;
+    /* display: flex;
+    justify-content: space-between; */
     top: 50px;
     left: 0;
-    text-align: center;
+    text-align: right;
 }
 
 .range-values span {
@@ -131,6 +133,12 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.filter-button:hover {
+    color: black;
+    transition: all 0.3s ease 0s;
+    background-color: white;
 }
 
 /* categories- > the scrollable part */
@@ -229,11 +237,6 @@ section h2 {
     margin-right: 2%;
 }
 
-.fave-button:hover {
-    background-color: #E8782E;
-    color: aliceblue;
-}
-
 .shopping-button {
     background-color: #ffac4a;
     color: #080808;
@@ -247,9 +250,11 @@ section h2 {
     margin-right: 2%;
 }
 
+.fave-button:hover,
 .shopping-button:hover {
-    background-color: #E8782E;
-    color: aliceblue;
+    color: white;
+    transition: all 0.3s ease 0s;
+    background-color: black;
 }
 
 .image {
@@ -272,15 +277,106 @@ section h2 {
 @media screen and (max-width: 1300px) {
     .categories {
         display: flex;
-        /* flex-wrap: wrap; */
         gap: 10px;
         padding: 10px;
         max-width: 800px;
         margin: 0 auto;
-        /* Center the categories horizontally */
     }
 }
 
+/* for header */
+@media screen and (max-width: 1250px) {
+    .fixed-header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .search {
+        width: 80%;
+    }
+
+    .navigation-links {
+        margin-top: 20px;
+    }
+
+    .container {
+        padding-top: 95px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .categories {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .categories {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+}
+
+/* linkurile la pagini vor fi stack-uite */
+@media screen and (max-width: 842px) {
+    .fixed-header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navigation-links {
+        flex-direction: column;
+    }
+
+    .navigation-links li {
+        margin-bottom: 10px;
+    }
+
+    .container {
+        margin-top: 170px;
+    }
+
+    .search-input {
+        width: 80%;
+    }
+}
+
+/* query pentru atunci cand logoul si search barul ajung in mijloc si linkurile sunt sub ele */
+@media (max-width: 768px) {
+    .fixed-header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .search {
+        width: 80%;
+    }
+
+    .navigation-links {
+        margin-top: 20px;
+    }
+
+    .container {
+        padding-top: 120px;
+    }
+}
+
+/* schimbarea ca filters sa fie deasupra categories */
 @media screen and (max-width: 768px) {
     .categories {
         display: flex;
@@ -293,46 +389,39 @@ section h2 {
 
     .main {
         width: 100%;
-        padding: 30px;
+        margin-top: 0;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background: rgba(226, 201, 171, 0.94);
     }
 
-    .card {
-        flex-basis: calc(50% - 20px);
-        /* two cards per row with some margin */
-    }
-
-    .categories::-webkit-scrollbar {
-        width: 600px;
+    .container {
+        flex-direction: column;
+        /* Stack sidebar on top of main */
+        gap: 0;
     }
 
     .sidebar {
-        display: none;
+        order: -1;
+        width: 96%;
+    }
+
+    .text {
+        font-size: 15px;
     }
 }
 
-@media screen and (max-width: 1100px) {
-    .categories {
-        display: flex;
-        /* flex-wrap: wrap; */
-        gap: 10px;
-        padding: 10px;
-        max-width: 700px;
-        margin: 0 auto;
+/* pentru partea de buton admin sa se alinieze frumos la ecrane mici */
+@media screen and (max-width: 540px) {
+    .container {
+        flex-direction: column;
+        /* Stack sidebar on top of main */
     }
-}
 
-@media screen and (max-width: 900px) {
-    .categories {
-        display: flex;
-        /* flex-wrap: wrap; */
-        gap: 10px;
-        padding: 10px;
-        max-width: 500px;
-        margin: 0 auto;
+    .sidebar {
+        order: -1;
+        width: 96%;
     }
 }
 
@@ -351,7 +440,13 @@ section h2 {
         /* single card per row with some margin */
     }
 
+    .container {
+        flex-direction: column;
+        /* Stack sidebar on top of main */
+    }
+
     .sidebar {
-        display: none;
+        order: -1;
+        width: 96%;
     }
 }
