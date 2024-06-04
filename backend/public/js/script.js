@@ -1,36 +1,23 @@
-var emailInput = document.getElementById("emailInput");
-var passwordInput = document.getElementById("passwordInput");
-var confirmPasswordInput = document.getElementById("confirmPasswordInput");
-// var isFormSubmitted = false;
+document.getElementById('registerForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
 
-document.addEventListener("DOMContentLoaded", function () {
-  var registerButton = document.getElementById("registerButton");
+  const email = document.getElementById('emailInput').value;
+  const password = document.getElementById('passwordInput').value;
+  const confirmPassword = document.getElementById('confirmPasswordInput').value;
 
-  registerButton.addEventListener("click", function (event) {
-    var email = emailInput.value;
-    var password = passwordInput.value;
-    var confirmPassword = confirmPasswordInput.value;
-    if (email && email.includes("@") && email.includes(".")) {
-      if (password == confirmPassword) {
-        closePopup();
-      } else {
-        alert("Passwords do not match.");
-        event.preventDefault();
-      }
-    } else {
-      alert("Please enter a valid email address.");
-      event.preventDefault();
-    }
-  });
-});
-
-joinButton.addEventListener("click", function (event) {
-  var email = emailInput.value;
-  if (email && email.includes("@") && email.includes(".")) {
-    closePopup();
-  } else {
-    alert("Please enter a valid email address.");
-    event.preventDefault();
+  if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
   }
-  //aici mai poate fi adaugat pe parcurs mesaj cu nu ai cont -> mergi la register
+
+  const response = await fetch('/api/register', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }), // Send data as JSON
+  });
+
+  const result = await response.json();
+  alert(result.message);
 });
