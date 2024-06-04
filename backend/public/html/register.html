@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register CuPo</title>
   <link rel="stylesheet" href="../css/register.css">
+  <script src="../js/tokenScript.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            redirectIfAuthenticated();
+        });
+    </script>
 </head>
 
 <body>
@@ -22,11 +28,11 @@
         <div class="input-box password">
           <input type="password" id="confirmPasswordInput" name="confirmPassword" placeholder="Confirm Password" required>
         </div>
-        <button type="submit" class="submit-button" id="registerButton">Get started!</button>
+        <button type="submit" class="submit-button" id="registerButton"> <span>Get started!</span></button>
       </form>
     </div>
   </div>
-  <script src="../js/script.js"></script>
+  <script src="../js/registerScript.js"></script>
 </body>
 
 </html>

@@ -10,8 +10,15 @@ const server = http.createServer((request, response) => {
     } else {
       staticRoutes(request, response);
     }
+  } else if (request.method === "POST") {
+    if (request.url.startsWith("/register") || request.url.startsWith("/login")) {
+      apiRoutes(request, response);
+    } else {
+      response.writeHead(405, { "Content-Type": "application/json" });
+      response.end(JSON.stringify({ error: "Method not allowed with this url" }));
+    }
   } else {
-    response.writeHead(405, { "Content-Type": "application/json" });
+    response.writeHead(406, { "Content-Type": "application/json" });
     response.end(JSON.stringify({ error: "Method not allowed" }));
   }
 });
