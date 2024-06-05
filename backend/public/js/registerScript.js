@@ -29,7 +29,6 @@ document
       }
 
       alert(result.message);
-    //   localStorage.setItem("token", result.token); // Save the token in localStorage
       window.location.href = window.location.origin + "/login";
     } catch (error) {
       console.error('An error occurred:', error);

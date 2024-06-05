@@ -37,14 +37,14 @@
     <div class="container">
         <aside class="sidebar">
             <h2>Filters</h2>
-            <div class="range">
+            <!-- <div class="range">
                 <label for="price-filter">Price:</label>
                 <input type="range" id="price-filter" name="price-filter" min="5" max="1000" value="50">
                 <div class="range-values">
                     <span id="min-value">5</span>
                     <span id="max-value">1000</span>
                 </div>
-            </div>
+            </div> -->
             <div class="filter">
                 <label for="restrictions-filter">Restrictions:</label>
                 <select id="restrictions-filter" name="restrictions-filter">
@@ -52,6 +52,25 @@
                     <option value="vegan">Vegan</option>
                     <option value="vegetarian">Vegetarian</option>
                     <option value="nuts">Nut Alergy</option>
+                </select>
+                <label for="restrictions-filter">Product form:</label>
+                <select id="restrictions-filter" name="restrictions-filter">
+                    <option value="none">Show all</option> <!-- de adaugat toate formele de produse din coloana orig_food_part din tabela content-->
+                    <option value="vegan">Bulb</option> <!--in ordine alfabetica-->
+                    <option value="vegetarian">Leaf</option>
+                    <option value="nuts">Plant</option>
+                    <option value="nuts">Fruit</option>
+                    <option value="nuts">Root</option>
+                    <option value="nuts">Seed</option>
+                    <option value="nuts">Shoot</option>
+                    <option value="nuts">Flower</option>
+                </select>
+                <label for="restrictions-filter">Serving state:</label>
+                <select id="restrictions-filter" name="restrictions-filter">
+                    <option value="none">Show all</option> <!-- de adaugat toate formele de produse din coloana preparation_type din tabela content-->
+                    <option value="vegan">Raw</option> <!--in ordine alfabetica-->
+                    <option value="vegetarian">Cooked</option>
+                    <option value="nuts">Either</option>
                 </select>
             </div>
             <button class="filter-button">Apply Filters</button>
