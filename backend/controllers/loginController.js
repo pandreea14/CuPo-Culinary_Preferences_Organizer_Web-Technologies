@@ -10,6 +10,7 @@ const handleLogin = async (request, response) => {
 
   request.on("end", async () => {
     try {
+      
       const { email, password } = JSON.parse(body); // Parse the string to JSON
       const result = await loginUser(email, password);
 
@@ -20,7 +21,7 @@ const handleLogin = async (request, response) => {
       }
 
       response.writeHead(200, { "Content-Type": "application/json" });
-      const token = generateToken({ email });
+      const token = generateToken({ email: result.email,  role: result.role});
       response.end(JSON.stringify({ token }));
 
       //   response.end(

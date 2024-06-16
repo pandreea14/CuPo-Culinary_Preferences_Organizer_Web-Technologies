@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="../css/menuAdmin.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="../js/tokenScript.js"></script>
+    <script>
+        function protectAdminPage() {
+            const token = getToken();
+            if (!token || !isTokenValid(token) || getUserRole(token) !== 'admin') {
+                window.location.replace(window.location.origin + '/login');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            protectAdminPage();
+        });
+    </script>
 </head>
 
 <body>
@@ -29,7 +42,7 @@
                 <li><a href="/favorites">Favorites</a></li>
                 <li><a href="/friends">Friends</a></li>
                 <!-- logout sa se intoarca la pagina de login si in back sa expire sesiunea pentru userul curent -->
-                <li><a href="#">Profile</a></li>
+                <li><a href="/admin">Admin</a></li>
                 <li><a href="#" id="help-link">Help</a></li>
             </ul>
         </nav>
@@ -37,14 +50,14 @@
     <div class="container">
         <aside class="sidebar">
             <h2>Filters</h2>
-            <div class="range">
+            <!-- <div class="range">
                 <label for="price-filter">Price:</label>
                 <input type="range" id="price-filter" name="price-filter" min="5" max="1000" value="50">
                 <div class="range-values">
                     <span id="min-value">5</span>
                     <span id="max-value">1000</span>
                 </div>
-            </div>
+            </div> -->
             <div class="filter">
                 <label for="restrictions-filter">Restrictions:</label>
                 <select id="restrictions-filter" name="restrictions-filter">
@@ -53,13 +66,34 @@
                     <option value="vegetarian">Vegetarian</option>
                     <option value="nuts">Nut Alergy</option>
                 </select>
+                <label for="restrictions-filter">Product form:</label>
+                <select id="restrictions-filter" name="restrictions-filter">
+                    <option value="none">Show all</option>
+                    <!-- de adaugat toate formele de produse din coloana orig_food_part din tabela content-->
+                    <option value="vegan">Bulb</option> <!--in ordine alfabetica-->
+                    <option value="vegetarian">Leaf</option>
+                    <option value="nuts">Plant</option>
+                    <option value="nuts">Fruit</option>
+                    <option value="nuts">Root</option>
+                    <option value="nuts">Seed</option>
+                    <option value="nuts">Shoot</option>
+                    <option value="nuts">Flower</option>
+                </select>
+                <label for="restrictions-filter">Serving state:</label>
+                <select id="restrictions-filter" name="restrictions-filter">
+                    <option value="none">Show all</option>
+                    <!-- de adaugat toate formele de produse din coloana preparation_type din tabela content-->
+                    <option value="vegan">Raw</option> <!--in ordine alfabetica-->
+                    <option value="vegetarian">Cooked</option>
+                    <option value="nuts">Either</option>
+                </select>
             </div>
             <button class="filter-button">Apply Filters</button>
         </aside>
         <main>
             <div class="title-line">
                 <h1 class="title">Categories of products</h1>
-                <a href="/admin" class="title admin-button">Admin dashboard</a>
+                <!-- <a href="/admin" class="title admin-button">Admin dashboard</a> -->
             </div>
             <div class="categories">
                 <a href="#fruitsveggies" class="card">

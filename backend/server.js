@@ -6,7 +6,7 @@ const apiRoutes = require("./routes/apiRoutes");
 const server = http.createServer((request, response) => {
   if (request.method === "GET") {
     if (request.url.startsWith("/api")) {
-      apiRoutes(request, response);
+      apiRoutes(request, response); 
     } else {
       staticRoutes(request, response);
     }

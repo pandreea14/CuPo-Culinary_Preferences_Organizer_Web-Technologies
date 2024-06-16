@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="../css/menu.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="../js/tokenScript.js"></script>
+    <script>
+        function protectMenuPage() {
+            const token = getToken();
+            // if (!token || !isTokenValid(token) || getUserRole(token) !== 'standard') {
+            if (!token || !isTokenValid(token)) {
+                window.location.replace(window.location.origin + '/login');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            protectMenuPage();
+        });
+    </script>
 </head>
 
 <body>
@@ -29,7 +43,7 @@
                 <li><a href="/favorites">Favorites</a></li>
                 <li><a href="/friends">Friends</a></li>
                 <!-- logout sa se intoarca la pagina de login si in back sa expire sesiunea pentru userul curent -->
-                <li><a href="#">Profile</a></li> 
+                <li><a href="/profile">Profile</a></li>
                 <li><a href="#" id="help-link">Help</a></li>
             </ul>
         </nav>
@@ -55,7 +69,8 @@
                 </select>
                 <label for="restrictions-filter">Product form:</label>
                 <select id="restrictions-filter" name="restrictions-filter">
-                    <option value="none">Show all</option> <!-- de adaugat toate formele de produse din coloana orig_food_part din tabela content-->
+                    <option value="none">Show all</option>
+                    <!-- de adaugat toate formele de produse din coloana orig_food_part din tabela content-->
                     <option value="vegan">Bulb</option> <!--in ordine alfabetica-->
                     <option value="vegetarian">Leaf</option>
                     <option value="nuts">Plant</option>
@@ -67,7 +82,8 @@
                 </select>
                 <label for="restrictions-filter">Serving state:</label>
                 <select id="restrictions-filter" name="restrictions-filter">
-                    <option value="none">Show all</option> <!-- de adaugat toate formele de produse din coloana preparation_type din tabela content-->
+                    <option value="none">Show all</option>
+                    <!-- de adaugat toate formele de produse din coloana preparation_type din tabela content-->
                     <option value="vegan">Raw</option> <!--in ordine alfabetica-->
                     <option value="vegetarian">Cooked</option>
                     <option value="nuts">Either</option>
