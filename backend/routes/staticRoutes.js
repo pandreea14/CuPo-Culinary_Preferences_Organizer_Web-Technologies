@@ -13,6 +13,7 @@ module.exports = (request, response) => {
     "/favorites": "favorites.html",
     "/shoppinglist": "shoppinglist.html",
     "/statistics": "statistics.html",
+    "/profile": "profile.html",
   };
 
   if (staticFilePaths[request.url]) {

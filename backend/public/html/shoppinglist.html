@@ -10,6 +10,19 @@
     <!-- <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+    <script src="../js/tokenScript.js"></script>
+    <script>
+        function protectPage() {
+            const token = getToken();
+            if (!token || !isTokenValid(token)) {
+                window.location.replace(window.location.origin + '/login');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            protectPage();
+        });
+    </script>
 </head>
 
 <body>

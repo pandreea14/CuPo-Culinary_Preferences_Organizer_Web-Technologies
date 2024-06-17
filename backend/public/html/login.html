@@ -6,28 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login CuPo</title>
   <link rel="stylesheet" href="../css/login.css" />
+  <script src="../js/tokenScript.js"></script>
+  <script>
+
+    //am incercat ceva nu mi mai merge creierul... trb sa reverifici path-urile !!
+    function roleValidation(requiredRole) {
+      const role = getUserRole(token);
+      if (role !== requiredRole) {
+        //mesaj de eroare ca nu ai acces
+        redirectIfAuthenticated();
+        alert("Access denied: Please login as admin first.", result.token);
+      } else {
+        redirectIfAuthenticated();
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      roleValidation("user");
+    });
+  </script>
 </head>
 
 <body>
   <div class="overlay-container">
     <div class="title"><i>Welcome back!</i></div>
     <div class="inner-container">
-      <form action="#" method="post">
+      <form id="loginForm">
         <div class="input-box email">
           <input type="email" id="emailInput" name="email" placeholder="Email" required>
         </div>
         <div class="input-box password">
           <input type="password" id="passwordInput" name="password" placeholder="Password" required>
         </div>
+        <button type="submit" class="submit-button" id="joinButton">
+          <span>Continue your journey!</span>
+        </button>
       </form>
     </div>
-    <a href="/menu" class="submit-button" id="joinButton">
-      <span>Continue your journey!</span>
-    </a>
     <p>Don't have an account? <a href="/register" class="register-link">Register here</a></p>
     <a href="/loginAdmin" class="register-link">Login as admin!</a>
   </div>
-  <script src="../js/script.js"></script>
+  <script src="../js/loginScript.js"></script>
 </body>
 
 </html>

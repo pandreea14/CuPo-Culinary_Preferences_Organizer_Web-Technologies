@@ -7,6 +7,26 @@
     <title>Admin CuPo</title>
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/global.css">
+    <script src="../js/tokenScript.js"></script>
+    <script>
+        function logout() {
+            if (confirm("Are you sure you want to logout?")) {
+                localStorage.removeItem('token');
+                window.location.replace(window.location.origin + '/login');
+            }
+        }
+
+        function protectPage() {
+            const token = getToken();
+            if (!token || !isTokenValid(token) || getUserRole(token) !== 'admin') {
+                window.location.replace(window.location.origin + '/login');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            protectPage();
+        });
+    </script>
 </head>
 
 <body>
@@ -15,6 +35,7 @@
         <nav>
             <ul class="navigation-links">
                 <li><a href="/menuAdmin">Main Menu</a></li>
+                <li><a onclick="logout()">Logout</a></li>
                 <li><a href="#" id="help-link">Help</a></li>
             </ul>
         </nav>

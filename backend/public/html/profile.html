@@ -4,13 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Friends CuPo</title>
+    <title>Profile CuPo</title>
     <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/friends.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../css/profile.css" />
     <script src="../js/tokenScript.js"></script>
     <script>
+        function logout() {
+            if (confirm("Are you sure you want to logout?")) {
+                localStorage.removeItem('token');
+                window.location.replace(window.location.origin + '/login');
+            }
+        }
+
         function protectPage() {
             const token = getToken();
             if (!token || !isTokenValid(token)) {
@@ -28,12 +33,6 @@
     <header class="fixed-header">
         <div class="logo-search-container">
             <img class="logo" src="../images/logo.png" alt="logo">
-            <form>
-                <div class="search">
-                    <span class="search-icon material-symbols-outlined">search</span>
-                    <input class="search-input" type="search" placeholder="Search">
-                </div>
-            </form>
         </div>
         <nav>
             <ul class="navigation-links">
@@ -41,6 +40,7 @@
                 <li><a href="/shoppinglist">Shopping List</a></li>
                 <li><a href="/statistics">Get Statistics</a></li>
                 <li><a href="/favorites">Favorites</a></li>
+                <li><a href="/friends">Friends</a></li>
                 <li><a href="#" id="help-link">Help</a></li>
             </ul>
         </nav>
@@ -48,21 +48,18 @@
     <div id="help-popup" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Friends page - help</h2>
-            <p>This page is specifically made for your app friends, with whom you can create a community with. Share
-                your shopping list, favorites, or even some funny statistics with them!
-                If you care to expand your circle, click on the "Add new friends" button and watch your community grow!
-                <br> Everything is better with friends!
-            </p>
+            <h2>Profile page - help</h2>
+            <p>hvdsuvhsudvhudvh</p>
         </div>
     </div>
 
     <div class="overlay-container">
-        <div class="title1"><i><b>Your friends</b></i></div>
-        <div class="add-newfriends"><i><b>Add new friends</b></i></div>
-        <div class="friend-container">
+        <div class="title1"><i><b>Your profile</b></i></div>
+        <!-- <div class="logout"><i><b>Logout</b></i></div> -->
+        <button onclick="logout()" class="logout">Logout</button>
+        <div class="details-container">
             <div class="text">
-                <p> No friends yet! Try searching through existing users!</p>
+                <p> aici trb sa apara detaliile userului: email</p>
             </div>
         </div>
     </div>

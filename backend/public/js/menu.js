@@ -63,11 +63,11 @@ document.querySelectorAll(".card").forEach((card) => {
 
     // delete the previously selected section when another one is clicked
     document.querySelectorAll("section").forEach((section) => {
-      section.classList.remove("section-selected"); // Remove the class from all sections
-      section.style.marginTop = ""; // Reset margin-top property
+      section.classList.remove("section-selected"); // remove the class from all sections
+      section.style.marginTop = ""; // reset margin-top property
     });
-    // Add a class to the target section to indicate it's selected
-    document.getElementById(targetId).classList.add("section-selected"); // Add the class to the target section
+    // add a class to the target section to indicate it's selected
+    document.getElementById(targetId).classList.add("section-selected");
   });
 });
 
@@ -86,19 +86,3 @@ logo.addEventListener("click", function (event) {
     section.style.marginTop = ""; // Reset margin-top property
   });
 });
-
-// afisarea numerelor de pe price filter
-const rangeInput = document.getElementById("price-filter");
-const minValueSpan = document.getElementById("min-value");
-const maxValueSpan = document.getElementById("max-value");
-
-minValueSpan.textContent = rangeInput.min;
-maxValueSpan.textContent = rangeInput.max;
-
-rangeInput.addEventListener("input", function () {
-  minValueSpan.textContent = this.value;
-  minValue.textContent = priceFilter.value;
-  maxValue.textContent = priceFilter.max;
-});
-
-//event listener pentru adaugarea favoritelor

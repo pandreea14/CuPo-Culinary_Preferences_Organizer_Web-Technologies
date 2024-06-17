@@ -11,6 +11,21 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
   <!--chart 1-->
+
+  <script src="../js/tokenScript.js"></script>
+  <script>
+    function protectPage() {
+      const token = getToken();
+      if (!token || !isTokenValid(token)) {
+        window.location.replace(window.location.origin + '/login');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      protectPage();
+    });
+  </script>
+
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', { 'packages': ['corechart'] });

@@ -24,6 +24,23 @@ body {
     align-items: center;
 }
 
+.logout {
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.logout:hover{
+    color: #ffac4a;
+    transition: all 0.3s ease 0s;
+}
+
 .inner-container {
     width: 100%;
     max-width: 400px;
