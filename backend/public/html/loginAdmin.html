@@ -4,16 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login CuPo</title>
+  <title>Login Admin CuPo</title>
   <link rel="stylesheet" href="../css/login.css" />
-  
+  <script src="../js/tokenScript.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      redirectIfAuthenticated();
+    });
+  </script>
 </head>
 
 <body>
   <div class="overlay-container">
     <div class="title"><i>Welcome back, admin!</i></div>
     <div class="inner-container">
-      <form action="#" method="post">
+      <form id="loginForm">
         <div class="input-box email">
           <input type="email" id="emailInput" name="email" placeholder="Email" required>
         </div>
@@ -26,7 +31,7 @@
       <span>Continue...</span>
     </a>
   </div>
-  <script src="../js/script.js"></script>
+  <script src="../js/loginAdminScript.js"></script>
 </body>
 
 </html>
