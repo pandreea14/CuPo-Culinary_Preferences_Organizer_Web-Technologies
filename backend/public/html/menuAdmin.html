@@ -10,6 +10,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="../js/tokenScript.js"></script>
+    <script src="../js/foodFetch.js"></script>
     <script>
         function protectAdminPage() {
             const token = getToken();
@@ -20,6 +21,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             protectAdminPage();
+            fetchAllFoodData();
         });
     </script>
 </head>
