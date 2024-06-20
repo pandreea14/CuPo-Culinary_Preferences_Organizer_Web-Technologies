@@ -30,11 +30,11 @@ async function fetchAllFoodData() {
             const productContainer = document.querySelector(`#${categoryId} .product-container`);
             const productHtml = `
                <div class="product-item">
-                    <h2>${food.name}</h2>
+                    <h2 class="item">${food.name}</h2>
                     <div class="product-info">
                         <img src="${food.image}" alt="${food.name}" class="image">
                         <div class="details">
-                            <p class="text">Calories: ${food.calories} <br> Allergens: ${food.alergens} <br> Expiration: ${food.expiration}</p>
+                            <p class="text">Calories: ${food.calories} <br> Allergens: ${food.alergens} <br> Expiration: ${food.expiration} days</p>
                         </div>
                     </div>
                     <div class="buttons">

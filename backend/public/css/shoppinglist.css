@@ -37,18 +37,86 @@
     transition: all 0.3s ease 0s;
 }
 
+.grid-container {
+    display: flex;
+    justify-content: space-around; /* Adjust as needed for your layout */
+}
+
 .shoppinglist-container {
     background-color: antiquewhite;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    flex-direction: column;
+    display: grid;
+    grid-auto-flow: column; /* Make items flow in columns */
     gap: 20px;
-    padding: 20px;
     padding: 10px 20px;
     border-radius: 4px;
     margin-bottom: 10px;
 }
+
+.shoppinglist-container-alt {
+    background-color: lavender;
+    display: grid;
+    grid-auto-flow: column; /* Make items flow in columns */
+    gap: 20px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.shoppinglist-container, .shoppinglist-container-alt {
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    gap: 10px; /* Adjust the space between items */
+}
+
+/* Ensure the list items inside .content also stack vertically */
+.content ul {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0; /* Removes default padding */
+}
+
+.content ul li {
+    margin-bottom: 5px; /* Adds space between list items */
+}
+
+.item-remove-button {
+    background-color: #f44336; /* A bit more intense color for item deletion */
+    color: #ffffff;
+    padding: 5px 10px; /* Smaller padding to fit within list items */
+    border: none;
+    border-radius: 4px; /* Slightly less rounded */
+    cursor: pointer;
+    font-size: 0.8rem; /* Smaller font size */
+    margin-left: 10px; /* Space from the list item text */
+    transition: background-color 0.3s ease;
+}
+
+.item-remove-button:hover {
+    background-color: #d32f2f; /* Darker shade on hover */
+    color: #ffffff;
+}
+
+.list-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.item-remove-button {
+    background-color: black;
+    color: #ffffff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+}
+
+.item-remove-button:hover {
+    background-color: #d32f2f;
+}
+
 .remove-button {
     background-color: #ffac4a;
     color: #080808;
