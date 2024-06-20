@@ -2,7 +2,7 @@ export async function addToFavorites(food) {
     console.log('Adding to favorites:', food.name);
 
     const token = localStorage.getItem('token');
-    const user = parseJwt(token); // Assuming you have a function to parse the JWT token and get the user info
+    const user = parseJwt(token);
 
     // Make a POST request to add the favorite item
     try {
@@ -26,23 +26,24 @@ export async function addToFavorites(food) {
 
         alert('Favorite added successfully');
 
-        // button.textContent = 'Remove from Favorites';
-        // button.classList.remove('fave-button');
-        // button.classList.add('remove-button');
-
     } catch (error) {
         console.error('An error occurred in adding favorite food:', error);
         alert('An error occurred in adding favorite food. ' + error.message);
     }
 }
 
-export async function removeFromFavorites(food, button) {
-    console.log('Removing from favorites:', food.name);
+export async function removeFromFavorites(foodName) {
+    console.log('Removing from favorites:', foodName);
+
+    const confirmRemoval = window.confirm('Are you sure you want to remove this item from your favorites?');
+    if (!confirmRemoval) {
+        return;
+    }
 
     const token = localStorage.getItem('token');
-    const user = parseJwt(token); // Assuming you have a function to parse the JWT token and get the user info
+    const user = parseJwt(token);
 
-    // Make a DELETE request to remove the favorite item
+    //DELETE request to remove the favorite item
     try {
         const response = await fetch('/api/favorites', {
             method: 'DELETE',
@@ -50,7 +51,7 @@ export async function removeFromFavorites(food, button) {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({ userEmail: user.email, foodName: food.name })
+            body: JSON.stringify({ userEmail: user.email, foodName: foodName })
         });
 
         if (!response.ok) {
@@ -58,9 +59,6 @@ export async function removeFromFavorites(food, button) {
         }
 
         console.log('Favorite removed successfully');
-        button.textContent = 'Add to Favorites';
-        button.classList.remove('remove-button');
-        button.classList.add('fave-button');
     } catch (error) {
         console.error('An error occurred in removing favorite food:', error);
         alert('An error occurred in removing favorite food. ' + error.message);

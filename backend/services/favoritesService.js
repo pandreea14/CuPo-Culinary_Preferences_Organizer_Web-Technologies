@@ -35,12 +35,20 @@ async function fetchFavoriteItems(user) {
   }
 }
 
-// async function deteleFavoriteItem(user) {
-//     const sql = "DELETE FROM users_favorites WHERE email = ? AND food_name = ?"
-// }
+async function removeFavoriteItem(user, food) {
+    const sql = "DELETE FROM user_favorites WHERE email = ? AND food_name = ?"
+    const params = [user, food];
+    try {
+        const results = await query(sql, params);
+        return results;
+      } catch (error) {
+        console.error("Error removing item from db:", error);
+        throw error; // Rethrow or handle as needed
+      }
+}
 
 module.exports = {
   addFavoriteItem,
   fetchFavoriteItems,
-  //   deleteFavoriteItem
+  removeFavoriteItem
 };

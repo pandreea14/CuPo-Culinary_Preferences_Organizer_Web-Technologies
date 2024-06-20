@@ -1,6 +1,7 @@
 const {
   addFavoriteItem,
   fetchFavoriteItems,
+  removeFavoriteItem
 } = require("../services/favoritesService");
 
 // adds in join table
@@ -55,7 +56,26 @@ const getFavorites = async (request, response) => {
   }
 };
 
+const removeFavorite = async (request, response) => {
+    try {
+      let body = "";
+      request.on("data", chunk => {
+        body += chunk.toString();
+      });
+      request.on("end", async () => {
+        const { userEmail, foodName } = JSON.parse(body);
+        await removeFavoriteItem(userEmail, foodName);
+        response.writeHead(200, { "Content-Type": "application/json" });
+        response.end(JSON.stringify({ message: "Favorite removed successfully" }));
+      });
+    } catch (error) {
+      response.writeHead(500, { "Content-Type": "application/json" });
+      response.end(JSON.stringify({ error: "Internal Server Error" }));
+    }
+  };
+
 module.exports = {
   addFavorites,
   getFavorites,
+  removeFavorite
 };

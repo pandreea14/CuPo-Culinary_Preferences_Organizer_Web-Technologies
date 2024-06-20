@@ -1,4 +1,5 @@
 import { addToFavorites } from './addToFavorites.js';
+import { addToShoppingList } from './addToShoppingList.js';
 
 async function fetchAllFoodData() {
 
@@ -52,11 +53,6 @@ async function fetchAllFoodData() {
         console.error('An error occurred in fetching food data:', error);
         alert('An error occurred in fetching food data. ' + error.message);
     }
-}
-
-async function addToShoppingList(food) {
-    console.log('Adding to shopping list:', food.name);
-    // Implement the logic to add the food item to the shopping list
 }
 
 document.addEventListener('DOMContentLoaded', function () {

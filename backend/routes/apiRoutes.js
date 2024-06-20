@@ -1,7 +1,7 @@
 const { handleRegister } = require("../controllers/registerController");
 const { handleLogin } = require("../controllers/loginController");
 const { getFood } = require("../controllers/productController");
-const { getFavorites, addFavorites } = require("../controllers/favoritesController");
+const { getFavorites, addFavorites, removeFavorite } = require("../controllers/favoritesController");
 
 module.exports = (request, response) => {
   console.log(`Received ${request.method} request at ${request.url}`);
@@ -28,7 +28,7 @@ module.exports = (request, response) => {
     }
   } else if (request.method === "DELETE") {
     if (parsedUrl.pathname === "/api/favorites") {
-      getFavorites(request, response);
+      removeFavorite(request, response);
     }
   } else {
     response.writeHead(404, { "Content-Type": "application/json" });
