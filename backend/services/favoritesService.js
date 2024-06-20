@@ -1,9 +1,21 @@
 const { query } = require("../utils/dbUtils");
 
 async function addFavoriteItem(user, foodItem) {
+  const checkSql =
+    "SELECT * FROM user_favorites WHERE email = ? AND food_name = ?";
+  const checkParams = [user, foodItem];
+  const existingFavorites = await query(checkSql, checkParams);
+
+  if (existingFavorites.length > 0) {
+    console.log(existingFavorites);
+    return { alreadyExists: true };
+    // throw new Error('Item already in favorites');
+  }
+
   const sql = "INSERT INTO user_favorites (email, food_name) VALUES (?, ?)";
   const params = [user, foodItem];
   await query(sql, params);
+  return { alreadyExists: false };
 }
 
 async function fetchFavoriteItems(user) {
@@ -18,7 +30,7 @@ async function fetchFavoriteItems(user) {
     const results = await query(sql, params);
     return results;
   } catch (error) {
-    console.error('Error fetching favorite items:', error);
+    console.error("Error fetching favorite items:", error);
     throw error; // Rethrow or handle as needed
   }
 }
@@ -29,6 +41,6 @@ async function fetchFavoriteItems(user) {
 
 module.exports = {
   addFavoriteItem,
-  fetchFavoriteItems, 
-//   deleteFavoriteItem
+  fetchFavoriteItems,
+  //   deleteFavoriteItem
 };

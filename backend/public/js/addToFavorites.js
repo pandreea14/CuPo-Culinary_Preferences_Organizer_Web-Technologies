@@ -15,11 +15,16 @@ export async function addToFavorites(food) {
             body: JSON.stringify({ userEmail: user.email, foodName: food.name })
         });
 
+        if (response.status === 409) {
+            alert('This item is already in your favorites.');
+            return;
+        }
+
         if (!response.ok) {
             throw new Error('Failed to add favorite');
         }
 
-        console.log('Favorite added successfully');
+        alert('Favorite added successfully');
 
         // button.textContent = 'Remove from Favorites';
         // button.classList.remove('fave-button');

@@ -18,14 +18,23 @@ const addFavorites = async (request, response) => {
         return response.status(400).send("Email and food name are required.");
       }
 
-      await addFavoriteItem(userEmail, foodName);
-      
-      response.writeHead(200, { "Content-Type": "application/json" });
-      response.end(JSON.stringify({ message: "Favorite added successfully" }));
+      const result = await addFavoriteItem(userEmail, foodName);
+      if (result.alreadyExists) {
+        response.writeHead(409, { "Content-Type": "application/json" });
+        response.end(JSON.stringify({ error: "Item already in favorites" }));
+      } else {
+        response.writeHead(200, { "Content-Type": "application/json" });
+        response.end(JSON.stringify({ message: "Favorite added successfully" }));
+      }
     });
   } catch (error) {
-    response.writeHead(500, { "Content-Type": "application/json" });
-    response.end(JSON.stringify({ error: "Add favorites - Internal Server Error" }));
+    if (error.message === "Item already in favorites") {
+      response.writeHead(409, { "Content-Type": "application/json" });
+    //   response.end(JSON.stringify({ error: error.message }));
+    } else {
+      response.writeHead(500, { "Content-Type": "application/json" });
+      response.end(JSON.stringify({ error: "Internal Server Error" }));
+    }
   }
 };
 
@@ -40,11 +49,13 @@ const getFavorites = async (request, response) => {
     response.end(JSON.stringify(favoriteItems));
   } catch (error) {
     response.writeHead(500, { "Content-Type": "application/json" });
-    response.end(JSON.stringify({ error: "Get favorites - Internal Server Error" }));
+    response.end(
+      JSON.stringify({ error: "Get favorites - Internal Server Error" })
+    );
   }
 };
 
 module.exports = {
   addFavorites,
-  getFavorites
+  getFavorites,
 };
