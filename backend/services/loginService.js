@@ -64,4 +64,4 @@ async function loginUser(email, password) {
   }
 }
 
-module.exports = { loginUser, getUserByEmail, getAdminByEmail };
+module.exports = { loginUser, getUserByEmail, getAdminByEmail, };

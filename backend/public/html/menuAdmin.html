@@ -43,7 +43,6 @@
                 <li><a href="/statistics">Get Statistics</a></li>
                 <li><a href="/favorites">Favorites</a></li>
                 <li><a href="/friends">Friends</a></li>
-                <!-- logout sa se intoarca la pagina de login si in back sa expire sesiunea pentru userul curent -->
                 <li><a href="/admin">Admin</a></li>
                 <li><a href="#" id="help-link">Help</a></li>
             </ul>
@@ -52,66 +51,44 @@
     <div class="container">
         <aside class="sidebar">
             <h2>Filters</h2>
-            <!-- <div class="range">
-                <label for="price-filter">Price:</label>
-                <input type="range" id="price-filter" name="price-filter" min="5" max="1000" value="50">
+            <div class="range">
+                <label for="price-filter">Calories:</label>
+                <input type="range" id="price-filter" name="price-filter" min="0" max="320" value="0">
                 <div class="range-values">
-                    <span id="min-value">5</span>
-                    <span id="max-value">1000</span>
+                    <span id="min-value">0</span>
+                    <span id="max-value">320</span>
                 </div>
-            </div> -->
+            </div>
             <div class="filter">
                 <label for="restrictions-filter">Restrictions:</label>
                 <select id="restrictions-filter" name="restrictions-filter">
                     <option value="none">None</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="nuts">Nut Alergy</option>
-                </select>
-                <label for="restrictions-filter">Product form:</label>
-                <select id="restrictions-filter" name="restrictions-filter">
-                    <option value="none">Show all</option>
-                    <!-- de adaugat toate formele de produse din coloana orig_food_part din tabela content-->
-                    <option value="vegan">Bulb</option> <!--in ordine alfabetica-->
-                    <option value="vegetarian">Leaf</option>
-                    <option value="nuts">Plant</option>
-                    <option value="nuts">Fruit</option>
-                    <option value="nuts">Root</option>
-                    <option value="nuts">Seed</option>
-                    <option value="nuts">Shoot</option>
-                    <option value="nuts">Flower</option>
-                </select>
-                <label for="restrictions-filter">Serving state:</label>
-                <select id="restrictions-filter" name="restrictions-filter">
-                    <option value="none">Show all</option>
-                    <!-- de adaugat toate formele de produse din coloana preparation_type din tabela content-->
-                    <option value="vegan">Raw</option> <!--in ordine alfabetica-->
-                    <option value="vegetarian">Cooked</option>
-                    <option value="nuts">Either</option>
+                    <option value="vegan">Gluten</option>
+                    <option value="vegetarian">Lactose</option>
+                    <option value="nuts">Shellfish</option>
+                    <option value="nuts">Peanuts</option>
                 </select>
             </div>
             <button class="filter-button">Apply Filters</button>
         </aside>
         <main>
-            <div class="title-line">
-                <h1 class="title">Categories of products</h1>
-                <!-- <a href="/admin" class="title admin-button">Admin dashboard</a> -->
-            </div>
+            <h1 class="title">Categories of products</h1>
             <div class="categories">
-                <a href="#fruitsveggies" class="card">
-                    <h1>Fruits and vegetable based foods</h1>
+                <a href="#fruits" class="card">
+                    <h1>Fruits</h1>
                 </a>
-                <a href="#meals" class="card">
-                    <h1>Meals</h1>
+                <a href="#vegetables" class="card">
+                    <h1>Vegetables</h1>
                 </a>
+                
                 <a href="#meat" class="card">
                     <h1>Meat poultry and fish</h1>
                 </a>
                 <a href="#dairy" class="card">
                     <h1>Dairy products</h1>
                 </a>
-                <a href="#nuts" class="card">
-                    <h1>Nuts and seeds</h1>
+                <a href="#grains" class="card">
+                    <h1>Grains</h1>
                 </a>
                 <a href="#snacks" class="card">
                     <h1>Snacks</h1>
@@ -119,11 +96,14 @@
                 <a href="#beverages" class="card">
                     <h1>Beverages</h1>
                 </a>
-                <a href="#sweets" class="card">
-                    <h1>Sweets</h1>
+                <a href="#sauce" class="card">
+                    <h1>Sauces</h1>
                 </a>
-                <a href="#vegan" class="card">
-                    <h1>Vegan</h1>
+                <a href="#cannedgoods" class="card">
+                    <h1>Canned Goods</h1>
+                </a>
+                <a href="#frozenfood" class="card">
+                    <h1>Frozen Food</h1>
                 </a>
             </div>
         </main>
@@ -142,303 +122,57 @@
         </div>
     </div>
 
-    <section id="fruitsveggies">
-        <h2 class="title">Fruits and vegetable based foods</h2>
-        <div class="product-container">
-            <h2>Banana Soy Milk</h2>
-            <div class="product-info">
-                <img src="../images/bananamilk.jpg" alt="bananamilk" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany, Russia</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-
-            <h2>Broccoli</h2>
-            <div class="product-info">
-                <img src="../images/broccoli.png" alt="broccoli" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-        </div>
+    <section id="fruits">
+        <h2 class="title">Fruits</h2>
+        <div class="product-container"></div>
     </section>
 
-    <section id="meals">
-        <h2 class="title">Meals</h2>
-        <div class="product-container">
-            <h2>Banana Soy Milk</h2>
-            <div class="product-info">
-                <img src="bananamilk.jpg" alt="bananamilk" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany, Russia</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-
-            <h2>Broccoli</h2>
-            <div class="product-info">
-                <img src="broccoli.png" alt="broccoli" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-        </div>
+    <section id="vegetables">
+        <h2 class="title">Vegetables</h2>
+        <div class="product-container"></div>
     </section>
 
     <section id="meat">
         <h2 class="title">Meat poultry and fish</h2>
-        <div class="product-container">
-            <h2>Banana Soy Milk</h2>
-            <div class="product-info">
-                <img src="bananamilk.jpg" alt="bananamilk" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany, Russia</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-
-            <h2>Broccoli</h2>
-            <div class="product-info">
-                <img src="broccoli.png" alt="broccoli" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-        </div>
+        <div class="product-container"></div>
 
     </section>
 
     <section id="dairy">
         <h2 class="title">Dairy products</h2>
-        <div class="product-container">
-            <h2>Banana Soy Milk</h2>
-            <div class="product-info">
-                <img src="bananamilk.jpg" alt="bananamilk" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany, Russia</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-
-            <h2>Broccoli</h2>
-            <div class="product-info">
-                <img src="broccoli.png" alt="broccoli" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-        </div>
+        <div class="product-container"></div>
     </section>
 
-    <section id="nuts">
-        <h2 class="title">Nuts and seeds</h2>
-        <div class="product-container">
-            <h2>Banana Soy Milk</h2>
-            <div class="product-info">
-                <img src="bananamilk.jpg" alt="bananamilk" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany, Russia</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-
-            <h2>Broccoli</h2>
-            <div class="product-info">
-                <img src="broccoli.png" alt="broccoli" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-        </div>
+    <section id="grains">
+        <h2 class="title">Grains</h2>
+        <div class="product-container"></div>
     </section>
 
     <section id="snacks">
         <h2 class="title">Snacks</h2>
-        <div class="product-container">
-            <h2>Banana Soy Milk</h2>
-            <div class="product-info">
-                <img src="bananamilk.jpg" alt="bananamilk" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany, Russia</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-
-            <h2>Broccoli</h2>
-            <div class="product-info">
-                <img src="broccoli.png" alt="broccoli" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-        </div>
+        <div class="product-container"></div>
     </section>
 
     <section id="beverages">
         <h2 class="title">Beverages</h2>
-        <div class="product-container">
-            <h2>Banana Soy Milk</h2>
-            <div class="product-info">
-                <img src="bananamilk.jpg" alt="bananamilk" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany, Russia</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-
-            <h2>Broccoli</h2>
-            <div class="product-info">
-                <img src="broccoli.png" alt="broccoli" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-        </div>
+        <div class="product-container"></div>
     </section>
 
-    <section id="sweets">
-        <h2 class="title">Sweets</h2>
-        <div class="product-container">
-            <h2>Banana Soy Milk</h2>
-            <div class="product-info">
-                <img src="bananamilk.jpg" alt="bananamilk" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany, Russia</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-
-            <h2>Broccoli</h2>
-            <div class="product-info">
-                <img src="broccoli.png" alt="broccoli" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-        </div>
+    <section id="sauce">
+        <h2 class="title">Sauces</h2>
+        <div class="product-container"></div>
     </section>
 
-    <section id="vegan">
-        <h2 class="title">Vegan</h2>
-        <div class="product-container">
-            <h2>Banana Soy Milk</h2>
-            <div class="product-info">
-                <img src="bananamilk.jpg" alt="bananamilk" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: soy milk, banana, additives, sugar <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany, Russia</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-
-            <h2>Broccoli</h2>
-            <div class="product-info">
-                <img src="broccoli.png" alt="broccoli" class="image">
-                <div class="details">
-                    <p class="text">Ingredients: broccoli <br> Labels: gluten-free,
-                        vegetarian, vegan <br>
-                        Countries sold in: Belgium, France, Germany</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button class="fave-button">Add to Favorites</button>
-                <button class="shopping-button">Add to shopping list</button>
-            </div>
-        </div>
+    <section id="cannedgoods">
+        <h2 class="title">Canned goods</h2>
+        <div class="product-container"></div>
     </section>
+
+    <section id="frozenfood">
+        <h2 class="title">Frozen Food</h2>
+        <div class="product-container"></div>
+    </section>
+    
     <script src="../js/menu.js"></script>
 </body>
 

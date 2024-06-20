@@ -24,7 +24,7 @@ document
         console.log('Success:', result);
         localStorage.setItem('token', result.token); // Save the token in localStorage
         alert("Admin logged in successfully !!!", result.token);
-        window.location.href = window.location.origin + "/menu";
+        window.location.href = window.location.origin + "/menuAdmin";
     })
     .catch(error => {
         console.error('An error occurred in login admin script:', error);

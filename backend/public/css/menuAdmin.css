@@ -274,12 +274,12 @@ section h2 {
     font-size: 25px;
 }
 
-.title-line {
+/* .title-line {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-}
+} */
 
 /* media queries for responsivness */
 @media screen and (max-width: 1300px) {
@@ -403,11 +403,11 @@ section h2 {
         order: -1;
         width: 96%;
     }
-    .title-line {
-        flex-direction: column; /* Stack elements vertically */
+    /* .title-line {
+        flex-direction: column;
         margin-bottom: 10px;
-        align-items: flex-start; /* Align elements to the start */
-    }
+        align-items: flex-start;
+    } */
 
     .admin-button {
         order: -1;

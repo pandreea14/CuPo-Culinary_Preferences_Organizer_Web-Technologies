@@ -1,5 +1,4 @@
 const { loginUser } = require("../services/loginService");
-const { generateToken } = require("../utils/jwtUtils");
 
 const handleLogin = async (request, response) => {
   let body = "";
@@ -10,23 +9,18 @@ const handleLogin = async (request, response) => {
 
   request.on("end", async () => {
     try {
-      
       const { email, password } = JSON.parse(body); // Parse the string to JSON
-      const result = await loginUser(email, password);
+      const token = await loginUser(email, password);
 
-      if (result.error) {
+      if (token.error) {
         response.writeHead(400, { "Content-Type": "application/json" });
-        response.end(JSON.stringify({ error: result.error }));
+        response.end(JSON.stringify({ error: token.error }));
         return;
       }
+      console.log(token);
 
       response.writeHead(200, { "Content-Type": "application/json" });
-      const token = generateToken({ email: result.email,  role: result.role});
-      response.end(JSON.stringify({ token }));
-
-      //   response.end(
-      //     JSON.stringify({ message: result.message, token: result.token })
-      //   );
+      response.end(JSON.stringify({ token: token.token }));
     } catch (error) {
       console.error("An error occurred during the login: ", error);
       response.writeHead(500, { "Content-Type": "application/json" });

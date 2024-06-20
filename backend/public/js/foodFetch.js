@@ -1,3 +1,5 @@
+import { addToFavorites } from './addToFavorites.js';
+
 async function fetchAllFoodData() {
 
     try {
@@ -26,16 +28,18 @@ async function fetchAllFoodData() {
             const categoryId = categories[food.category];
             const productContainer = document.querySelector(`#${categoryId} .product-container`);
             const productHtml = `
-                <h2>${food.name}</h2>
-                <div class="product-info">
-                    <img src="${food.image}" alt="${food.name}" class="image">
-                    <div class="details">
-                        <p class="text">Calories: ${food.calories} <br> Allergens: ${food.alergens} <br> Expiration: ${food.expiration}</p>
+               <div class="product-item">
+                    <h2>${food.name}</h2>
+                    <div class="product-info">
+                        <img src="${food.image}" alt="${food.name}" class="image">
+                        <div class="details">
+                            <p class="text">Calories: ${food.calories} <br> Allergens: ${food.alergens} <br> Expiration: ${food.expiration}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="buttons">
-                    <button class="fave-button">Add to Favorites</button>
-                    <button class="shopping-button">Add to shopping list</button>
+                    <div class="buttons">
+                        <button class="fave-button">Add to Favorites</button>
+                        <button class="shopping-button">Add to shopping list</button>
+                    </div>
                 </div>
             `;
             if (productContainer) {
@@ -49,6 +53,32 @@ async function fetchAllFoodData() {
         alert('An error occurred in fetching food data. ' + error.message);
     }
 }
+
+async function addToShoppingList(food) {
+    console.log('Adding to shopping list:', food.name);
+    // Implement the logic to add the food item to the shopping list
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     fetchAllFoodData();
+    document.body.addEventListener('click', function (event) {
+        console.log('Click event detected on body');
+        const productItem = event.target.closest('.product-item');
+        if (!productItem) {
+            console.error('Could not find product-item ancestor');
+            return;
+        }
+
+        if (event.target.classList.contains('fave-button')) {
+            console.log('Favorite button clicked');
+            const foodItem = productItem.querySelector('h2').textContent;
+            console.log('Clicked Add to Favorites:', foodItem);
+            addToFavorites({ name: foodItem });
+        } else if (event.target.classList.contains('shopping-button')) {
+            console.log('Shopping button clicked');
+            const foodItem = productItem.querySelector('h2').textContent;
+            console.log('Clicked Add to Shopping List:', foodItem);
+            addToShoppingList({ name: foodItem });
+        }
+    });
 });

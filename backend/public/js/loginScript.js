@@ -21,15 +21,17 @@ document
         return response.json();
     })
     .then(result => {
+        console.log('Success:', result);
+        //trb facuta din partea de client !!!
+        localStorage.setItem('token', result.token); // Save the token in localStorage
         alert("User logged in successfully !!!", result.token);
-        localStorage.setItem("token", result.token); // Save the token in localStorage
         window.location.href = window.location.origin + "/menu";
         // if (localStorage.getItem('token')) {
         //     window.location.href = window.location.origin + '/menu';
         //   }
     })
     .catch(error => {
-        console.error('An error occurred:', error);
-        alert('An error occurred.' + error.message);
+        console.error('An error occurred in login script:', error);
+        alert('An error occurred in login script. ' + error.message);
     });
   });

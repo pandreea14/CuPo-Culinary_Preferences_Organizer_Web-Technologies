@@ -10,7 +10,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="../js/tokenScript.js"></script>
-    <script src="../js/foodFetch.js"></script>
+    <!-- <script src="../js/foodFetch.js"></script> -->
     <script>
         function protectMenuPage() {
             const token = getToken();
@@ -22,7 +22,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             protectMenuPage();
-            fetchAllFoodData(); // fetch data from databse through the /api/food endpoint
+            // fetchAllFoodData(); // fetch data from databse through the /api/food endpoint
         });
     </script>
 </head>
@@ -81,7 +81,7 @@
                 <a href="#vegetables" class="card">
                     <h1>Vegetables</h1>
                 </a>
-                <!-- meat + seafood -->
+
                 <a href="#meat" class="card">
                     <h1>Meat poultry and fish</h1>
                 </a>
@@ -173,14 +173,8 @@
         <h2 class="title">Frozen Food</h2>
         <div class="product-container"></div>
     </section>
+    <script type="module" src="../js/foodFetch.js"></script> <!-- import { fetchAllFoodData } from '../js/foodFetch.js'; -->
     <script src="../js/menu.js"></script>
-    <script type="module">
-        import { fetchAllFoodData } from './foodEndpoint.js';
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            fetchAllFoodData();
-        });
-    </script>
 </body>
 
 </html>
