@@ -136,9 +136,15 @@ body {
     padding: 8px;
   }
 
-  .submit-button span {
-    font-size: 13px;
-    padding: 30px;
-    max-width: 140px;
+  .submit-button {
+    padding: 30px 70px;
+    display: flex;
+    justify-content: center;
+   /* max-width: 100%;  Ensure it takes the full width */
   }
+
+  .submit-button span {
+    font-size: 16px;
+  }
+
 }
