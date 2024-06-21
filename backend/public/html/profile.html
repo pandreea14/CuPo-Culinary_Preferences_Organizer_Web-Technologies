@@ -23,8 +23,21 @@
             }
         }
 
+        function displayUserDetails() {
+            const token = localStorage.getItem('token');
+            if (token) {
+                const decodedToken = parseJwt(token);
+                // Assuming the decoded token has an 'email' field
+                const userEmail = decodedToken.email;
+                if (userEmail) {
+                    document.querySelector('.text p').textContent = `User email: ${userEmail}`;
+                }
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
             protectPage();
+            displayUserDetails(); // Call this function to display the user's email
         });
     </script>
 </head>
@@ -49,7 +62,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Profile page - help</h2>
-            <p>hvdsuvhsudvhudvh</p>
+            <p>Here you can logout from the app.</p>
         </div>
     </div>
 
@@ -59,7 +72,7 @@
         <button onclick="logout()" class="logout">Logout</button>
         <div class="details-container">
             <div class="text">
-                <p> aici trb sa apara detaliile userului: email</p>
+                <p></p>
             </div>
         </div>
     </div>

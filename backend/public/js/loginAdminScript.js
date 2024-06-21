@@ -7,7 +7,7 @@ document
     const email = document.getElementById("emailInput").value;
     const password = document.getElementById("passwordInput").value;
 
-    fetch("/login", {
+    fetch("/loginAdmin", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -22,16 +22,12 @@ document
     })
     .then(result => {
         console.log('Success:', result);
-        //trb facuta din partea de client !!!
         localStorage.setItem('token', result.token); // Save the token in localStorage
-        alert("User logged in successfully !!!", result.token);
-        window.location.href = window.location.origin + "/menu";
-        // if (localStorage.getItem('token')) {
-        //     window.location.href = window.location.origin + '/menu';
-        //   }
+        alert("Admin logged in successfully !!!", result.token);
+        window.location.href = window.location.origin + "/menuAdmin";
     })
     .catch(error => {
-        console.error('An error occurred in login script:', error);
-        alert('An error occurred in login script. ' + error.message);
+        console.error('An error occurred in login admin script:', error);
+        alert('An error occurred in login admin script. ' + error.message);
     });
   });

@@ -21,7 +21,7 @@
  
 .logout {
     margin-top: 10px;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 20px;
     padding: 10px 20px;
     border-radius: 10px;
@@ -29,6 +29,7 @@
     color: white;
     margin-bottom: 20px;
     text-align: center;
+    float: right;
 }
 
 .logout:hover{
@@ -38,7 +39,7 @@
 
 .details-container {
     background-color: antiquewhite;
-    display: flex;
+    display: inline-block;
     flex-wrap: nowrap;
     overflow-x: auto;
     flex-direction: column;
@@ -46,6 +47,7 @@
     padding: 20px;
     padding: 10px 20px;
     border-radius: 4px;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 

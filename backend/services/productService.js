@@ -1,15 +1,22 @@
-const { query } = require('../utils/dbUtils');
+const { query } = require("../utils/dbUtils");
 
-const fetchAllProducts = async () => {
-    const sql = 'SELECT * FROM products';
-    try {
-        const results = await query(sql); //asteapta raspunsul de la promisiune
-        return results;
-    } catch (error) {
-        throw new Error('Failed to fetch products from database');
+async function fetchFoodsByCategory(category) {
+    let sql;
+  
+    if (category === "all") {
+      sql = "SELECT name, image, category, calories, alergens, expiration FROM produse";
+    } else {
+      sql = "SELECT name, image, category, calories, alergens, expiration FROM produse WHERE category = ?";
     }
-};
-
-module.exports = {
-    fetchAllProducts
-};
+  
+    try {
+      const results = await query(sql, [category]); // Pass params as the second argument
+      return results;
+    } catch (error) {
+      throw new Error('Failed to fetch products from database');
+    }
+  }
+  
+  module.exports = {
+    fetchFoodsByCategory
+  };
