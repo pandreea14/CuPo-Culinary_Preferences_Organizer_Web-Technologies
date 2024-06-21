@@ -18,6 +18,8 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
     margin: 0 auto;
+    margin-bottom: 150px;
+    height: auto;
 }
  
 .new-shoppinglist {
@@ -29,6 +31,7 @@
     background-color: black;
     color: white;
     margin-bottom: 20px;
+    margin-left: 20px;
     text-align: center;
 }
 
@@ -37,45 +40,46 @@
     transition: all 0.3s ease 0s;
 }
 
+.list-title {
+    font-size: 25px;
+    margin-left: 200px;
+    text-align: center;
+    border-bottom: 2px solid #000; /* underline */
+    padding-bottom: 2px;
+}
+
 .grid-container {
-    display: flex;
-    justify-content: space-around; /* Adjust as needed for your layout */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px; /* Space between items */
+    justify-content: center;
+    align-items: start;
 }
 
 .shoppinglist-container {
     background-color: antiquewhite;
-    display: grid;
-    grid-auto-flow: column; /* Make items flow in columns */
-    gap: 20px;
     padding: 10px 20px;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px; /* Adjust or remove as needed */
 }
 
-.shoppinglist-container-alt {
-    background-color: lavender;
-    display: grid;
-    grid-auto-flow: column; /* Make items flow in columns */
-    gap: 20px;
-    padding: 10px 20px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.shoppinglist-container, .shoppinglist-container-alt {
-    display: flex;
-    flex-direction: column; /* Stacks children vertically */
-    gap: 10px; /* Adjust the space between items */
-}
-
-/* Ensure the list items inside .content also stack vertically */
+/* ensure the list items inside .content also stack vertically */
 .content ul {
-    list-style-type: none; /* Removes default list styling */
-    padding: 0; /* Removes default padding */
+    margin-left: 20px;
+    list-style-type:decimal;
+    padding: 0; /* removes default padding */
 }
 
 .content ul li {
     margin-bottom: 5px; /* Adds space between list items */
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust column sizing as needed */
+    row-gap: 20px; /* 20px gap between rows */
+    align-items: start;
+    margin-top: 5px;
 }
 
 .item-remove-button {
@@ -117,7 +121,14 @@
     background-color: #d32f2f;
 }
 
-.remove-button {
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Align the buttons vertically */
+    gap: 10px;
+}
+
+.remove-button, .change-list-name-button {
     background-color: #ffac4a;
     color: #080808;
     padding: 10px;
@@ -129,7 +140,7 @@
     padding: 10px 20px;
     margin-right: 2%;
 }
-.remove-button:hover {
+.remove-button:hover, .change-list-name-button:hover {
     color: white;
     transition: all 0.3s ease 0s;
     background-color: black;

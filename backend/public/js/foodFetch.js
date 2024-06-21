@@ -57,6 +57,7 @@ async function fetchAllFoodData() {
 
 document.addEventListener('DOMContentLoaded', function () {
     fetchAllFoodData();
+
     document.body.addEventListener('click', function (event) {
         console.log('Click event detected on body');
         const productItem = event.target.closest('.product-item');
@@ -74,7 +75,60 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Shopping button clicked');
             const foodItem = productItem.querySelector('h2').textContent;
             console.log('Clicked Add to Shopping List:', foodItem);
+            // open the shopping list modal
+            var shoppingListModal = document.getElementById("shoppingListModal");
+            if (shoppingListModal) {
+                shoppingListModal.style.display = "block";
+            }
+
             addToShoppingList({ name: foodItem });
         }
     });
+
+    // Optional: Close the modal if the user clicks outside of it
+    window.addEventListener("click", function (event) {
+        if (event.target == shoppingListModal) {
+            shoppingListModal.style.display = "none";
+        }
+    });
+
+    // Optional: Close button inside the modal
+    var closeButton = document.querySelector(".modalsh .close-button");
+    if (closeButton) {
+        closeButton.addEventListener("click", function () {
+            shoppingListModal.style.display = "none";
+        });
+    }
 });
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     // Select all "Add to shopping list" buttons
+//     var shoppingButtons = document.querySelectorAll(".shopping-button");
+//     // Select the shopping list modal
+//     var shoppingListModal = document.getElementById("shoppingListModal");
+  
+//     // Function to open the shopping list modal
+//     function openShoppingListModal() {
+//       shoppingListModal.style.display = "block";
+//     }
+  
+//     // Add click event listener to each shopping button
+//     shoppingButtons.forEach(function(button) {
+//       button.addEventListener("click", openShoppingListModal);
+//     });
+  
+//     // Optional: Close the modal if the user clicks outside of it
+//     window.addEventListener("click", function (event) {
+//       if (event.target == shoppingListModal) {
+//         shoppingListModal.style.display = "none";
+//       }
+//     });
+  
+//     // Optional: Close button inside the modal
+//     var closeButton = document.querySelector(".modalsh .close-button");
+//     if (closeButton) {
+//       closeButton.addEventListener("click", function () {
+//         shoppingListModal.style.display = "none";
+//       });
+//     }
+//   });
