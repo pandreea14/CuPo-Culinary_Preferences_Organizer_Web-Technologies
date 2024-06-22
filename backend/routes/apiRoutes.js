@@ -2,6 +2,7 @@ const { handleRegister } = require("../controllers/registerController");
 const { handleLogin } = require("../controllers/loginController");
 const { getFood } = require("../controllers/productController");
 const { getFavorites, addFavorites, removeFavorite } = require("../controllers/favoritesController");
+const { handleSearchFriend } = require("../controllers/friendsController");
 
 module.exports = (request, response) => {
   console.log(`Received ${request.method} request at ${request.url}`);
@@ -20,14 +21,13 @@ module.exports = (request, response) => {
     } else if (parsedUrl.pathname === "/api/favorites") {
       addFavorites(request, response);
     }
-      else if(parsedUrl.pathname=== "/api/searchFriend"){
-      handleSearchFriend(request, response);
-    }
   } else if (request.method === "GET") {
     if (parsedUrl.pathname === "/api/food") {
       getFood(request, response);
     } else if (parsedUrl.pathname === "/api/favorites") {
       getFavorites(request, response);
+    } else if(parsedUrl.pathname=== "/api/searchFriend"){
+      handleSearchFriend(request, response);
     }
   } else if (request.method === "DELETE") {
     if (parsedUrl.pathname === "/api/favorites") {

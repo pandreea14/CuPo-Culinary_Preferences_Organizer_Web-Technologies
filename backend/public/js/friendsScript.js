@@ -12,13 +12,19 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        const token = getToken(); // Function to get the JWT token
+        if (!token) {
+            alert('You must be logged in to search for friends.');
+            return;
+        }
+
         try {
-            const response = await fetch('/api/searchFriend', {
-                method: 'POST',
+            const response = await fetch(`/api/searchFriend?email=${encodeURIComponent(friendEmail)}`, {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ friendEmail }),
+                    'Authorization': `Bearer ${token}`
+                }
             });
 
             if (!response.ok) {
@@ -29,29 +35,35 @@ document.addEventListener('DOMContentLoaded', function () {
             displaySearchResult(result);
         } catch (error) {
             console.error('An error occurred:', error);
-            alert('Friend search failed eroare la catch.');
+            alert('Friend search failed. ' + error.message);
         }
     });
 
     function displaySearchResult(result) {
         // Clear previous friend container content
         friendsContainer.innerHTML = '';
-
+    
         if (result.error) {
-            //verifica in caz de eroare
+            // Check for error message
             friendsContainer.innerHTML = `<div class="text"><p>${result.error}</p></div>`;
             return;
         }
-
-        //html intern
-        const friendHtml = `
-            <div class="friend">
-                <p>Email: ${result.email}</p>
-                <!-- Add more details as needed -->
-            </div>
-        `;
-
-        // Append the friendHtml to the friends container
-        friendsContainer.innerHTML += friendHtml;
+    
+        if (Array.isArray(result) && result.length > 0) {
+            // Iterate over each result to generate HTML
+            result.forEach(user => {
+                const friendHtml = `
+                    <div class="friend">
+                        <p>Email: ${user.email}</p>
+                        <!-- Add more details as needed -->
+                    </div>
+                `;
+                // Append the friendHtml to the friends container
+                friendsContainer.innerHTML += friendHtml;
+            });
+        } else {
+            // Handle case where result is not an array or is empty
+            friendsContainer.innerHTML = `<div class="text"><p>No users found.</p></div>`;
+        }
     }
 });
