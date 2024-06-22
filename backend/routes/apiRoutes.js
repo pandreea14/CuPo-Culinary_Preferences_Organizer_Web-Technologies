@@ -1,7 +1,4 @@
-//else if(request.method ==='POST' && request.url === "/api/searchFriend"){
-  //   handleSearchFriend(request, response);
-  // }
-  const { handleRegister } = require("../controllers/registerController");
+const { handleRegister } = require("../controllers/registerController");
 const { handleLogin } = require("../controllers/loginController");
 const { getFood } = require("../controllers/productController");
 const { getFavorites, addFavorites, removeFavorite } = require("../controllers/favoritesController");
