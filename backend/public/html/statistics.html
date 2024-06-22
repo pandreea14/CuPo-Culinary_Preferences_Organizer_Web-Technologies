@@ -141,6 +141,191 @@
     }
   </script>
 
+  <!-- chart 5 -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Country', 'Obesity percentage'],
+        ['American Samoa', 	70.29],
+        ['Nauru', 69.65],
+        ['Tokelau', 67.05],
+        ['Cook Islands', 66.05],
+        ['Niue', 	63.71],
+        ['Tonga',	63.37],
+        ['Tuvalu', 57.73],
+        ['Samoa', 52.83],
+        ['French Polynesia', 7.02],
+        ['United States', 41.64],
+        ['Qatar', 40.79],
+        ['Bahamas', 39.78],
+        ['Palau', 39.10],
+        ['Federated States of Micronesia', 	39.02],
+        ['Kuwait', 	38.88],
+        ['Romania', 38.34],
+        ['Saudi Arabia', 	38.13],
+        ['Marshall Islands', 	38.09],
+        ['Saint Kitts and Nevis', 37.59],
+        ['Puerto Rico', 36.46],
+        ['Hungary', 36.43],
+        ['Kiribati', 	36.08],
+        ['Malta', 36.02],
+        ['Argentina', 35.53],
+        ['Croatia', 	34.80],
+        ['Georgia', 	34.34],
+        ['Jordan', 34.20],
+        ['Chile', 34.10],
+        ['Belize', 	33.62],
+        ['Iraq', 	33.35],
+      ]);
+
+      var options = {
+        title: 'Obesity rates in the world',
+        legend: { position: 'none' },
+      };
+
+      var chart = new google.visualization.Histogram(document.getElementById('chart_div5'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <!-- chart 6 -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Fast Food', 'healthy Food'],
+          ['2013',  30,      40],
+          ['2014',  40,      50],
+          ['2015',  70,       30],
+          ['2022',  60,      55]
+        ]);
+
+        var options = {
+          title: 'How people choose to eat over the years',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <!-- chart 7  -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Children - sample size', 'Rate of Obesity'],
+          ['2004',  100,      10],
+          ['2010',  100,      15],
+          ['2015',  100,       15],
+          ['2024',  100,      30]
+        ]);
+
+        var options = {
+          title: 'Obesity rate in children through the years',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <!-- chart 8 -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Mon - carbs, fats, protein, sugars ', 20, 28, 38, 45],
+      ['Tue - carbs, fats, protein, sugars', 31, 38, 55, 66],
+      ['Wed - carbs, fats, protein, sugars', 50, 55, 77, 80],
+      ['Thu - carbs, fats, protein, sugars', 77, 77, 66, 50],
+      ['Fri - carbs, fats, protein, sugars', 68, 66, 22, 15]
+      // Treat first row as data as well.
+    ], true);
+
+    var options = {
+      legend:'none'
+    };
+
+    var chart = new google.visualization.CandlestickChart(document.getElementById('chart_div8'));
+
+    chart.draw(data, options);
+  }
+    </script>
+
+    <!-- chart 9 -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
+          ['2004/05',  165,      938,         522,             998,           450,      614.6],
+          ['2005/06',  135,      1120,        599,             1268,          288,      682],
+          ['2006/07',  157,      1167,        587,             807,           397,      623],
+          ['2007/08',  139,      1110,        615,             968,           215,      609.4],
+          ['2008/09',  136,      691,         629,             1026,          366,      569.6]
+        ]);
+
+        var options = {
+          title : 'Monthly Coffee Production by Country',
+          vAxis: {title: 'Cups'},
+          hAxis: {title: 'Month'},
+          seriesType: 'bars',
+          series: {5: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div9'));
+        chart.draw(data, options);
+      }
+    </script>
+    <!-- chart 10 -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Sample people',  'Healthy food', 'Fast food'],
+          ['Alfred Hitchcock ', 8.4,         8],
+          ['Ralph Thomas ',     6.9,         7.5],
+          ['Don Sharp',        6.5,         8.1],
+          ['James Hawes',      4.4,         6.2]
+        ]);
+
+        var options = {
+          title: 'The decline of Fast Food vs Healthy Food ratio',
+          vAxis: {title: 'Accumulated Rating'},
+          isStacked: true
+        };
+
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div10'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
 </head>
 
 <body>
@@ -179,6 +364,14 @@
     <div id="series_chart_div" class="chart2"></div>
     <div id="piechart_3d" class="chart3"></div>
     <div id="table_div" class="chart4"></div>
+    <div id="chart_div5" class="chart5"></div>
+    <div id="chart_div" class="chart6"></div>
+    <div id="curve_chart" class="chart7"></div>
+    <div id="chart_div8" class="chart8"></div>
+    <div id="chart_div9" class="chart9"></div>
+    <div id="chart_div10" class="chart10"></div>
+
+
   </div>
   <script src="../js/menu.js"></script>
 </body>

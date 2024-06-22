@@ -1,41 +1,80 @@
 .chart1,
 .chart2,
 .chart3,
-.chart4 {
+.chart4,
+.chart5,
+.chart6,
+.chart7,
+.chart8,
+.chart9,
+.chart10 {
     width: 600px;
     height: 400px;
     outline: auto;
 }
 
-.chart1 {
-    margin: 100px 0 0 20px;
+.chart1
+{
+    margin: 200px 0 0 20px;
     /*top right bottom left*/
 }
 
-.chart2 {
+.chart2,
+.chart8,
+.chart9,
+.chart10 {
     margin: 50px 0 0 20px;
 }
 
-.chart3 {
+.chart3,
+.chart4,
+.chart5,
+.chart6,
+.chart7 {
     position: absolute;
-    top: 100px;
+    top: 200px;
     right: 20px;
     margin: 0;
 }
 
 .chart4 {
     position: absolute;
-    top: 550px;
+    top: 650px;
     right: 20px;
     margin: 0;
 }
+ .chart5{
+    position:absolute;
+    top:1100px;
+    right:20px;
+    margin:0px;
+} 
+.chart6{
+    position:absolute;
+    top:1550px;
+    right:20px;
+    margin:0px;
+} 
+.chart7{
+    position:absolute;
+    top:2000px;
+    right:20px;
+    margin:0px;
+}
+
+/* 
 
 .charts {
     margin-top: 100px;
-}
+} */
 
 @media (max-width: 1200px) {
-    .chart3 {
+    .chart3,
+    .chart4,
+    .chart5,
+    .chart6,
+    .chart7
+     {
         position: relative;
         top: 0;
         right: 0;
@@ -43,20 +82,16 @@
         margin: 15px 0px;
     }
 
-    .chart4 {
-        position: relative;
-        top: 0;
-        right: 0;
-        left:20px;
-        margin: 15px 0px;
-    }
 }
 
 
 @media (max-width: 768px) {
 
     .chart3,
-    .chart4 {
+    .chart4,
+    .chart5,
+    .chart6,
+    .chart7 {
         position: relative;
         top: 0;
         right: 0;
