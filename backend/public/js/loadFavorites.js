@@ -1,4 +1,5 @@
 import { removeFromFavorites } from "./addToFavorites.js";
+import { fetchAndDisplayShoppingLists } from "./addToShoppingList.js";
 import { parseJwt } from "./tokenScript.js";
 
 async function loadFavorites() {
@@ -62,11 +63,12 @@ async function loadFavorites() {
         productItem.remove();
       } else if (event.target.classList.contains("shopping-button")) {
         const productItem = event.target.closest(".product-item");
-        console.log(
-          "Added to shopping list:",
-          productItem.querySelector("h2").textContent
-        );
-        // apel la functia cu addtoshoppinglist
+        const foodItem = productItem.querySelector('h2').textContent;
+        const shoppingListModal = document.getElementById("shoppingListModal");
+        if (shoppingListModal) {
+            shoppingListModal.style.display = "block";
+            fetchAndDisplayShoppingLists(foodItem);
+        }
       }
     });
   } catch (error) {
@@ -76,4 +78,40 @@ async function loadFavorites() {
 }
 
 // Load favorites on DOMContentLoaded
-document.addEventListener("DOMContentLoaded", loadFavorites);
+document.addEventListener("DOMContentLoaded", async function () {
+  await loadFavorites();
+
+  document.body.addEventListener('click', function (event) {
+    const productItem = event.target.closest('.product-item');
+    if (!productItem) {
+        return;
+    }
+
+    document.querySelectorAll('.product-item').forEach(item => item.classList.remove('selected'));
+    productItem.classList.add('selected');
+
+    if (event.target.classList.contains('shopping-button')) {
+        const foodItem = productItem.querySelector('h2').textContent;
+        const shoppingListModal = document.getElementById("shoppingListModal");
+        if (shoppingListModal) {
+            shoppingListModal.style.display = "block";
+            fetchAndDisplayShoppingLists(foodItem);
+        }
+    }
+});
+
+  window.addEventListener("click", function (event) {
+    const shoppingListModal = document.getElementById("shoppingListModal");
+    if (event.target == shoppingListModal) {
+      shoppingListModal.style.display = "none";
+    }
+  });
+
+  const closeButton = document.querySelector(".modalsh .close");
+  if (closeButton) {
+    closeButton.addEventListener("click", function () {
+      const shoppingListModal = document.getElementById("shoppingListModal");
+      shoppingListModal.style.display = "none";
+    });
+  }
+});

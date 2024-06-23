@@ -1,6 +1,5 @@
 import { addToFavorites } from './addToFavorites.js';
-import { addToShoppingList } from './addToShoppingList.js';
-import { parseJwt } from './tokenScript.js';
+import { fetchAndDisplayShoppingLists } from './addToShoppingList.js';
 
 async function fetchAllFoodData() {
 
@@ -55,47 +54,6 @@ async function fetchAllFoodData() {
         console.error('An error occurred in fetching food data:', error);
         alert('An error occurred in fetching food data. ' + error.message);
     }
-}
-
-async function fetchAndDisplayShoppingLists(foodName) {
-    const token = localStorage.getItem("token");
-    const user = parseJwt(token);
-    try {
-        const response = await fetch(`/api/shoppingList?user=${user.email}`);
-        if (!response.ok) {
-            throw new Error('Failed to fetch shopping lists');
-        }
-        const shoppingLists = await response.json();
-        updateShoppingListModal(shoppingLists, foodName);
-    } catch (error) {
-        console.error('Error fetching shopping lists:', error);
-    }
-}
-
-function updateShoppingListModal(shoppingLists, foodName) {
-    const modalContent = document.getElementById('shoppingListTitles');
-    modalContent.innerHTML = '';
-
-    if (shoppingLists.length === 0) {
-        modalContent.innerHTML = '<p>Go to the shopping list page to create a list.</p>';
-        return;
-    }
-
-    const list = document.createElement('div');
-    list.className = 'lists-container';
-    shoppingLists.forEach(listItem => {
-        const item = document.createElement('button');
-        item.textContent = listItem.title;
-        item.classList.add('button-item');
-        item.dataset.listName = listItem.title;
-        
-        item.addEventListener('click', function() {
-            addToShoppingList(foodName, this.dataset.listName);
-        });
-        
-        list.appendChild(item);
-    });
-    modalContent.appendChild(list);
 }
 
 document.addEventListener('DOMContentLoaded', async function () {

@@ -37,19 +37,24 @@ async function loadShoppingLists() {
       } else {
         shoppingLists.forEach((list) => {
           const shHtml = `
-                      <div class="shoppinglist-container">
-                            <div class="list-title">
+                          <div class="shoppinglist-container" data-title="${list.title}">
+                        <div class="list-title">
                             <i><b>${list.title}</b></i>
-                            </div>
-                            <p>with ${user.email}</p>
-                            <div class="content">
-                            <div class="list-item-container">
-                                ${list.items.length ? list.items.map(item => `<span>${item}</span>`).join('') : '<span>no items yet</span>'}
-                            </div>
-                            </div>
-                            <button class="remove-button"><b>DELETE LIST</b></button>
                         </div>
-                  `;
+                        <div class="content">
+                            <ul>
+                                ${list.items.length ? list.items.map(item => `
+                                <li>
+                                    <div class="list-item-container">
+                                        <span>${item}</span>
+                                        <button class="item-remove-button">Remove</button>
+                                    </div>
+                                </li>`).join('') : '<span>No items yet in this list</span>'}
+                            </ul>
+                        </div>
+                        <button class="remove-button"><b>DELETE LIST</b></button>
+                    </div>
+                      `;
           shContainer.insertAdjacentHTML("beforeend", shHtml);
         });
       }
@@ -105,7 +110,7 @@ async function loadShoppingLists() {
     }
   }
   
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     loadShoppingLists();
   
     // Attach event listener to a static parent element
@@ -163,10 +168,9 @@ async function loadShoppingLists() {
                       <div class="list-title">
                           <i><b>${listName}</b></i>
                       </div>
-                      <p>with cutarica@nustiucinesunt.con</p>
                       <div class="content">
                           <div class="list-item-container">
-                              <span>no items yet</span>
+                              <span>No items yet in this list</span>
                           </div>
                       </div>
                       <button class="remove-button"><b>DELETE LIST</b></button>
@@ -188,4 +192,4 @@ async function loadShoppingLists() {
       });
   
   
-  });
+});
