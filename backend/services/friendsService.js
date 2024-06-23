@@ -17,6 +17,20 @@ async function searchUserByEmail(email) {
   }
 }
 
+async function addFriend(userEmail, friendEmail) {
+  const sql = 'INSERT INTO user_friends (user_email, friend_email) VALUES (?, ?)';
+  const params = [userEmail, friendEmail];
+
+  try {
+    await query(sql, params);
+    return { message: "Friend added successfully." };
+  } catch (error) {
+    console.error("Error adding friend to db:", error);
+    throw error; // Rethrow or handle as needed
+  }
+}
+
 module.exports = {
   searchUserByEmail,
+  addFriend
 };

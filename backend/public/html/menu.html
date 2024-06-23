@@ -9,21 +9,13 @@
     <link rel="stylesheet" href="../css/menu.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="../js/tokenScript.js"></script>
-    <!-- <script src="../js/foodFetch.js"></script> -->
-    <script>
-        function protectMenuPage() {
-            const token = getToken();
-            // if (!token || !isTokenValid(token) || getUserRole(token) !== 'standard') {
-            if (!token || !isTokenValid(token)) {
-                window.location.replace(window.location.origin + '/login');
-            }
-        }
+    <script type="module">
+        import { protectPage, redirectIfAuthenticated } from '../js/tokenScript.js';
 
-        document.addEventListener('DOMContentLoaded', function () {
-            protectMenuPage();
-            // fetchAllFoodData(); // fetch data from databse through the /api/food endpoint
-        });
+        protectPage();
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     redirectIfAuthenticated();
+        // });
     </script>
 </head>
 
@@ -128,10 +120,11 @@
         <div class="modal-content-sh">
             <span class="close">&times;</span>
             <h2>Shopping Lists</h2>
-            <ul id="shoppingListTitles">
-            <!-- Shopping list titles will be added here dynamically -->
-            </ul>
-            <button id="createNewList">Create New Shopping List</button>
+            <div id="shoppingListTitles">
+
+                <!-- Shopping list titles will be added here dynamically -->
+            </div>
+            <!-- <button id="createNewList">Create New Shopping List</button> nu mai am chef sa fac asta aici-->
         </div>
     </div>
 
@@ -185,8 +178,10 @@
         <h2 class="title">Frozen Food</h2>
         <div class="product-container"></div>
     </section>
-    <script type="module" src="../js/foodFetch.js"></script> <!-- import { fetchAllFoodData } from '../js/foodFetch.js'; -->
+    <script type="module" src="../js/foodFetch.js"></script>
+    <!-- import { fetchAllFoodData } from '../js/foodFetch.js'; -->
     <script src="../js/menu.js"></script>
+    <script src="../js/filters.js"></script>
 </body>
 
 </html>

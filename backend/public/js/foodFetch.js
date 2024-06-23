@@ -1,5 +1,6 @@
 import { addToFavorites } from './addToFavorites.js';
 import { addToShoppingList } from './addToShoppingList.js';
+import { parseJwt } from './tokenScript.js';
 
 async function fetchAllFoodData() {
 
@@ -19,6 +20,7 @@ async function fetchAllFoodData() {
             'Dairy': 'dairy',
             'Snacks': 'snacks',
             'Beverages': 'beverages',
+            'Sauces': 'sauce',
             'Sauce': 'sauce',
             'Condiments': 'sauce',
             'Canned Goods': 'cannedgoods',
@@ -55,51 +57,103 @@ async function fetchAllFoodData() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    fetchAllFoodData();
+async function fetchAndDisplayShoppingLists(foodName) {
+    const token = localStorage.getItem("token");
+    const user = parseJwt(token);
+    try {
+        const response = await fetch(`/api/shoppingList?user=${user.email}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch shopping lists');
+        }
+        const shoppingLists = await response.json();
+        updateShoppingListModal(shoppingLists, foodName);
+    } catch (error) {
+        console.error('Error fetching shopping lists:', error);
+    }
+}
+
+function updateShoppingListModal(shoppingLists, foodName) {
+    const modalContent = document.getElementById('shoppingListTitles');
+    modalContent.innerHTML = '';
+
+    if (shoppingLists.length === 0) {
+        modalContent.innerHTML = '<p>Go to the shopping list page to create a list.</p>';
+        return;
+    }
+
+    const list = document.createElement('div');
+    list.className = 'lists-container';
+    shoppingLists.forEach(listItem => {
+        const item = document.createElement('button');
+        item.textContent = listItem.title;
+        item.classList.add('button-item');
+        item.dataset.listName = listItem.title;
+        
+        item.addEventListener('click', function() {
+            addToShoppingList(foodName, this.dataset.listName);
+        });
+        
+        list.appendChild(item);
+    });
+    modalContent.appendChild(list);
+}
+
+document.addEventListener('DOMContentLoaded', async function () {
+    await fetchAllFoodData();
 
     document.body.addEventListener('click', function (event) {
-        console.log('Click event detected on body');
         const productItem = event.target.closest('.product-item');
         if (!productItem) {
-            console.error('Could not find product-item ancestor');
             return;
         }
 
+        document.querySelectorAll('.product-item').forEach(item => item.classList.remove('selected'));
+        productItem.classList.add('selected');
+
         if (event.target.classList.contains('fave-button')) {
-            console.log('Favorite button clicked');
             const foodItem = productItem.querySelector('h2').textContent;
-            console.log('Clicked Add to Favorites:', foodItem);
             addToFavorites({ name: foodItem });
         } else if (event.target.classList.contains('shopping-button')) {
-            console.log('Shopping button clicked');
             const foodItem = productItem.querySelector('h2').textContent;
-            console.log('Clicked Add to Shopping List:', foodItem);
-            // open the shopping list modal
-            var shoppingListModal = document.getElementById("shoppingListModal");
+            const shoppingListModal = document.getElementById("shoppingListModal");
             if (shoppingListModal) {
                 shoppingListModal.style.display = "block";
+                fetchAndDisplayShoppingLists(foodItem);
             }
-
-            addToShoppingList({ name: foodItem });
         }
     });
 
-    // Optional: Close the modal if the user clicks outside of it
     window.addEventListener("click", function (event) {
+        const shoppingListModal = document.getElementById("shoppingListModal");
         if (event.target == shoppingListModal) {
             shoppingListModal.style.display = "none";
         }
     });
 
-    // Optional: Close button inside the modal
-    var closeButton = document.querySelector(".modalsh .close-button");
+    const closeButton = document.querySelector(".modalsh .close");
     if (closeButton) {
         closeButton.addEventListener("click", function () {
+            const shoppingListModal = document.getElementById("shoppingListModal");
             shoppingListModal.style.display = "none";
         });
     }
 });
+
+    // Optional: Close the modal if the user clicks outside of it
+//     window.addEventListener("click", function (event) {
+//         if (event.target == shoppingListModal) {
+//             shoppingListModal.style.display = "none";
+//         }
+//     });
+
+//     // Optional: Close button inside the modal
+//     var closeButton = document.querySelector(".modalsh .close");
+//     if (closeButton) {
+//         closeButton.addEventListener("click", function () {
+//             shoppingListModal.style.display = "none";
+//         });
+//     }
+// });
 
 // document.addEventListener("DOMContentLoaded", function () {
 //     // Select all "Add to shopping list" buttons

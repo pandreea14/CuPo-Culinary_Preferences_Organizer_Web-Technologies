@@ -7,18 +7,9 @@
     <title>ShoppingList CuPo</title>
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/shoppinglist.css" />
-    <script src="../js/tokenScript.js"></script>
-    <script>
-        function protectPage() {
-            const token = getToken();
-            if (!token || !isTokenValid(token)) {
-                window.location.replace(window.location.origin + '/login');
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            protectPage();
-        });
+    <script type="module">
+        import { protectPage } from '../js/tokenScript.js';
+        protectPage();
     </script>
 </head>
 
@@ -53,181 +44,66 @@
         <div class="title1">
             <i><b>Shopping lists</b></i>
         </div>
-        <button class="new-shoppinglist">
-            <i><b>Create new shopping list</b></i>
-        </button>
 
-        <div class="grid-container">
-            <div class="shoppinglist-container">
-                <div class="list-title">
-                    <i><b>List name</b></i>
-                </div>
-                <!-- plus colaboratori daca e cazul -->
-                <p>with cutarica@nustiucinesunt.con</p>
-                <div class="content">
-                    <ul>
-                        <li>
-                            <div class="list-item-container">
-                                <span>candy</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-item-container">
-                                <span>broccoli</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-item-container">
-                                <span>broccoli</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="button-container">
-                    <!-- <button class="change-list-name-button"><b>CHANGE LIST NAME</b></button> -->
-                    <button class="remove-button"><b>DELETE LIST</b></button>
-                </div>
-            </div>
-            <div class="shoppinglist-container">
-                <div class="list-title">
-                    <i><b>List name</b></i>
-                </div>
-                <!-- plus colaboratori daca e cazul -->
-                <!-- <p>solo</p> -->
-                <div class="content">
-                    <ul>
-                        <li>
-                            <div class="list-item-container">
-                                <span>candy</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-item-container">
-                                <span>broccoli</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="button-container">
-                    <!-- <button class="change-list-name-button"><b>CHANGE LIST NAME</b></button> -->
-                    <button class="remove-button"><b>DELETE LIST</b></button>
-                </div>
-            </div>
-            <div class="shoppinglist-container">
-                <div class="list-title">
-                    <i><b>List name</b></i>
-                </div>
-                <!-- plus colaboratori daca e cazul -->
-                <p>with cutarica@nustiucinesunt.con</p>
-                <div class="content">
-                    <ul>
-                        <li>
-                            <div class="list-item-container">
-                                <span>candy</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-item-container">
-                                <span>broccoli</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="button-container">
-                    <!-- <button class="change-list-name-button"><b>CHANGE LIST NAME</b></button> -->
-                    <button class="remove-button"><b>DELETE LIST</b></button>
-                </div>
-            </div>
-            <div class="shoppinglist-container">
-                <div class="list-title">
-                    <i><b>List name</b></i>
-                </div>
-                <!-- plus colaboratori daca e cazul -->
-                <p>with cutarica@nustiucinesunt.con</p>
-                <div class="content">
-                    <ul>
-                        <li>
-                            <div class="list-item-container">
-                                <span>candy</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-item-container">
-                                <span>broccoli</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="button-container">
-                    <!-- <button class="change-list-name-button"><b>CHANGE LIST NAME</b></button> -->
-                    <button class="remove-button"><b>DELETE LIST</b></button>
-                </div>
-            </div>
-            <div class="shoppinglist-container">
-                <div class="list-title">
-                    <i><b>List name</b></i>
-                </div>
-                <!-- plus colaboratori daca e cazul -->
-                <p>with cutarica@nustiucinesunt.con</p>
-                <div class="content">
-                    <ul>
-                        <li>
-                            <div class="list-item-container">
-                                <span>candy</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-item-container">
-                                <span>broccoli</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-item-container">
-                                <span>broccoli</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-item-container">
-                                <span>broccoli</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-item-container">
-                                <span>broccoli</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-item-container">
-                                <span>broccoli</span>
-                                <button class="item-remove-button">Remove</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="button-container">
-                    <!-- <button class="change-list-name-button"><b>CHANGE LIST NAME</b></button> -->
-                    <button class="remove-button"><b>DELETE LIST</b></button>
-                </div>
-            </div>
+        <div class="clearfix">
+            <form id="createListForm">
+                <input type="text" id="listNameInput" placeholder="Enter list name" class="input">
+                <button class="new-shoppinglist">
+                    <i><b>Create new shopping list</b></i>
+                </button>
+            </form>
         </div>
 
+        <div class="clear">
+            <div id="shoppingListsContainer" class="grid-container">
+                <!-- <div class="shoppinglist-container">
+                    <div class="list-title">
+                        <i><b>List name</b></i>
+                    </div>
+                    !-- plus colaboratori daca e cazul --
+                    <p>with cutarica@nustiucinesunt.con</p>
+                    <div class="content">
+                        <div class="list-item-container">
+                            <span>no items yet</span>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        !-- <button class="change-list-name-button"><b>CHANGE LIST NAME</b></button> --
+                        <button class="remove-button"><b>DELETE LIST</b></button>
+                    </div>
+                </div>
+                <div class="shoppinglist-container">
+                    <div class="list-title">
+                        <i><b>List name</b></i>
+                    </div>
+                    !-- plus colaboratori daca e cazul --
+                    !-- <p>solo</p> --
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <div class="list-item-container">
+                                    <span>candy</span>
+                                    <button class="item-remove-button">Remove</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-item-container">
+                                    <span>broccoli</span>
+                                    <button class="item-remove-button">Remove</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="button-container">
+                        !-- <button class="change-list-name-button"><b>CHANGE LIST NAME</b></button> --
+                        <button class="remove-button"><b>DELETE LIST</b></button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
     </div>
     <script src="../js/menu.js"></script>
-    <script src="../js/shoppinglist.js"></script>
+    <script src="../js/loadShoppingList.js"></script>
 </body>
 
 </html>

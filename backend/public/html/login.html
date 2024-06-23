@@ -6,40 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login CuPo</title>
   <link rel="stylesheet" href="../css/login.css" />
-  <script src="../js/tokenScript.js"></script>
-  <script>
-
-    //am incercat ceva nu mi mai merge creierul... imi pare ca nu merge total tbh
-    function roleValidation(requiredRole) {
-    try {
-      const token = getToken();
-      const role = getUserRole(token);
-      console.log('User role:', role);
-      if (!role) {
-        console.log("Role is empty. Staying on the login page.");
-        return false;
+  <script type="module">
+    import { roleValidation, redirectIfAuthenticated } from '../js/tokenScript.js';
+    document.addEventListener('DOMContentLoaded', function () {
+      if (roleValidation("user")) {
+        redirectIfAuthenticated();
       }
-      if (role === requiredRole) {
-        return true;
-      } else {
-        // Error message indicating lack of access
-        alert("Access denied: Please login as admin first.");
-        window.location.replace(window.location.origin + "/loginAdmin");
-        return false;
-      }
-    } catch (error) {
-      console.error('Error during role validation:', error);
-      alert("It seems like you are logged out. Please login again!");
-      window.location.replace(window.location.origin + "/login");
-      return false;
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    if (roleValidation('user')) {
-      redirectIfAuthenticated();
-    }
-  });
+    });
   </script>
 </head>
 
@@ -60,7 +33,6 @@
       </form>
     </div>
     <p>Don't have an account? <a href="/register" class="register-link">Register here</a></p>
-    <a href="/loginAdmin" class="register-link">Login as admin!</a>
   </div>
   <script src="../js/loginScript.js"></script>
 </body>

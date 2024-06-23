@@ -1,3 +1,5 @@
+import { parseJwt } from "./tokenScript.js";
+
 export async function addToFavorites(food) {
     console.log('Adding to favorites:', food.name);
 
@@ -63,14 +65,4 @@ export async function removeFromFavorites(foodName) {
         console.error('An error occurred in removing favorite food:', error);
         alert('An error occurred in removing favorite food. ' + error.message);
     }
-}
-
-// Function to parse JWT token - browser style
-function parseJwt(token) {
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-    return JSON.parse(jsonPayload);
 }

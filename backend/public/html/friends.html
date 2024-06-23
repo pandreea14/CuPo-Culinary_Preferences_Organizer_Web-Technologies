@@ -9,18 +9,9 @@
     <link rel="stylesheet" href="../css/friends.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="../js/tokenScript.js"></script>
-    <script>
-        function protectPage() {
-            const token = getToken();
-            if (!token || !isTokenValid(token)) {
-                window.location.replace(window.location.origin + '/login');
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            protectPage();
-        });
+    <script type="module">
+        import { protectPage } from '../js/tokenScript.js';
+        protectPage();
     </script>
 </head>
 
@@ -59,7 +50,7 @@
 
     <div class="overlay-container">
         <div class="title1"><i><b>Your friends</b></i></div>
-        <div class="add-newfriends"><i><b>Add new friends</b></i></div>
+        <div class="add-newfriends"><i><b>Add friend</b></i></div>
         <div class="friend-container">
             <div class="text">
                 <p> No friends yet! Try searching through existing users!</p>
@@ -67,7 +58,7 @@
         </div>
     </div>
     <script src="../js/menu.js"></script>
-    <script src="../js/friendsScript.js"></script>
+    <script type="module" src="../js/friendsScript.js"></script>
 </body>
 
 </html>

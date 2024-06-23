@@ -8,7 +8,6 @@ module.exports = (request, response) => {
     "/menu": "menu.html",
     "/admin": "admin.html",
     "/menuAdmin": "menuAdmin.html",
-    "/loginAdmin": "loginAdmin.html",
     "/friends": "friends.html",
     "/favorites": "favorites.html",
     "/shoppinglist": "shoppinglist.html",

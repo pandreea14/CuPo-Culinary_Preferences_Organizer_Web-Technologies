@@ -7,25 +7,14 @@
     <title>Profile CuPo</title>
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/profile.css" />
-    <script src="../js/tokenScript.js"></script>
-    <script>
-        function logout() {
-            if (confirm("Are you sure you want to logout?")) {
-                localStorage.removeItem('token');
-                window.location.replace(window.location.origin + '/login');
-            }
-        }
+    <script type="module">
+        import { getToken, isTokenValid, parseJwt, logout, protectPage } from '../js/tokenScript.js';
 
-        function protectPage() {
-            const token = getToken();
-            if (!token || !isTokenValid(token)) {
-                window.location.replace(window.location.origin + '/login');
-            }
-        }
+        protectPage();
 
         function displayUserDetails() {
-            const token = localStorage.getItem('token');
-            if (token) {
+            const token = getToken();
+            if (token && isTokenValid(token)) {
                 const decodedToken = parseJwt(token);
                 // Assuming the decoded token has an 'email' field
                 const userEmail = decodedToken.email;
@@ -34,11 +23,12 @@
                 }
             }
         }
-
         document.addEventListener('DOMContentLoaded', function () {
-            protectPage();
-            displayUserDetails(); // Call this function to display the user's email
+            displayUserDetails();
         });
+
+        // Attach logout to the window object to make it globally accessible
+        window.logout = logout;
     </script>
 </head>
 

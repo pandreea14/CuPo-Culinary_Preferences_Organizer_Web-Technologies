@@ -1,4 +1,5 @@
 import { removeFromFavorites } from "./addToFavorites.js";
+import { parseJwt } from "./tokenScript.js";
 
 async function loadFavorites() {
   const token = localStorage.getItem("token");
@@ -72,21 +73,6 @@ async function loadFavorites() {
     console.error("An error occurred in fetching favorite food data:", error);
     alert("An error occurred in fetching favorite food data. " + error.message);
   }
-}
-
-// Function to parse JWT token
-function parseJwt(token) {
-  const base64Url = token.split(".")[1];
-  const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-  const jsonPayload = decodeURIComponent(
-    atob(base64)
-      .split("")
-      .map(function (c) {
-        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-      })
-      .join("")
-  );
-  return JSON.parse(jsonPayload);
 }
 
 // Load favorites on DOMContentLoaded

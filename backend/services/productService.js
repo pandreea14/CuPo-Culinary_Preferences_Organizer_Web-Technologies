@@ -4,9 +4,9 @@ async function fetchFoodsByCategory(category) {
     let sql;
   
     if (category === "all") {
-      sql = "SELECT name, image, category, calories, alergens, expiration FROM produse";
+      sql = "SELECT * FROM produse";
     } else {
-      sql = "SELECT name, image, category, calories, alergens, expiration FROM produse WHERE category = ?";
+      sql = "SELECT * FROM produse WHERE category = ?";
     }
   
     try {

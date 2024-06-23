@@ -1,18 +1,8 @@
-const { searchUserByEmail } = require("../services/friendsService");
+const { searchUserByEmail, addFriend } = require("../services/friendsService");
 const { parseJwt } = require("../utils/jwtUtils");
-const { url } = require("url");
 
 const handleSearchFriend = async (req, res) => {
-  // const { friendEmail } = request.body;
-
-  // const user = await searchUserByEmail(friendEmail);
-
-  // if (user.error) {
-  //   response.status(404).json({ error: user.error });
-  //   return;
-  // }
-
-  // Assuming `request` is the correct parameter name, not `req`
+ 
 const fullUrl = new URL(req.url, `http://${req.headers.host}`);
 const email = fullUrl.searchParams.get('email');
 
@@ -54,6 +44,19 @@ const email = fullUrl.searchParams.get('email');
   }
 };
 
+async function handleAddFriend(request, response) {
+  try {
+    const { userEmail, friendEmail } = request.body;
+    const result = await addFriend(userEmail, friendEmail);
+    response.writeHead(200, { "Content-Type": "application/json" });
+    response.end(JSON.stringify(result));
+  } catch (error) {
+    response.writeHead(500, { "Content-Type": "application/json" });
+    response.end(JSON.stringify({ error: "Failed to add friend." }));
+  }
+};
+
 module.exports = {
   handleSearchFriend,
+  handleAddFriend
 };

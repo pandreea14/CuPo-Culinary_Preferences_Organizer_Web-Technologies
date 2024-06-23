@@ -8,8 +8,7 @@ const server = http.createServer((request, response) => {
       request.url.startsWith("/api") ||
       (request.method === "POST" &&
         (request.url.startsWith("/register") ||
-          request.url.startsWith("/login") ||
-          request.url.startsWith("/loginAdmin")))
+          request.url.startsWith("/login")))
     ) {
       apiRoutes(request, response);
     } else {
