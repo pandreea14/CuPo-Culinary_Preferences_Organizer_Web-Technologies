@@ -10,14 +10,14 @@
     padding-left: 20px;
 }
 
-.sidebar {
+/* .sidebar {
     background-color: #ffab4af0;
     padding: 20px;
     width: 200px;
     flex: 0 0 200px;
     margin-top: 80px;
     border-radius: 5px;
-}
+} */
 
 .sidebar h2 {
     margin-bottom: 10px;
@@ -31,9 +31,83 @@
     padding-bottom: 5px;
 }
 
+.sidebar {
+    background-color: #ffab4af0;
+    padding: 20px;
+    width: 200px;
+    flex: 0 0 200px;
+    margin-top: 80px;
+    border-radius: 5px;
+}
+
+.range {
+    margin-bottom: 20px;
+}
+
+.range-values {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.range-values span {
+    font-size: 14px;
+}
+
+.range input[type="range"] {
+    flex-grow: 1;
+    margin: 0 10px;
+}
+
+.range input[type="range"] {
+    width: 100%;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #f2f2f2;
+    outline: none;
+    border-radius: 10px;
+}
+
+.range input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.range input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.filter {
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filter-button:hover {
+    background-color: #333;
+}
+
+
 
 /* price filter */
-.range {
+/* .range {
     position: relative;
     margin-bottom: 20px;
     height: 80px;
@@ -42,8 +116,6 @@
 
 .range-values {
     position: absolute;
-    /* display: flex;
-    justify-content: space-between; */
     top: 50px;
     left: 0;
     text-align: right;
@@ -51,21 +123,21 @@
 
 .range-values span {
     margin-top: 15px;
-}
+} */
 
-#min-value {
+/* #min-value-exp {
     display: flex;
     align-items: flex-end;
     margin-top: -5px;
 }
 
-#max-value {
+#max-value-cal {
     display: flex;
     align-items: flex-start;
     margin: -20px 120px;
-}
+} */
 
-.range label {
+/* .range label {
     display: block;
     margin-bottom: 5px;
     font-size: 16px;
@@ -97,7 +169,28 @@
     background: black;
     border-radius: 50%;
     cursor: pointer;
+} */
+
+/* .range {
+    position: relative;
+    margin-bottom: 20px;
 }
+
+.range input[type="range"] {
+    width: 100%;
+}
+
+.range-values {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.range-values span {
+    font-size: 14px;
+} */
 
 
 /* other filters */
@@ -197,6 +290,10 @@ main {
 .categories::-webkit-scrollbar-track {
     background-color: rgb(243, 223, 223);
     border-radius: 10px;
+}
+
+.hidden {
+    display: none;
 }
 
 /* detailed categories */

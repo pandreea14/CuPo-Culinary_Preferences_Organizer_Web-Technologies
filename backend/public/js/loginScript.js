@@ -32,6 +32,6 @@ document
     })
     .catch(error => {
         console.error('An error occurred in login script:', error);
-        alert('An error occurred in login script. ' + error.message);
+        alert(error.message);
     });
   });

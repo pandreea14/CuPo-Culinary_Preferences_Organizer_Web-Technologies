@@ -1,6 +1,6 @@
 const { handleRegister } = require("../controllers/registerController");
 const { handleLogin } = require("../controllers/loginController");
-const { getFood } = require("../controllers/productController");
+const { getFood, getResult } = require("../controllers/productController");
 const { getFavorites, addFavorites, removeFavorite } = require("../controllers/favoritesController");
 const { handleSearchFriend, handleAddFriend } = require("../controllers/friendsController");
 const { handleShoppingList, getShoppingList, handleDeleteList, addItemToList } = require("../controllers/shoppingListController");
@@ -35,6 +35,8 @@ module.exports = (request, response) => {
       handleSearchFriend(request, response);
     } else if (parsedUrl.pathname === "/api/shoppingList") {
       getShoppingList(request, response);
+    } else if (request.url.startsWith("/api/searchFilter")) {
+      getResult(request, response);
     }
   } else if (request.method === "DELETE") {
     if (parsedUrl.pathname === "/api/favorites") {

@@ -1,29 +1,21 @@
-document.querySelector('.filter-button').addEventListener('click', () => {
-    const calories = document.getElementById('calories').value;
-    const expiration = document.getElementById('expiration').value;
-    const restrictions = document.getElementById('restrictions-filter').value;
-
-    fetchFilteredFoodData(null, calories, expiration, restrictions).then(data => {
+document.getElementById('searchForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const query = document.getElementById('searchQuery').value;
+    fetchFilteredFoodData(query).then(data => {
         displayResults(data);
     });
 });
 
-async function fetchFilteredFoodData(query, calories, expiration, restrictions) {
+async function fetchFilteredFoodData(query) {
     try {
         const params = new URLSearchParams();
         if (query) params.append('query', query);
-        if (calories) params.append('maxCalories', calories);
-        if (expiration) params.append('maxExpiration', expiration); 
-        if (restrictions) params.append('alergens', restrictions);
 
-        console.log(params.toString());
         const response = await fetch(`/api/searchFilter?${params.toString()}`);
         if (!response.ok) {
             throw new Error('Failed to fetch food data');
         }
         const foods = await response.json();
-
-        console.log(foods);
         return foods;
     } catch (error) {
         console.error('An error occurred in fetching food data:', error);
@@ -38,8 +30,8 @@ function displayResults(data) {
     container.innerHTML = '';
 
     if (data.length === 0) {
-        title.classList.add('hidden');
-        container.classList.add('hidden');
+        // title.classList.add('hidden');
+        // container.classList.add('hidden');
         container.innerHTML = '<p>No results found</p>';
         return;
     }
