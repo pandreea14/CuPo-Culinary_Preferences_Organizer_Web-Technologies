@@ -64,16 +64,14 @@ The web application is developed using Node.js, and is using HTML, CSS and JS fo
 **Register page**
 ![register](https://github.com/pandreea14/TW-PinteaAndreea-ZahariaSabina-2E2/assets/119395357/069be7a8-713f-4999-9276-c8d9a7b633fa)
 
-**Admin Login page**
-![loginAdmin](https://github.com/pandreea14/TW-PinteaAndreea-ZahariaSabina-2E2/assets/119395357/ca2c9926-c469-4dc9-83ea-160aa59da769)
-
 
 **Admin Home page**
-![homeAdmin](https://github.com/pandreea14/TW-PinteaAndreea-ZahariaSabina-2E2/assets/119395357/8332fb42-958f-4998-8e21-27af35f8f1ff)
+![homeAdmin](https://github.com/pandreea14/TW-PinteaAndreea-ZahariaSabina-2E2/assets/119395357/a66b6503-34a9-44ef-b071-b6d0f4aaca6b)
+
 
 
 **Menu page - the same as admin home page, but without the Admin button**
-![home](https://github.com/pandreea14/TW-PinteaAndreea-ZahariaSabina-2E2/assets/119395357/3a7a00bf-23de-468f-b247-149c03703459)
+![home](https://github.com/pandreea14/TW-PinteaAndreea-ZahariaSabina-2E2/assets/119395357/eea9b7c1-370c-4c37-9e0d-f6e4cb4ef292)
 
 
 **Shopping list page**
