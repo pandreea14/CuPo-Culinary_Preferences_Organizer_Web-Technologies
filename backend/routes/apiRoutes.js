@@ -1,9 +1,22 @@
 const { handleRegister } = require("../controllers/registerController");
 const { handleLogin } = require("../controllers/loginController");
 const { getFood, getResult } = require("../controllers/productController");
-const { getFavorites, addFavorites, removeFavorite } = require("../controllers/favoritesController");
-const { handleSearchFriend, handleAddFriend } = require("../controllers/friendsController");
-const { handleShoppingList, getShoppingList, handleDeleteList, addItemToList } = require("../controllers/shoppingListController");
+const {
+  getFavorites,
+  addFavorites,
+  removeFavorite,
+} = require("../controllers/favoritesController");
+const {
+  handleSearchFriend,
+  handleAddFriend,
+} = require("../controllers/friendsController");
+const {
+  handleShoppingList,
+  getShoppingList,
+  handleDeleteList,
+  addItemToList,
+  handleDeleteItem,
+} = require("../controllers/shoppingListController");
 
 module.exports = (request, response) => {
   console.log(`Received ${request.method} request at ${request.url}`);
@@ -14,8 +27,7 @@ module.exports = (request, response) => {
   if (request.method === "POST") {
     if (parsedUrl.pathname === "/register") {
       handleRegister(request, response);
-    } else if (
-      parsedUrl.pathname === "/login") {
+    } else if (parsedUrl.pathname === "/login") {
       handleLogin(request, response);
     } else if (parsedUrl.pathname === "/api/favorites") {
       addFavorites(request, response);
@@ -31,7 +43,7 @@ module.exports = (request, response) => {
       getFood(request, response);
     } else if (parsedUrl.pathname === "/api/favorites") {
       getFavorites(request, response);
-    } else if(parsedUrl.pathname=== "/api/searchFriend"){
+    } else if (parsedUrl.pathname === "/api/searchFriend") {
       handleSearchFriend(request, response);
     } else if (parsedUrl.pathname === "/api/shoppingList") {
       getShoppingList(request, response);
@@ -43,6 +55,8 @@ module.exports = (request, response) => {
       removeFavorite(request, response);
     } else if (parsedUrl.pathname === "/api/shoppingList") {
       handleDeleteList(request, response);
+    } else if (parsedUrl.pathname === "/api/createShoppingList") {
+      handleDeleteItem(request, response);
     }
   } else {
     response.writeHead(404, { "Content-Type": "application/json" });

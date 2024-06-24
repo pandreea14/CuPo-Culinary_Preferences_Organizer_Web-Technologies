@@ -21,24 +21,6 @@
     margin-bottom: 150px;
     height: auto;
 }
- 
-.new-shoppinglist {
-    margin-top: 10px;
-    font-size: 20px;
-    padding: 10px 20px;
-    border-radius: 7px;
-    background-color: black;
-    color: white;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    text-align: center;
-    float: right; /* Aligns the button to the right */
-}
-
-.new-shoppinglist :hover {
-    color: #ffac4a;
-    transition: all 0.3s ease 0s;
-}
 
 .list-title {
     font-size: 25px;
@@ -57,23 +39,86 @@
 }
 
 .input {
-    width: 20%;
+    width: 80%;
+    max-width: 500px;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-left: 56%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.clear {
-    clear: both;
+.new-shoppinglist {
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 7px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.new-shoppinglist:hover {
+    color: #ffac4a;
+    transition: all 0.3s ease 0s;
 }
 
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 576px) {
+    .input {
+        width: 70%;
+    }
+}
+
+@media (min-width: 768px) {
+    .input {
+        width: 60%;
+    }
+
+    .new-shoppinglist {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+}
+
+@media (min-width: 992px) {
+    .input {
+        width: 50%;
+    }
+
+    .new-shoppinglist {
+        font-size: 20px;
+        padding: 14px 28px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .input {
+        width: 40%;
+    }
+
+    .new-shoppinglist {
+        font-size: 22px;
+        padding: 16px 32px;
+    }
+}
+
+
+.clear {
+    clear: both;
 }
 
 .shoppinglist-container {

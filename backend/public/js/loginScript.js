@@ -1,3 +1,5 @@
+import { redirectIfAuthenticated, setCookie } from './tokenScript.js';
+
 document
   .getElementById("loginForm")
   .addEventListener("submit", async function (event) {
@@ -12,7 +14,7 @@ document
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }), // Send data as JSON
+        body: JSON.stringify({ email, password }),
     })
     .then(response => {
         if (!response.ok) {
@@ -22,13 +24,13 @@ document
     })
     .then(result => {
         console.log('Success:', result);
-        //trb facuta din partea de client !!!
-        localStorage.setItem('token', result.token); // Save the token in localStorage
+        if (result.token) {
+            setCookie('token', result.token, 1);
+            redirectIfAuthenticated();
+          } else {
+            alert('Login failed');
+          }
         alert("User logged in successfully !!!", result.token);
-        window.location.href = window.location.origin + "/menu";
-        // if (localStorage.getItem('token')) {
-        //     window.location.href = window.location.origin + '/menu';
-        //   }
     })
     .catch(error => {
         console.error('An error occurred in login script:', error);

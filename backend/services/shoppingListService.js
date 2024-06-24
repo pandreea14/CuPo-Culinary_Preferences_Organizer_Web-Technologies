@@ -55,9 +55,6 @@ async function fetchShoppingLists(userEmail) {
 
   try {
     const results = await query(sql, params);
-    if (results.length === 0) {
-      return { message: "No shopping lists found." };
-    }
     return results.map((result) => ({
       title: result.title,
       items: result.items ? result.items.split(",") : [],
@@ -95,35 +92,53 @@ async function addItemToShoppingList(userEmail, listName, foodName) {
     }
     const listId = listIdResult[0].id;
 
+    // Check if the item already exists in the list
+    const existingItemResult = await query(
+      "SELECT shoppinglist_id FROM shoppinglist_items WHERE email = ? AND food_name = ?",
+      [userEmail, foodName]
+    );
+    if (existingItemResult.length > 0) {
+      return { error: "Item already exists in the shopping list." };
+    }
+
     // Insert the new item into shoppinglist_items
     const results = await query(
       "INSERT INTO shoppinglist_items (shoppinglist_id, food_name, email) VALUES (?, ?, ?)",
       [listId, foodName, userEmail]
     );
-    if (results.affectedRows === 0) { // Assuming a MySQL database for affectedRows property
-      return { error: "couldnt insert item into shopping list." };
+    if (results.affectedRows === 0) {
+      return { error: "Couldn't insert item into shopping list." };
     }
 
-    return { message: "Item successfully added to the sh." };
+    return { message: "Item successfully added to the shopping list." };
   } catch (error) {
     console.error("Error fetching food data:", error);
     throw error;
   }
+}
 
-  // const sql = "INSERT INTO shoppinglist_items (shoppinglist_id, food_name, email) VALUES ((SELECT id FROM shoppinglists WHERE title = ? AND email = ?), ?, ?)";
-  // const params = [listName, userEmail, foodName, userEmail];
+async function deleteItemFromList(userEmail, listName, food) {
+  const listIdResult = await query(
+    "SELECT id FROM shoppinglists WHERE title = ? AND email = ?",
+    [listName, userEmail]
+  );
+  if (listIdResult.length === 0) {
+    throw new Error("Shopping list not found");
+  }
+  const listId = listIdResult[0].id;
 
-  // try {
-  //   const results = await query(sql, params);
-  //   if (results.affectedRows === 0) { // Assuming a MySQL database for affectedRows property
-  //     return { error: "couldnt insert item into shopping list." };
-  //   }
-
-  //   return { message: "Item successfully added to the sh." };
-  // } catch (error) {
-  //   console.error("Error adding item to shopping list:", error);
-  //   throw error; // Rethrow or handle as needed
-  // }
+  const sql = "DELETE FROM shoppinglist_items WHERE email = ? AND food_name = ? AND shoppinglist_id = ?";
+  const params = [userEmail, food, listId];
+  try {
+    const results = await query(sql, params);
+    if (results.affectedRows === 0) {
+      return { error: "Item not found or could not be deleted." };
+    }
+    return { message: "Item successfully deleted." };
+  } catch (error) {
+    console.error("Error removing item from db:", error);
+    throw error; // Rethrow or handle as needed
+  }
 }
 
 module.exports = {
@@ -131,4 +146,5 @@ module.exports = {
   fetchShoppingLists,
   deleteList,
   addItemToShoppingList,
+  deleteItemFromList,
 };

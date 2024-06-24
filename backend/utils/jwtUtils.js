@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const secretKey = 'gotAsecretcanyoukeepIT?';
 
 function generateToken(payload) {
-    return jwt.sign(payload, secretKey, { expiresIn: '1h' });
+    return jwt.sign(payload, secretKey, { expiresIn: '1d' });
 }
 
 function verifyToken(token) {
@@ -13,6 +13,14 @@ function verifyToken(token) {
         return null;
     }
 }
+
+function authenticateToken(req) {
+    const cookies = cookie.parse(req.headers.cookie || '');
+    const token = cookies.token;
+    if (!token) return null;
+  
+    return verifyToken(token);
+  }
 
 function parseJwt(token) {
     const base64Url = token.split('.')[1];
@@ -24,4 +32,4 @@ function parseJwt(token) {
     return JSON.parse(jsonPayload);
 }
 
-module.exports = { generateToken, verifyToken, parseJwt };
+module.exports = { generateToken, verifyToken, parseJwt, authenticateToken };

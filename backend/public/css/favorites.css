@@ -1,3 +1,4 @@
+/* General styles */
 .overlay-container {
     position: relative;
     top: 120px;
@@ -39,22 +40,11 @@
     margin-left: 200px;
 }
 
-.remove-button {
-    background-color: #ffac4a;
-    color: #080808;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease;
-    padding: 10px 20px;
-    margin-right: 2%;
-}
-
+.remove-button,
 .shopping-button {
     background-color: #ffac4a;
     color: #080808;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -110,6 +100,7 @@
     color: #ffac4a;
 }
 
+/* Media queries for responsive design */
 @media screen and (max-width: 900px) {
     .fixed-header {
         flex-direction: column;
@@ -121,12 +112,19 @@
         width: 80%;
     }
 
+    .image {
+        height: auto;
+        width: 50%;
+    }
+
+
     .navigation-links {
         margin-top: 20px;
     }
 
     .overlay-container {
         margin-top: 90px;
+        width: 95%;
     }
 }
 
@@ -142,6 +140,11 @@
         height: 50px;
     }
 
+    .image {
+        height: auto;
+        width: 50%;
+    }
+
     .navigation-links {
         flex-direction: column;
     }
@@ -152,10 +155,71 @@
 
     .overlay-container {
         margin-top: 190px;
+        width: 95%;
     }
 
     .search-input {
         width: 80%;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .title1 {
+        font-size: 25px;
+    }
+
+    .details {
+        font-size: 20px;
+    }
+
+    .remove-button, .shopping-button, .import-export {
+        font-size: 15px;
+    }
+
+    .image {
+        height: auto;
+        width: 60%;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-info,
+    .buttons {
+        margin-left: 0;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .title1 {
+        font-size: 25px;
+    }
+
+    .details {
+        font-size: 20px;
+    }
+
+    .remove-button, .shopping-button, .import-export {
+        font-size: 15px;
+    }
+
+    .image {
+        height: auto;
+        width: 100%;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-info,
+    .buttons {
+        margin-left: 0;
+        flex-direction: column;
     }
 }
 
@@ -170,5 +234,21 @@
 
     .remove-button, .shopping-button, .import-export {
         font-size: 10px;
+    }
+
+    .image {
+        height: auto;
+        width: 100%;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-info,
+    .buttons {
+        margin-left: 0;
+        flex-direction: column;
     }
 }

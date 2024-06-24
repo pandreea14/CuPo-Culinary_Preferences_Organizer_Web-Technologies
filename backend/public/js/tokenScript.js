@@ -1,16 +1,16 @@
 export function getToken() {
-  return localStorage.getItem("token");
+  return getCookie("token");
+  // return localStorage.getItem('token');
 }
 
-// <button onclick="logout()">Logout</button>
 export function logout() {
   if (confirm("Are you sure you want to logout?")) {
+      eraseCookie('token');
       localStorage.removeItem('token');
       window.location.replace(window.location.origin + '/login');
   }
 }
 
-// Function to parse JWT token
 export function parseJwt(token) {
   const base64Url = token.split('.')[1];
   const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -79,9 +79,37 @@ export function protectPage() {
 
 export function redirectIfAuthenticated() {
   const token = getToken();
-  if (token && isTokenValid(token) && getUserRole(token) === "user") {
+  console.log('role:', getUserRole(token));
+  if (token && isTokenValid(token) && getUserRole(token) === 'user') {
     window.location.replace(window.location.origin + "/menu");
-  } else if (token && isTokenValid(token) && getUserRole(token) === "admin") {
+  } else if (token && isTokenValid(token) && getUserRole(token) === 'admin') {
     window.location.replace(window.location.origin + "/menuAdmin");
   }
+}
+
+
+
+// Set a cookie
+export async function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + (days*24*60*60*1000));
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// Get a cookie
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+
+// Delete a cookie
+function eraseCookie(name) {
+  document.cookie = name + '=; Max-Age=-99999999;';
 }

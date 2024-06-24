@@ -1,9 +1,9 @@
-import { parseJwt } from "./tokenScript.js";
+import { getToken, parseJwt } from "./tokenScript.js";
 
 export async function addToFavorites(food) {
     console.log('Adding to favorites:', food.name);
 
-    const token = localStorage.getItem('token');
+    const token = getToken();
     const user = parseJwt(token);
 
     // Make a POST request to add the favorite item
@@ -42,7 +42,7 @@ export async function removeFromFavorites(foodName) {
         return;
     }
 
-    const token = localStorage.getItem('token');
+    const token = getToken();
     const user = parseJwt(token);
 
     //DELETE request to remove the favorite item

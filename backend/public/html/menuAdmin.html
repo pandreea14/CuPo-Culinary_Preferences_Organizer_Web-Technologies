@@ -9,23 +9,22 @@
     <link rel="stylesheet" href="../css/menuAdmin.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="../js/foodFetch.js"></script>
     <script type="module">
-        import { getToken, isTokenValid, getUserRole } from '../js/tokenScript.js';
-        function protectAdminPage() {
-            const token = getToken();
-            if (!token || !isTokenValid(token) || getUserRole(token) !== 'admin') {
-                localStorage.removeItem('token');
-                window.location.replace(window.location.origin + '/login');
-            }
-        }
+        import { getToken, isTokenValid, getUserRole, redirectIfAuthenticated } from '../js/tokenScript.js';
+        // function protectAdminPage() {
+        //     const token = getToken();
+        //     if (!token || !isTokenValid(token) || getUserRole(token) !== 'admin') {
+        //         localStorage.removeItem('token');
+        //         window.location.replace(window.location.origin + '/login');
+        //     }
+        // }
 
-        protectAdminPage();
+        // protectAdminPage();
 
 
-        document.addEventListener('DOMContentLoaded', function () {
-            fetchAllFoodData();
-        });
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     redirectIfAuthenticated();
+        // });
     </script>
 </head>
 
@@ -55,21 +54,31 @@
         <aside class="sidebar">
             <h2>Filters</h2>
             <div class="range">
-                <label for="price-filter">Calories:</label>
-                <input type="range" id="price-filter" name="price-filter" min="0" max="320" value="0">
+                <label for="calories">Calories:</label>
                 <div class="range-values">
-                    <span id="min-value">0</span>
-                    <span id="max-value">320</span>
+                    <span id="current-value-cal">0</span>
+                    <input type="range" id="calories" name="calories" min="0" max="320" value="0"
+                        oninput="updateCaloriesValue(this.value)">
+                    <span id="max-value-cal">320</span>
+                </div>
+            </div>
+            <div class="range">
+                <label for="expiration">Expiration date (days):</label>
+                <div class="range-values">
+                    <span id="current-value-exp">0</span>
+                    <input type="range" id="expiration" name="expiration" min="0" max="365" value="0"
+                        oninput="updateExpirationValue(this.value)">
+                    <span id="max-value-exp">365</span>
                 </div>
             </div>
             <div class="filter">
                 <label for="restrictions-filter">Restrictions:</label>
                 <select id="restrictions-filter" name="restrictions-filter">
                     <option value="none">None</option>
-                    <option value="vegan">Gluten</option>
-                    <option value="vegetarian">Lactose</option>
-                    <option value="nuts">Shellfish</option>
-                    <option value="nuts">Peanuts</option>
+                    <option value="gluten">Gluten</option>
+                    <option value="lactose">Lactose</option>
+                    <option value="shellfish">Shellfish</option>
+                    <option value="peanuts">Nuts</option>
                 </select>
             </div>
             <button class="filter-button">Apply Filters</button>
@@ -109,6 +118,11 @@
                     <h1>Frozen Food</h1>
                 </a>
             </div>
+
+            <h1 class="title hidden" id="searchResultsTitle">Search Results</h1>
+            <div class="search-results hidden" id="searchResultsContainer">
+                <!-- Search results will be added here dynamically -->
+            </div>
         </main>
     </div>
 
@@ -122,6 +136,19 @@
                 outside the web application.
                 <br> This project is made by Pîntea Andreea and Zaharia Sabina for the Web Technologies class.
             </p>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="shoppingListModal" class="modalsh">
+        <div class="modal-content-sh">
+            <span class="close">&times;</span>
+            <h2>Shopping Lists</h2>
+            <div id="shoppingListTitles">
+
+                <!-- Shopping list titles will be added here dynamically -->
+            </div>
+            <!-- <button id="createNewList">Create New Shopping List</button> nu mai am chef sa fac asta aici-->
         </div>
     </div>
 
@@ -175,8 +202,26 @@
         <h2 class="title">Frozen Food</h2>
         <div class="product-container"></div>
     </section>
+    <script src="../js/menu.js"></script> 
+    <script type="module" src="../js/foodFetch.js"></script>
+    <script type="module" src="../js/filters.js"></script>
+    <script type="module" src="../js/search.js"></script>
+    <script>
+        function updateCaloriesValue(value) {
+            document.getElementById('current-value-cal').textContent = value;
+        }
 
-    <script src="../js/menu.js"></script>
+        function updateExpirationValue(value) {
+            document.getElementById('current-value-exp').textContent = value;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize values
+            updateCaloriesValue(document.getElementById('calories').value);
+            updateExpirationValue(document.getElementById('expiration').value);
+        });
+
+    </script>
 </body>
 
 </html>

@@ -16,7 +16,6 @@ async function fetchFilteredFoodData(query, calories, expiration, restrictions) 
         if (expiration) params.append('maxExpiration', expiration); 
         if (restrictions) params.append('alergens', restrictions);
 
-        console.log(params.toString());
         const response = await fetch(`/api/searchFilter?${params.toString()}`);
         if (!response.ok) {
             throw new Error('Failed to fetch food data');

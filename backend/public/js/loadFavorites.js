@@ -1,9 +1,9 @@
 import { removeFromFavorites } from "./addToFavorites.js";
 import { fetchAndDisplayShoppingLists } from "./addToShoppingList.js";
-import { parseJwt } from "./tokenScript.js";
+import { getToken, parseJwt } from "./tokenScript.js";
 
 async function loadFavorites() {
-  const token = localStorage.getItem("token");
+  const token = getToken();
   const user = parseJwt(token); // Assuming you have a function to parse the JWT token and get the user info
 
   // Fetch favorite items for the user

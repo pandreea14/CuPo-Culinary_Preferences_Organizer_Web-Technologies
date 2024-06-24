@@ -18,7 +18,9 @@ function updateShoppingListModal(shoppingLists, foodName) {
     const modalContent = document.getElementById('shoppingListTitles');
     modalContent.innerHTML = '';
 
+    console.log('Updating shopping list modal with lists:', shoppingLists);
     if (shoppingLists.length === 0) {
+        console.log('No shopping lists found');
         modalContent.innerHTML = '<p>Go to the shopping list page to create a list.</p>';
         return;
     }
@@ -44,7 +46,7 @@ function updateShoppingListModal(shoppingLists, foodName) {
 export async function addToShoppingList(food, listName) {
     console.log('Adding to shopping list:', food, listName);
     
-    const token = localStorage.getItem("token");
+    const token = getToken();
     const user = parseJwt(token);
 
     try {
@@ -56,12 +58,17 @@ export async function addToShoppingList(food, listName) {
           },
           body: JSON.stringify({ userEmail: user.email, listName: listName, foodName: food}),
         });
+        
+        const result = await response.json();
 
-        if (!response.ok) {
-            throw new Error('Failed to add item to shopping list');
+        if (response.status === 409) {
+            alert('Item already exists in the shopping list.');
+            return;
         }
 
-        const result = await response.json();
+        if (!response.ok) {
+            throw new Error(result.error || 'Failed to add item to shopping list');
+        }
 
         console.log('Item added to shopping list successfully:', result);
         alert('Item added to shopping list successfully');
@@ -120,6 +127,3 @@ export async function addToShoppingList(food, listName) {
         alert("Failed to add shopping list. " + error.message);
       }
 }
-
-// remove item from selected shopping list
-

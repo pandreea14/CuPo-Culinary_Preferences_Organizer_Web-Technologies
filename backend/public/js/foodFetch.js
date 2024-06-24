@@ -1,12 +1,12 @@
 import { addToFavorites } from './addToFavorites.js';
 import { fetchAndDisplayShoppingLists } from './addToShoppingList.js';
+// import { redirectIfAuthenticated } from './tokenScript.js';
 
 async function fetchAllFoodData() {
-
     try {
         const response = await fetch('/api/food?category=all');
         if (!response.ok) {
-            throw new Error('Failed to fetch food data');
+            throw new Error(`Failed to fetch food data: ${response.status} ${response.statusText}`);
         }
         const foods = await response.json();
         const categories = {
@@ -57,6 +57,7 @@ async function fetchAllFoodData() {
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
+    // redirectIfAuthenticated();
     await fetchAllFoodData();
 
     document.body.addEventListener('click', function (event) {
@@ -96,51 +97,3 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
     }
 });
-
-    // Optional: Close the modal if the user clicks outside of it
-//     window.addEventListener("click", function (event) {
-//         if (event.target == shoppingListModal) {
-//             shoppingListModal.style.display = "none";
-//         }
-//     });
-
-//     // Optional: Close button inside the modal
-//     var closeButton = document.querySelector(".modalsh .close");
-//     if (closeButton) {
-//         closeButton.addEventListener("click", function () {
-//             shoppingListModal.style.display = "none";
-//         });
-//     }
-// });
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     // Select all "Add to shopping list" buttons
-//     var shoppingButtons = document.querySelectorAll(".shopping-button");
-//     // Select the shopping list modal
-//     var shoppingListModal = document.getElementById("shoppingListModal");
-  
-//     // Function to open the shopping list modal
-//     function openShoppingListModal() {
-//       shoppingListModal.style.display = "block";
-//     }
-  
-//     // Add click event listener to each shopping button
-//     shoppingButtons.forEach(function(button) {
-//       button.addEventListener("click", openShoppingListModal);
-//     });
-  
-//     // Optional: Close the modal if the user clicks outside of it
-//     window.addEventListener("click", function (event) {
-//       if (event.target == shoppingListModal) {
-//         shoppingListModal.style.display = "none";
-//       }
-//     });
-  
-//     // Optional: Close button inside the modal
-//     var closeButton = document.querySelector(".modalsh .close-button");
-//     if (closeButton) {
-//       closeButton.addEventListener("click", function () {
-//         shoppingListModal.style.display = "none";
-//       });
-//     }
-//   });

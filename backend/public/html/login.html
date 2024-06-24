@@ -7,11 +7,9 @@
   <title>Login CuPo</title>
   <link rel="stylesheet" href="../css/login.css" />
   <script type="module">
-    import { roleValidation, redirectIfAuthenticated } from '../js/tokenScript.js';
+    import { redirectIfAuthenticated } from '../js/tokenScript.js';
     document.addEventListener('DOMContentLoaded', function () {
-      if (roleValidation("user")) {
         redirectIfAuthenticated();
-      }
     });
   </script>
 </head>
@@ -34,7 +32,7 @@
     </div>
     <p>Don't have an account? <a href="/register" class="register-link">Register here</a></p>
   </div>
-  <script src="../js/loginScript.js"></script>
+  <script type="module" src="../js/loginScript.js"></script>
 </body>
 
 </html>
