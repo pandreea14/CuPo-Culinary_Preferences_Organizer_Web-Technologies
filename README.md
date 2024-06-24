@@ -1,6 +1,9 @@
 Culinary Preferences Organizer 
 
-**Web Technologies Project Authors**
+**Web Technologies**
+**Project Authors**
+
+
 Pîntea Andreea - andreeapinte4@gmail.com
 Zaharia Sabina - sabina.zaharia75@gmail.com
 
