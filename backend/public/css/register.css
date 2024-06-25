@@ -18,7 +18,7 @@ body {
     transform: translate(-50%, -50%);
     width: 60%;
     height: auto;
-    z-index: 2; /* the overlay container appears above the image*/
+    z-index: 2;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -124,7 +124,6 @@ body {
     padding: 30px 100px;
     display: flex;
     justify-content: center;
-   /* max-width: 100%;  Ensure it takes the full width */
   }
 
   .submit-button span {
@@ -140,5 +139,3 @@ h1 {
     line-height: 1.5;
     margin-top: 2px;
 }
-
-

@@ -88,8 +88,8 @@
     padding: 10px 20px;
     border-radius: 20px;
     font-weight: bold;
-    border: none; /* Remove default button border */
-    cursor: pointer; /* Optional: Change cursor on hover */
+    border: none;
+    cursor: pointer;
 }
 
 
@@ -97,8 +97,6 @@
     background-color: #ffac4a; 
 }
 
-
-/* Media queries for responsive design */
 @media screen and (max-width: 900px) {
     .fixed-header {
         flex-direction: column;

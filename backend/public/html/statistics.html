@@ -12,8 +12,8 @@
   <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
   <!--chart 1-->
 
-  <script src="../js/tokenScript.js"></script>
-  <script>
+  <script type="module">
+    import { getToken, isTokenValid } from '../js/tokenScript.js';
     function protectPage() {
       const token = getToken();
       if (!token || !isTokenValid(token)) {
@@ -330,15 +330,7 @@
 
 <body>
   <header class="fixed-header">
-    <div class="logo-search-container">
       <img class="logo" src="../images/logo.png" alt="logo">
-      <form>
-        <div class="search">
-          <span class="search-icon material-symbols-outlined">search</span>
-          <input class="search-input" type="search" placeholder="Search">
-        </div>
-      </form>
-    </div>
     <nav>
       <ul class="navigation-links">
         <li><a href="/menu">Main Menu</a></li>

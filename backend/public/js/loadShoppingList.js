@@ -1,6 +1,5 @@
 import { getToken, parseJwt } from "./tokenScript.js";
 
-// Displaying the existing shopping lists
 async function loadShoppingLists() {
   const token = getToken();
   const user = parseJwt(token);
@@ -16,7 +15,7 @@ async function loadShoppingLists() {
     }
     const shoppingLists = await shResponse.json();
 
-    console.log(shoppingLists); // Debugging line to inspect the shopping lists
+    console.log(shoppingLists); 
 
     const shContainer = document.querySelector(".grid-container");
     if (!shContainer) {
@@ -65,7 +64,6 @@ async function loadShoppingLists() {
   }
 }
 
-// Function to handle item removal
 async function removeItemFromList(item, listName) {
   const token = getToken();
   const user = parseJwt(token);
@@ -88,7 +86,6 @@ async function removeItemFromList(item, listName) {
     console.log('Item removed from shopping list successfully:', result);
     alert('Item removed from shopping list successfully');
     
-    // Remove the item from the DOM
     const itemButton = document.querySelector(`button[data-item="${item}"][data-list="${listName}"]`);
     if (itemButton) {
       const listItem = itemButton.closest('li');
@@ -153,7 +150,7 @@ async function removeShoppingList(listName) {
 document.addEventListener("DOMContentLoaded", function () {
   loadShoppingLists();
 
-  const staticParentElement = document.querySelector(".grid-container"); // Replace '.static-parent' with the actual static parent selector
+  const staticParentElement = document.querySelector(".grid-container"); 
   staticParentElement.addEventListener("click", async function (event) {
     if (event.target.closest(".remove-button")) {
       const shoppingList = event.target.closest(".shoppinglist-container");
@@ -202,10 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const result = await response.json();
 
-        console.log(result); // Debugging line to inspect the result
-
-        // Ensure this function is correctly named and implemented for displaying added shopping lists
-        // Create the new shopping list HTML
+        console.log(result); 
         const newListHTML = `
           <div class="shoppinglist-container" data-title="${listName}">
             <div class="list-title">
@@ -227,7 +221,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Append the new list to the container
         const shContainer = document.querySelector(".grid-container");
         if (shContainer) {
-          // Remove the message if present
           const messageElement = shContainer.querySelector("p");
           if (messageElement && messageElement.textContent.includes("Haven't created any shopping lists yet!")) {
             messageElement.remove();
@@ -238,7 +231,6 @@ document.addEventListener("DOMContentLoaded", function () {
           console.error('Shopping lists container not found');
         }
 
-        // Optionally, clear the input field after adding
         document.getElementById("listNameInput").value = "";
       } catch (error) {
         console.error("An error occurred:", error);

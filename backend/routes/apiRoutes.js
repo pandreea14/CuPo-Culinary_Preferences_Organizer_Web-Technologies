@@ -1,6 +1,6 @@
 const { handleRegister } = require("../controllers/registerController");
 const { handleLogin } = require("../controllers/loginController");
-const { getFood, getResult } = require("../controllers/productController");
+const { getFood, getResult, updateProduct } = require("../controllers/productController");
 const {
   getFavorites,
   addFavorites,
@@ -17,6 +17,7 @@ const {
   addItemToList,
   handleDeleteItem,
 } = require("../controllers/shoppingListController");
+const { getUsers, deleteUser, updateUserRole } = require("../controllers/adminController");
 
 module.exports = (request, response) => {
   console.log(`Received ${request.method} request at ${request.url}`);
@@ -49,6 +50,8 @@ module.exports = (request, response) => {
       getShoppingList(request, response);
     } else if (request.url.startsWith("/api/searchFilter")) {
       getResult(request, response);
+    } else if (parsedUrl.pathname === "/api/users") {
+      getUsers(request, response);
     }
   } else if (request.method === "DELETE") {
     if (parsedUrl.pathname === "/api/favorites") {
@@ -57,6 +60,16 @@ module.exports = (request, response) => {
       handleDeleteList(request, response);
     } else if (parsedUrl.pathname === "/api/createShoppingList") {
       handleDeleteItem(request, response);
+    } else if (parsedUrl.pathname.startsWith("/api/users/")) {
+      const userId = parsedUrl.pathname.split('/').pop();
+      deleteUser(request, response, userId);
+    }
+  } else if (request.method === "PUT") {
+    if (parsedUrl.pathname.startsWith("/api/food/")) {
+      updateProduct(request, response);
+    } else if (parsedUrl.pathname.startsWith("/api/users/") && parsedUrl.pathname.endsWith("/role")) {
+      const userId = parsedUrl.pathname.split('/')[3];
+      updateUserRole(request, response, userId);
     }
   } else {
     response.writeHead(404, { "Content-Type": "application/json" });

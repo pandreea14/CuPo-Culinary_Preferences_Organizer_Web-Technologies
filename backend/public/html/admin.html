@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/global.css">
     <script type="module">
-        import { protectPage, logout, getToken, getUserRole } from '../js/tokenScript.js';
+        import { protectAdminPage, logout, getToken, getUserRole } from '../js/tokenScript.js';
         import { fetchUsers, fetchFoods } from '../js/admin.js';
 
-        protectPage();
+        protectAdminPage();
 
         document.addEventListener('DOMContentLoaded', function () {
             fetchUsers();
@@ -49,7 +49,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Users will be dynamically inserted here -->
                     </tbody>
                 </table>
             </div>
@@ -58,15 +57,16 @@
                 <table id="foodsTable">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Category</th>
                             <th>Calories</th>
                             <th>Allergens</th>
                             <th>Expiration</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Food items will be added here dynamically -->
                     </tbody>
                 </table>
             </div>
@@ -82,6 +82,7 @@
         </div>
     </div>
     <script src="../js/menu.js"></script>
+    <script type="module" src="../js/admin.js"></script>
 </body>
 
 </html>

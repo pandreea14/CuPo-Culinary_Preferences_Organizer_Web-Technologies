@@ -1,11 +1,11 @@
 export function getToken() {
-  return getCookie("token");
-  // return localStorage.getItem('token');
+  // return getCookie("token");
+  return localStorage.getItem('token');
 }
 
 export function logout() {
   if (confirm("Are you sure you want to logout?")) {
-      eraseCookie('token');
+      // eraseCookie('token');
       localStorage.removeItem('token');
       window.location.replace(window.location.origin + '/login');
   }
@@ -25,7 +25,7 @@ export function isTokenValid(token) {
 
   try {
     const payload = JSON.parse(atob(token.split(".")[1]));
-    const expiryTime = payload.exp * 1000; // Convert to milliseconds
+    const expiryTime = payload.exp * 1000; // milliseconds
     if (Date.now() >= expiryTime) {
       alert("Your session has expired. Please log in again.");
       return false;
@@ -60,6 +60,12 @@ export function roleValidation(requiredRole) {
     return false;
   }
 }
+export function protectAdminPage() {
+  const token = getToken();
+  if (!token || !isTokenValid(token) || getUserRole(token) !== 'admin') {
+    window.location.replace(window.location.origin + '/login');
+  }
+}
 
 export function getUserRole(token) {
   try {
@@ -73,7 +79,7 @@ export function getUserRole(token) {
 export function protectPage() {
   const token = getToken();
   if (!token || !isTokenValid(token)) {
-      window.location.replace(window.location.origin + '/login');
+      // window.location.replace(window.location.origin + '/login');
   }
 }
 
@@ -87,29 +93,9 @@ export function redirectIfAuthenticated() {
   }
 }
 
-
-
-// Set a cookie
 export async function setCookie(name, value, days) {
   const date = new Date();
   date.setTime(date.getTime() + (days*24*60*60*1000));
   const expires = "expires=" + date.toUTCString();
   document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-
-// Get a cookie
-function getCookie(name) {
-  const nameEQ = name + "=";
-  const ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) === ' ') c = c.substring(1,c.length);
-    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
-  }
-  return null;
-}
-
-// Delete a cookie
-function eraseCookie(name) {
-  document.cookie = name + '=; Max-Age=-99999999;';
 }

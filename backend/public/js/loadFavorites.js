@@ -4,10 +4,9 @@ import { getToken, parseJwt } from "./tokenScript.js";
 
 async function loadFavorites() {
   const token = getToken();
-  const user = parseJwt(token); // Assuming you have a function to parse the JWT token and get the user info
+  const user = parseJwt(token);
 
   let favoriteFoods = [];
-  // Fetch favorite items for the user
   try {
     const favoriteResponse = await fetch(`/api/favorites?user=${user.email}`, {
       headers: {
@@ -24,7 +23,7 @@ async function loadFavorites() {
       console.error("Favorite container not found");
       return;
     }
-    favoriteContainer.innerHTML = ""; // Clear existing content
+    favoriteContainer.innerHTML = ""; 
 
     if (favoriteFoods.length === 0) {
       favoriteContainer.innerHTML =
@@ -50,7 +49,6 @@ async function loadFavorites() {
       });
     }
 
-    // Add event listeners for new buttons
     favoriteContainer.addEventListener("click", function (event) {
       if (event.target.classList.contains("remove-button")) {
         const productItem = event.target.closest(".product-item");
@@ -95,7 +93,6 @@ async function loadFavorites() {
   }
 }
 
-// Load favorites on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", async function () {
   await loadFavorites();
 

@@ -7,7 +7,7 @@
   <title>Login CuPo</title>
   <link rel="stylesheet" href="../css/login.css" />
   <script type="module">
-    import { redirectIfAuthenticated } from '../js/tokenScript.js';
+    import { redirectIfAuthenticated, protectPage } from '../js/tokenScript.js';
     document.addEventListener('DOMContentLoaded', function () {
         redirectIfAuthenticated();
     });

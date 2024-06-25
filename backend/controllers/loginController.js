@@ -4,12 +4,12 @@ const handleLogin = async (request, response) => {
   let body = "";
 
   request.on("data", (chunk) => {
-    body += chunk.toString(); // Convert binary data to string
+    body += chunk.toString();
   });
 
   request.on("end", async () => {
     try {
-      const { email, password } = JSON.parse(body); // Parse the string to JSON
+      const { email, password } = JSON.parse(body);
       const token = await loginUser(email, password);
 
       if (token.error) {

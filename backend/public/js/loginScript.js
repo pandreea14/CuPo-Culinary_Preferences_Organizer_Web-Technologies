@@ -25,7 +25,7 @@ document
     .then(result => {
         console.log('Success:', result);
         if (result.token) {
-            setCookie('token', result.token, 1);
+            localStorage.setItem('token', result.token);
             redirectIfAuthenticated();
           } else {
             alert('Login failed');

@@ -13,22 +13,6 @@
         import { protectPage, getToken, getUserRole } from '../js/tokenScript.js';
         protectPage();
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const token = getToken('token');
-            const userRole = getUserRole(token);
-            const navLinks = document.querySelectorAll('.navigation-links a');
-
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (userRole === 'admin') {
-                    link.setAttribute('href', href.replace('/menu', '/menuAdmin'));
-                } else {
-                    link.setAttribute('href', href.replace('/menuAdmin', '/menu'));
-                }
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -66,7 +50,6 @@
 
     <div class="overlay-container">
         <div class="title1"><i><b>Your friends</b></i></div>
-        <div class="add-newfriends"><i><b>Add friend</b></i></div>
         <div class="friend-container">
             <div class="text">
                 <p> No friends yet! Try searching through existing users!</p>

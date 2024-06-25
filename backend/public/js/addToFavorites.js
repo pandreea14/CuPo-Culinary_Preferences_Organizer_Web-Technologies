@@ -6,7 +6,7 @@ export async function addToFavorites(food) {
     const token = getToken();
     const user = parseJwt(token);
 
-    // Make a POST request to add the favorite item
+    // POST request to add the favorite item
     try {
         const response = await fetch('/api/favorites', {
             method: 'POST',

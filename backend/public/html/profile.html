@@ -16,7 +16,6 @@
             const token = getToken();
             if (token && isTokenValid(token)) {
                 const decodedToken = parseJwt(token);
-                // Assuming the decoded token has an 'email' field
                 const userEmail = decodedToken.email;
                 if (userEmail) {
                     document.querySelector('.text p').textContent = `User email: ${userEmail}`;
@@ -27,7 +26,6 @@
             displayUserDetails();
         });
 
-        // Attach logout to the window object to make it globally accessible
         window.logout = logout;
     </script>
 </head>
@@ -58,7 +56,6 @@
 
     <div class="overlay-container">
         <div class="title1"><i><b>Your profile</b></i></div>
-        <!-- <div class="logout"><i><b>Logout</b></i></div> -->
         <button onclick="logout()" class="logout">Logout</button>
         <div class="details-container">
             <div class="text">

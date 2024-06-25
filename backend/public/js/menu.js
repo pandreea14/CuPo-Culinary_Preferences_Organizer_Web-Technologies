@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
               isMinimized = false;
           }
       } else {
-          // Ensure the header returns to its original state when the screen is wider than 1250px
+          
           header.classList.remove("minimized-header");
           isMinimized = false;
       }
@@ -61,12 +61,10 @@ document.querySelectorAll(".card").forEach((card) => {
       block: "start", //aliniere
     });
 
-    // delete the previously selected section when another one is clicked
     document.querySelectorAll("section").forEach((section) => {
-      section.classList.remove("section-selected"); // remove the class from all sections
-      section.style.marginTop = ""; // reset margin-top property
+      section.classList.remove("section-selected"); 
+      section.style.marginTop = ""; 
     });
-    // add a class to the target section to indicate it's selected
     document.getElementById(targetId).classList.add("section-selected");
   });
 });
@@ -80,9 +78,9 @@ logo.addEventListener("click", function (event) {
     top: 0,
     behavior: "smooth",
   });
-  // Remove section-selected class and reset margin-top from all sections when automatically scrolling back with the logo
+  
   document.querySelectorAll("section").forEach((section) => {
     section.classList.remove("section-selected");
-    section.style.marginTop = ""; // Reset margin-top property
+    section.style.marginTop = ""; 
   });
 });

@@ -5,7 +5,7 @@ const handleRegister = async (request, response) => {
   let body = '';
 
   request.on('data', (chunk) => {
-    body += chunk.toString(); // Convert binary data to string
+    body += chunk.toString();
   });
 
   request.on('end', async () => {

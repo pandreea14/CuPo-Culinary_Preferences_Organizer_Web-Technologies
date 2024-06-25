@@ -10,7 +10,7 @@ async function fetchFoodsByCategory(category) {
     }
   
     try {
-      const results = await query(sql, [category]); // Pass params as the second argument
+      const results = await query(sql, [category]);
       return results;
     } catch (error) {
       throw new Error('Failed to fetch products from database');

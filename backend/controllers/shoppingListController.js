@@ -71,7 +71,7 @@ async function addItemToList(request, response) {
 
       const result = await addItemToShoppingList(userEmail, listName, foodName);
       if (result.error) {
-        response.writeHead(409, { "Content-Type": "application/json" }); // Use 409 Conflict for duplicate item
+        response.writeHead(409, { "Content-Type": "application/json" }); //  409 Conflict for duplicate item
       } else {
         response.writeHead(200, { "Content-Type": "application/json" });
       }

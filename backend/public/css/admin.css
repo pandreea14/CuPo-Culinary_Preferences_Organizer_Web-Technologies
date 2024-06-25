@@ -39,22 +39,22 @@ body {
 }
 
 .inner-container {
-    width: 100%; /* Ensure inner container takes full width */
+    width: 100%;
 }
 
 #users-container, #foods-container {
-    margin-bottom: 20px; /* Add space between the tables */
+    margin-bottom: 20px;
 }
 
 #usersTable, #foodsTable {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff; /* Ensure table background is white */
+    background-color: #fff; 
 }
 
 #usersTable, #usersTable th, #usersTable td,
 #foodsTable, #foodsTable th, #foodsTable td {
-    border: 1px solid #000; /* Black lines for separation */
+    border: 1px solid #000; 
 }
 
 #usersTable th, #usersTable td,
@@ -64,18 +64,18 @@ body {
 }
 
 #usersTable th, #foodsTable th {
-    background-color: #fff; /* White background for table headers */
-    color: #000; /* Black text color for headers */
+    background-color: #fff;
+    color: #000; 
 }
 
 #usersTable tr:nth-child(even),
 #foodsTable tr:nth-child(even) {
-    background-color: #fff; /* Maintain white background for even rows */
+    background-color: #fff; 
 }
 
 #usersTable tr:nth-child(odd),
 #foodsTable tr:nth-child(odd) {
-    background-color: #fff; /* Maintain white background for odd rows */
+    background-color: #fff; 
 }
 
 .input-box {
@@ -120,8 +120,8 @@ body {
 }
 
 .edit-btn, .delete-btn {
-    background-color: #ffac4a; /* Orange background */
-    color: white; /* White text */
+    background-color: #ffac4a; 
+    color: white; 
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
@@ -130,7 +130,7 @@ body {
 }
 
 .edit-btn:hover, .delete-btn:hover {
-    background-color: #cc0000; /* Darker red on hover */
+    background-color: #cc0000; 
 }
 
 .selected-row {

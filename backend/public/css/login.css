@@ -19,7 +19,6 @@ body {
   width: 60%;
   height: auto;
   z-index: 2;
-  /* Ensure the overlay container appears above the image*/
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -33,7 +32,6 @@ body {
   margin-bottom: 3px;
   color: #333;
   line-height: 1.5;
-  /* Adjust line height for better readability */
 }
 
 .inner-container {
@@ -79,7 +77,6 @@ body {
 
 .submit-button {
   position: relative;
-  /* Ensure the container is positioned relative for absolute positioning of inner elements */
   display: inline-block;
   padding: 30px 200px;
   background: #ffac4a;
@@ -140,7 +137,6 @@ body {
     padding: 30px 70px;
     display: flex;
     justify-content: center;
-   /* max-width: 100%;  Ensure it takes the full width */
   }
 
   .submit-button span {

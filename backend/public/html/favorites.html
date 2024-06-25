@@ -12,22 +12,6 @@
 
         protectPage();
     </script>
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const token = getToken('token');
-            const userRole = getUserRole(token);
-            const navLinks = document.querySelectorAll('.navigation-links a');
-
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (userRole === 'admin') {
-                    link.setAttribute('href', href.replace('/menu', '/menuAdmin'));
-                } else {
-                    link.setAttribute('href', href.replace('/menuAdmin', '/menu'));
-                }
-            });
-        });
-    </script> -->
 </head>
 
 <body>
@@ -75,7 +59,6 @@
     </div>
     <script src="../js/menu.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-    <script type="module" src="../services/favoritesService"></script>
     <script type="module" src="../js/loadFavorites.js"></script>
 </body>
 

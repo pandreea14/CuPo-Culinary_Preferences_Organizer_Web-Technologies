@@ -9,7 +9,6 @@ async function addFavoriteItem(user, foodItem) {
   if (existingFavorites.length > 0) {
     console.log(existingFavorites);
     return { alreadyExists: true };
-    // throw new Error('Item already in favorites');
   }
 
   const sql = "INSERT INTO user_favorites (email, food_name) VALUES (?, ?)";

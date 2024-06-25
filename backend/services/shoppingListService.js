@@ -8,7 +8,6 @@ async function addShoppingList(userEmail, listName) {
   try {
     const results = await query(sql, params);
     if (results.affectedRows === 0) {
-      // Assuming a MySQL database for affectedRows property
       return { error: "User not found or list not added." };
     }
 
@@ -75,7 +74,6 @@ async function addItemToShoppingList(userEmail, listName, foodName) {
     }
     const listId = listIdResult[0].id;
 
-    // Check if the item already exists in the list
     const existingItemResult = await query(
       "SELECT shoppinglist_id FROM shoppinglist_items WHERE shoppinglist_id = ? AND email = ? AND LOWER(food_name) = LOWER(?)",
       [listId, userEmail, foodName]
@@ -84,7 +82,6 @@ async function addItemToShoppingList(userEmail, listName, foodName) {
       return { error: "Item already exists in the shopping list." };
     }
 
-    // Insert the new item into shoppinglist_items
     const results = await query(
       "INSERT INTO shoppinglist_items (shoppinglist_id, food_name, email) VALUES (?, ?, ?)",
       [listId, foodName, userEmail]
@@ -120,7 +117,7 @@ async function deleteItemFromList(userEmail, listName, food) {
     return { message: "Item successfully deleted." };
   } catch (error) {
     console.error("Error removing item from db:", error);
-    throw error; // Rethrow or handle as needed
+    throw error; 
   }
 }
 

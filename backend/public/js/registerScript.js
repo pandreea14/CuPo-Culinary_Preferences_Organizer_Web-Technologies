@@ -19,7 +19,7 @@ document
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, password }), // Send data as JSON
+          body: JSON.stringify({ email, password }), 
         });
   
         const result = await response.json();
@@ -32,6 +32,6 @@ document
       window.location.href = window.location.origin + "/login";
     } catch (error) {
       console.error('An error occurred:', error);
-      alert('An error occurred: ' + error.message); // Display the error as an alert
+      alert('An error occurred: ' + error.message); 
     }
   });

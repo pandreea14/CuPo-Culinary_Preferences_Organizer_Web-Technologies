@@ -73,7 +73,6 @@ export async function addToShoppingList(food, listName) {
         console.log('Item added to shopping list successfully:', result);
         alert('Item added to shopping list successfully');
 
-         // Find the shopping list in the DOM and update it
          const existingList = document.querySelector(`.shoppinglist-container[data-title="${listName}"]`);
          if (existingList) {
              const itemsContainer = existingList.querySelector('ul');
@@ -88,7 +87,6 @@ export async function addToShoppingList(food, listName) {
                  `);
              }
          } else {
-             // Create the new shopping list HTML if it doesn't exist
              const newListHTML = `
                  <div class="shoppinglist-container" data-title="${listName}">
                     <div class="list-title">
@@ -108,7 +106,7 @@ export async function addToShoppingList(food, listName) {
                 </div>
              `;
  
-             // Append the new list to the container
+             // append the new list to the container
              document.addEventListener('DOMContentLoaded', (event) => {
                 const shoppingListsContainer = document.getElementById("shoppingListsContainer");
                 if (shoppingListsContainer) {
