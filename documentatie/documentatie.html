@@ -22,10 +22,10 @@
                 <h2>Authors</h2>
                 <ul id="authorsList">
                     <li typeof="sa:ContributorRole" property="schema:author">
-                        <span typeof="schema:Person">Pîntea Andreea</span>
+                        <span typeof="schema:Person">Pîntea Andreea - andreeapinte4@gmail.com</span>
                     </li>
                     <li typeof="sa:ContributorRole" property="schema:author">
-                        <span typeof="schema:Person">Zaharia Sabina</span>
+                        <span typeof="schema:Person">Zaharia Sabina - sabina.zaharia75@gmail.com</span>
                     </li>
                 </ul>
             </section>
@@ -38,9 +38,8 @@
                 constraints it has.</p>
             <p>This document is intended for any user of the application, or anyone that requires information about it.
             </p>
-            <p>The intention of this application is to provide support in choosing certain foods, and it recommends
-                aliments, based on the user's preferences. It will provide a place to store the user's shopping list,
-                and the option for the user to generate various statistics.</p>
+            <p>The intention of this application is to provide support in choosing certain foods, and adding them to favorites or shopping list. It will provide a place to store and manage the user's shopping lists.
+                The app provides a way to export the preffered data in a CSV or PDF form. Also, it provides various statistics regarding foods around the globe, obesity rates, and fun facts.</p>
         </section>
         <section>
             <!-- sectiunea 2, product description -->
@@ -55,34 +54,33 @@
             </section>
             <section>
                 <h4>2.2 Product functions</h4>
-                <p>This app is meant for people who will input their culinary preferences and they will get personalised
-                    recommendations and statistics based on them.</p>
-                <p>Another functionality is the shopping list, where they can add items that we recommend or just what
-                    they would like to shop.</p>
+                <p>This app is meant for people who will input their culinary preferences from a foods menu, populated with items from various categories and store their shopping lists. 
+                   </p>
+                <p>Another functionality is the shopping list, where they can add items from their favorites or that they would like to shop.</p>
                 <p>The web application will have the following pages: </p>
                 <ul>
                     <li>The <b>home page</b>- this is the first thing you see on the application. It will have a
-                        registration form, since being logged in is a requirement for the user to be able to access the
-                        other features.</li>
-                    <li>The <b>admin interface</b> - the admin can add, delete or view the items from the culinary
-                        database.</li>
-                    <li>The <b>culinary options page</b>- after you have logged in, you can access this page, where the
-                        user can search for specific food items, or insert its preferences, such as the categorie,
-                        alergens, price, perisability, etc. Based on its preferences, the culinary options will be
-                        generated, with the option to be inserted into the favorites section.</li>
-                    <li>The <b>shopping list page</b>- this is the page where the user can see their shopping list. The
-                        shopping list can have items from the recommended options, or just aliments that the user
-                        searched for and added them. </li>
+                        registration/login form, since being logged in is a requirement for the user to be able to access the
+                        other features</li>
+                    <li>The <b>admin interface</b> - the admin can see both the users and the products table, and has the right to add, modify and remove cells</li>
+                    <li>The <b>menu page</b>- after you have logged in, you can access this page, where you can view 
+                    the products along with their image, category, number of calories and expiration date. You can add the items to your favorites or to one of your shopping lists.
+                You can customize your filter by the calories and expiration date.</li>
+                    <li>The <b>shopping list page</b>- this is the page where the user can see their shopping lists. The
+                        shopping list can have items from the favorites options, or just aliments that the user
+                    <li>The <b>favorites page</b>- this is the page where the user can view its favorite items, that he added from the menu. This page provides two ways to export the favorites items data: in a CSV format or a PDF one.</li>
                     <li>The <b>statistics page</b>- this is the page where the user can get various predefined
-                        statistics, depending on their options. </li>
+                        statistics.</li>
+                    <li>The <b>friends page</b>- this is the page where the user can search for friends from the database, by email. When the user types a name, the results will be dynamically shown on the page.</li>
+                    <li>The <b>help page</b>- this is the page where the user can see general helpful hacks about the page that he is on.</li>
                 </ul>
             </section>
             <section>
                 <h4>2.3 User classes and Characteristics</h4>
                 <ul>
-                    <li><b>Logged in user</b>: This app can be used by people of all ages, but the main age target will be between 20-50. It can
-                        be used by anyone that wants to filter their food options, to keep track of their shopping list,
-                        or generate statistics based on their overall inputs on the application.</li>
+                    <li><b>App user</b>: This app can be used by people of all ages, but the main age target will be between 20-50. It can
+                        be used by anyone that has an account as in logged in that wants to filter their food options, to keep track of their shopping list,
+                        and see various fun food statistics.</li>
                     <li><b>Admin</b>: They can modify(add, edit, delete) the products displayed on the website and can view all current users.</li>
                 </ul>
 
@@ -94,8 +92,8 @@
             </section>
             <section>
                 <h4>2.5 Design and Implementation Constraints</h4>
-                <p>The web application will be developed using Node.js, and is using HTML and CSS for the interface. It will
-                    also use mongoDB and MySQL for data storage.</p>
+                <p>The web application is developed using Node.js, and is using HTML, CSS and JS for the interface. It 
+                    also uses MySQL WorkBench for data storage.</p>
             </section>
 
         </section>
@@ -124,13 +122,10 @@
                     <img src="homeAdmin.png" alt="homeAdmin">
                 </li>
 
-                <li>
-                    <p>Admin interface</p>
-                    <img src="admin.png" alt="admin">
-                </li>
+                
 
                 <li>
-                    <p>Home page - the same as admin home page, but without the Admin button</p>
+                    <p>Menu page - the same as admin home page, but without the Admin button</p>
                     <img src="home.png" alt="home">
                 </li>
 
@@ -146,7 +141,7 @@
 
                 <li>
                     <p>Favorites page</p>
-                    <img src="favorites.png" alt="favorites">
+                    <img src="favorites.jpg" alt="favorites"> 
                 </li>
 
                 <li>
@@ -173,7 +168,8 @@
         <section>
             <h4>3.4 Security Requirements</h4>
             <p>To maintain a safety measure for storing the user's data, its password will be stored in a hashed manner
-                in the database, and it can only be seen by the user.</p>
+                in the database, and it can only be seen by the user. Only a logged user can access the functionalities of this web app. 
+            The user is being alocated a JWT on login that stays with him thorought the session, and dissappears at logout. </p>
         </section>
         <section>
             <h4>3.5 Safety Requirements</h4>
@@ -193,11 +189,11 @@
             </section>
             <section>
                 <h4>4.3 Admin login</h4>
-                <p>For out predefined admins we have a special login page in order to access the Home page that has the "Admin" button.</p>
+                <p>For out predefined admins we have a special login page in order to access the menu page that has the "Admin" button.</p>
             </section>
             <section>
                 <h4>4.4 Home page and Admin home page</h4>
-                <p>The home page for both types of users will be a prezentation of the food categories, followed by detailed sections where users can scroll through all the products. Also the logo acts as a way of automatically scrolling to the top of the page.
+                <p>The home page for both types of users will be a presentation of the food categories and items, followed by detailed sections where users can scroll through all the products. Also the logo acts as a way of automatically scrolling to the top of the page.
                     The sidebar has filters needed to select and find easier the desired products.
                     The header will pe present on all pages as a way of easier navigation.</p>
             </section>
@@ -207,18 +203,22 @@
             </section>
             <section>
                 <h4>4.6 Shopping list</h4>
-                <p>A page dedicated to viewing all shopping lists, with the posibility of creating new ones with others or on your own.</p>
+                <p>A page dedicated to viewing all shopping lists, with the posibility of creating new ones or deleting old ones.</p>
             </section>
             <section>
                 <h4>4.5 Statistics</h4>
-                <p>Here a user will find predefined statistics regarding data of the website or their own preferences.</p>
+                <p>Here a user will find various predefined statistics, mainly for entertainment.</p>
             </section>
             <section>
                 <h4>4.5 Add friends</h4>
-                <p>Here we want to add a search bar and basically a page where a user can visualize other users/friends.</p>
+                <p>Here the user can search by email a user(s) from the data base, and based on that the names will appear. If no names match, it will not return any user.</p>
             </section>
             <section>
-                <h4>4.5 Help</h4>
+                <h4>4.6 Export CSV/PDF</h4>
+                <p>The user can choose to export the data from its favorites page in a CSV or a PDF format.</p>
+            </section>
+            <section>
+                <h4>4.7 Help</h4>
                 <p>This is a popup provided as a guide for a new user.</p>
             </section>
 
@@ -256,16 +256,17 @@
                     Package Manager), providing a wealth of tools and resources for developers </li>
 
             </ul>
-            <h4>Database - mongoDB / MySQl</h4>
+            <h4>Database - MySQl</h4>
             <ul>
-                <li>mongoDB - flexible data model</li>
-                <li>mongoDB - high performance</li>
-                <li>mongoDB - rich query language</li>
                 <li>mySQL - relational model</li>
                 <li>mySQL - data integrity</li>
                 <li>mySQL - acid compliance(atomicity, consistency, isolation, durablity)</li>
             </ul>
         </section>
+        <section>
+            <h3>C4 diagram</h3>
+            <img src="C4_diagram.png" alt="C4">
+            </section>
     </article>
 </body>
 
