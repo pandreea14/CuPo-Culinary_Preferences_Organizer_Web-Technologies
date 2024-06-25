@@ -19,23 +19,6 @@ async function addShoppingList(userEmail, listName) {
   }
 }
 
-//versiunea 1
-// async function fetchShoppingLists(userEmail) {
-//   const sql = "SELECT * FROM shoppinglists WHERE email = ?";
-//   const params = [userEmail];
-
-//   try {
-//     const results = await query(sql, params);
-//     if (results.length === 0) {
-//       return { message: "No shopping lists found." };
-//     }
-//     return results;
-//   } catch (error) {
-//     console.error("Error fetching shopping lists from db:", error);
-//     throw error; // Rethrow or handle as needed
-//   }
-// }
-
 async function fetchShoppingLists(userEmail) {
   const sql = `
     SELECT 
@@ -61,7 +44,7 @@ async function fetchShoppingLists(userEmail) {
     }));
   } catch (error) {
     console.error("Error fetching shopping lists from db:", error);
-    throw error; // Rethrow or handle as needed
+    throw error;
   }
 }
 
@@ -76,7 +59,7 @@ async function deleteList(user, list) {
     return { message: "Shopping list successfully deleted." };
   } catch (error) {
     console.error("Error removing shopping list from db:", error);
-    throw error; // Rethrow or handle as needed
+    throw error;
   }
 }
 
@@ -94,8 +77,8 @@ async function addItemToShoppingList(userEmail, listName, foodName) {
 
     // Check if the item already exists in the list
     const existingItemResult = await query(
-      "SELECT shoppinglist_id FROM shoppinglist_items WHERE email = ? AND food_name = ?",
-      [userEmail, foodName]
+      "SELECT shoppinglist_id FROM shoppinglist_items WHERE shoppinglist_id = ? AND email = ? AND LOWER(food_name) = LOWER(?)",
+      [listId, userEmail, foodName]
     );
     if (existingItemResult.length > 0) {
       return { error: "Item already exists in the shopping list." };

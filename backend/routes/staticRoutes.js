@@ -6,13 +6,17 @@ module.exports = (request, response) => {
     "/login": "login.html",
     "/register": "register.html",
     "/menu": "menu.html",
-    "/admin": "admin.html",
     "/menuAdmin": "menuAdmin.html",
-    "/friends": "friends.html",
-    "/favorites": "favorites.html",
-    "/shoppinglist": "shoppinglist.html",
-    "/statistics": "statistics.html",
-    "/profile": "profile.html",
+    "/menu/friends": "friends.html",
+    "/menu/favorites": "favorites.html",
+    "/menu/shoppinglist": "shoppinglist.html",
+    "/menu/statistics": "statistics.html",
+    "/menu/profile": "profile.html",
+    "/menuAdmin/shoppinglist": "shoppinglist.html",
+    "/menuAdmin/statistics": "statistics.html",
+    "/menuAdmin/favorites": "favorites.html",
+    "/menuAdmin/friends": "friends.html",
+    "/menuAdmin/admin": "admin.html",
   };
 
   if (staticFilePaths[request.url]) {

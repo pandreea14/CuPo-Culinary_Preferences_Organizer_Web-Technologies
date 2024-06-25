@@ -28,7 +28,7 @@ document
         throw new Error(result.error);
       }
 
-      alert(result.message);
+      alert("Registration successful, now login");
       window.location.href = window.location.origin + "/login";
     } catch (error) {
       console.error('An error occurred:', error);

@@ -10,8 +10,24 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script type="module">
-        import { protectPage } from '../js/tokenScript.js';
+        import { protectPage, getToken, getUserRole } from '../js/tokenScript.js';
         protectPage();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = getToken('token');
+            const userRole = getUserRole(token);
+            const navLinks = document.querySelectorAll('.navigation-links a');
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (userRole === 'admin') {
+                    link.setAttribute('href', href.replace('/menu', '/menuAdmin'));
+                } else {
+                    link.setAttribute('href', href.replace('/menuAdmin', '/menu'));
+                }
+            });
+        });
     </script>
 </head>
 

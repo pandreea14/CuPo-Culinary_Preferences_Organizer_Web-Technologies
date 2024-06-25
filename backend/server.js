@@ -3,12 +3,18 @@ const staticRoutes = require("./routes/staticRoutes");
 const apiRoutes = require("./routes/apiRoutes");
 
 const server = http.createServer((request, response) => {
-  if (request.method === "GET" || request.method === "POST" || request.method === "DELETE") {
+  if (
+    request.method === "GET" ||
+    request.method === "POST" ||
+    request.method === "DELETE" ||
+    request.method === "PUT"
+  ) {
     if (
       request.url.startsWith("/api") ||
       (request.method === "POST" &&
         (request.url.startsWith("/register") ||
-          request.url.startsWith("/login")))
+          request.url.startsWith("/login") ||
+          request.url.startsWith("/logout")))
     ) {
       apiRoutes(request, response);
     } else {

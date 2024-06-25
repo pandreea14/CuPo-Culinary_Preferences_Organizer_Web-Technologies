@@ -75,30 +75,28 @@
 }
 
 .import-export {
-    list-style-type: none;
-    padding: 0;
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
     font-size: 20px;
 }
 
-.import-export li {
+.import-export button {
     margin-left: 10px;
-}
-
-.import-export li a {
     color: white;
-    text-decoration: none;
-    font-weight: bold;
     background-color: black;
     padding: 10px 20px;
     border-radius: 20px;
+    font-weight: bold;
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Optional: Change cursor on hover */
 }
 
-.import-export li a:hover {
-    color: #ffac4a;
+
+.import-export button:hover {
+    background-color: #ffac4a; 
 }
+
 
 /* Media queries for responsive design */
 @media screen and (max-width: 900px) {

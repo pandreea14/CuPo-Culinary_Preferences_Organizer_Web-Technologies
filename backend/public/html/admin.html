@@ -8,17 +8,16 @@
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/global.css">
     <script type="module">
-        import { roleValidation, protectPage, logout } from '../js/tokenScript.js';
+        import { protectPage, logout, getToken, getUserRole } from '../js/tokenScript.js';
+        import { fetchUsers, fetchFoods } from '../js/admin.js';
 
-        function protectAdminPage() {
-            if (!roleValidation("admin")) {
-                localStorage.removeItem('token');
-                protectPage();
-            }
-        }
-        protectAdminPage();
+        protectPage();
 
-        // Attach logout to the window object to make it globally accessible
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchUsers();
+            fetchFoods();
+        });
+
         window.logout = logout;
     </script>
 </head>
@@ -29,27 +28,49 @@
         <nav>
             <ul class="navigation-links">
                 <li><a href="/menuAdmin">Main Menu</a></li>
-                <li><a onclick="logout()">Logout</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
                 <li><a href="#" id="help-link">Help</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="overlay-container">
-        <!-- dropdown cu ce tabela vrei sa vizualizezi/modifici adc useri sau produse -->
-        <h1><i>What do you wish to do?</i></h1>
+        <h1><i>Hello, admin!</i></h1>
         <div class="inner-container">
-            <div class="input-box email">
-                <input type="text" id="Add" name="Add" placeholder="Add" required>
+            <div id="users-container">
+                <h3>Users</h3>
+                <table id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Users will be dynamically inserted here -->
+                    </tbody>
+                </table>
             </div>
-            <div class="input-box password">
-                <input type="text" id="Delete" placeholder="Delete" required>
-            </div>
-            <div class="input-box button">
-                <input type="button" value="View database">
+            <div id="foods-container">
+                <h3>Products</h3>
+                <table id="foodsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Calories</th>
+                            <th>Allergens</th>
+                            <th>Expiration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Food items will be added here dynamically -->
+                    </tbody>
+                </table>
             </div>
         </div>
-        <a href="/menu" class="submit-button"> <span>Click here to continue</span></a>
     </div>
 
     <div id="help-popup" class="modal">

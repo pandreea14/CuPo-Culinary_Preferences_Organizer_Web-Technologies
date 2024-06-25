@@ -8,10 +8,26 @@
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/favorites.css" />
     <script type="module">
-        import { protectPage } from '../js/tokenScript.js';
+        import { protectPage, getToken, getUserRole } from '../js/tokenScript.js';
 
         protectPage();
     </script>
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = getToken('token');
+            const userRole = getUserRole(token);
+            const navLinks = document.querySelectorAll('.navigation-links a');
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (userRole === 'admin') {
+                    link.setAttribute('href', href.replace('/menu', '/menuAdmin'));
+                } else {
+                    link.setAttribute('href', href.replace('/menuAdmin', '/menu'));
+                }
+            });
+        });
+    </script> -->
 </head>
 
 <body>
@@ -45,21 +61,21 @@
         <div class="modal-content-sh">
             <span class="close">&times;</span>
             <h2>Shopping Lists</h2>
-            <div id="shoppingListTitles">
-                <!-- Shopping list titles will be added here dynamically -->
-            </div>
+            <div id="shoppingListTitles"></div>
         </div>
     </div>
 
     <div class="overlay-container">
         <div class="title1"><i><b>Your favorite items</b></i></div>
         <div class="product-container"></div>
-        <ul class="import-export">
-            <li><a href="#">Import data</a></li>
-            <li><a href="#">Export data</a></li>
-        </ul>
+        <div class="import-export">
+            <button id="exportPdfButton">Export PDF</button>
+            <button id="exportCsvButton">Export CSV</button>
+        </div>
     </div>
     <script src="../js/menu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script type="module" src="../services/favoritesService"></script>
     <script type="module" src="../js/loadFavorites.js"></script>
 </body>
 

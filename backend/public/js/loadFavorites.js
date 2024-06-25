@@ -6,6 +6,7 @@ async function loadFavorites() {
   const token = getToken();
   const user = parseJwt(token); // Assuming you have a function to parse the JWT token and get the user info
 
+  let favoriteFoods = [];
   // Fetch favorite items for the user
   try {
     const favoriteResponse = await fetch(`/api/favorites?user=${user.email}`, {
@@ -16,7 +17,7 @@ async function loadFavorites() {
     if (!favoriteResponse.ok) {
       throw new Error("Failed to fetch favorite food data");
     }
-    const favoriteFoods = await favoriteResponse.json();
+    favoriteFoods = await favoriteResponse.json();
 
     const favoriteContainer = document.querySelector(".product-container");
     if (!favoriteContainer) {
@@ -75,6 +76,23 @@ async function loadFavorites() {
     console.error("An error occurred in fetching favorite food data:", error);
     alert("An error occurred in fetching favorite food data. " + error.message);
   }
+
+    // Export favorite items to CSV
+  const exportCsvButton = document.getElementById('exportCsvButton');
+  if (exportCsvButton) {
+    exportCsvButton.addEventListener('click', function() {
+      const csvContent = convertToCSV(favoriteFoods);
+      triggerCSVDownload(csvContent, 'favorite_items.csv');
+    });
+  }
+  //export items to PDF
+  const exportPdfButton = document.getElementById('exportPdfButton');
+  if (exportPdfButton) {
+    exportPdfButton.addEventListener('click', async function() {
+      const pdfContent = await convertToPDF(favoriteFoods);
+      triggerPDFDownload(pdfContent, 'favorite_items.pdf');
+    });
+  }
 }
 
 // Load favorites on DOMContentLoaded
@@ -115,3 +133,74 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 });
+
+
+function convertToCSV(items) {
+  if (items.length === 0) return '';
+  const headers = Object.keys(items[0]).join(',');
+  const rows = items.map(item => Object.values(item).join(','));
+  return [headers, ...rows].join('\n');
+}
+
+function triggerCSVDownload(csvContent, fileName) {
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.setAttribute('href', url);
+  link.setAttribute('download', fileName);
+  document.body.appendChild(link); // Required for FF
+  link.click();
+  document.body.removeChild(link); // Clean up
+}
+
+async function convertToPDF(items) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  doc.setFontSize(12);
+  doc.text('Favorite Foods', 10, 10);
+
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    const yOffset = 20 + (i * 40);
+
+    doc.text(`Name: ${item.name}`, 10, yOffset);
+    doc.text(`Calories: ${item.calories}`, 50, yOffset);
+    doc.text(`Allergens: ${item.alergens}`, 90, yOffset);
+    doc.text(`Expiration: ${item.expiration}`, 130, yOffset);
+
+    if (item.image) {
+      try {
+        const imageDataUrl = await getImageDataUrl(item.image);
+        doc.addImage(imageDataUrl, 'JPEG', 170, yOffset, 30, 25);
+      } catch (err) {
+        console.warn(`Failed to load image: ${item.image}`);
+      }
+    }
+  }
+
+  return doc;
+}
+
+function triggerPDFDownload(pdfContent, fileName) {
+  pdfContent.save(fileName);
+}
+
+async function getImageDataUrl(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.onload = function () {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      resolve(canvas.toDataURL('image/jpeg'));
+    };
+    img.onerror = function (err) {
+      reject(err);
+    };
+    img.src = url;
+  });
+}
