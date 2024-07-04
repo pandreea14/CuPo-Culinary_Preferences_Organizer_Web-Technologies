@@ -4,7 +4,7 @@ Culinary Preferences Organizer <br>
 **Project Authors**
 
 
-Pîntea Andreea - andreeapinte4@gmail.com <br>
+Pîntea Andreea - andreea.pinte4@gmail.com <br>
 Zaharia Sabina - sabina.zaharia75@gmail.com
 
 **1. Introduction. Purpose. Product scope**<br>
